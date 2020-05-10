@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WishList test - 2 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "image": "https://via.placeholder.com/150",
+      "name": "Another name",
+      "price": 34.23,
+    },
+  ],
+}
+`;
+
+exports[`WishList test - 2 2`] = `
+Array [
+  Object {
+    "op": "add",
+    "path": "/items/0",
+    "value": Object {
+      "image": "https://via.placeholder.com/150",
+      "name": "Default name",
+      "price": 34.23,
+    },
+  },
+  Object {
+    "op": "replace",
+    "path": "/items/0/name",
+    "value": "Another name",
+  },
+]
+`;
+
+exports[`WishList test 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "image": "https://via.placeholder.com/150",
+      "name": "Another name",
+      "price": 34.23,
+    },
+  ],
+}
+`;
+
+exports[`WishList test 2`] = `
+Array [
+  Object {
+    "items": Array [
+      Object {
+        "image": "https://via.placeholder.com/150",
+        "name": "Default name",
+        "price": 34.23,
+      },
+    ],
+  },
+  Object {
+    "items": Array [
+      Object {
+        "image": "https://via.placeholder.com/150",
+        "name": "Another name",
+        "price": 34.23,
+      },
+    ],
+  },
+]
+`;
