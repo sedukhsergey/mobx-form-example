@@ -1,12 +1,13 @@
 import { types } from 'mobx-state-tree';
-import { UiStore } from './models/UiStore/UiStore'
+import { UiStore, WishListStore } from './models'
 let storeContainer = null;
 export let store = null;
 
 try {
     storeContainer = types
         .model('Store', {
-            dashboardStore: types.optional(UiStore, {})
+            dashboardStore: types.optional(UiStore, {}),
+            wishListStore: types.optional(WishListStore, {}),
         })
 } catch (e) {
     // eslint-disable-next-line no-console

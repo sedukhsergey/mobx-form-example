@@ -1,6 +1,6 @@
 import {types, destroy, getParent} from "mobx-state-tree";
 
-export const User  = types
+const User  = types
   .model({
     name: types.optional(types.string, ''),
     isActive: types.optional(types.boolean, false),
@@ -17,3 +17,5 @@ export const User  = types
       getParent(self, 2).deleteUser(self);
     }
   }));
+
+export default User;

@@ -1,8 +1,8 @@
 import {destroy, types} from 'mobx-state-tree';
-import { User } from './User';
+import User from './User';
 
 let id = 1;
-export const UiStore = types
+const UiStore = types
   .model('UiStore', {
     users: types.map(User),
   })
@@ -21,4 +21,6 @@ export const UiStore = types
       self.users.delete(user.id);
       // destroy(user);
     }
-  }))
+  }));
+
+export default UiStore;

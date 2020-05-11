@@ -1,6 +1,6 @@
 import { getSnapshot, onSnapshot, onPatch } from "mobx-state-tree";
 import { reaction } from "mobx";
-import WishList from "./WishList";
+import WishListStore from "./WishListStore";
 
 const data = {
   "name": "Default name",
@@ -8,8 +8,8 @@ const data = {
   "image": "https://via.placeholder.com/150"
 }
 
-it('WishList test', () => {
-  const list = WishList.create();
+it('WishListStore test', () => {
+  const list = WishListStore.create();
   const states = [];
   onSnapshot(list, snapshot => {
     states.push(snapshot);
@@ -33,8 +33,8 @@ it('WishList test', () => {
   expect(states).toMatchSnapshot();
 });
 
-it('WishList test - 2', () => {
-  const list = WishList.create();
+it('WishListStore test - 2', () => {
+  const list = WishListStore.create();
   const patches = [];
   onPatch(list, patch => {
     patches.push(patch);
@@ -59,7 +59,7 @@ it('WishList test - 2', () => {
 });
 
 it('can calculate totalPrice', () => {
-  const list = WishList.create();
+  const list = WishListStore.create();
   list.add({
     "name": "First Item",
     "price": 42,
