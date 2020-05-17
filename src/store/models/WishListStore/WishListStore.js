@@ -1,6 +1,5 @@
 import { types, destroy } from 'mobx-state-tree';
 import WishListItem from "./WishListItem";
-import harryPotterImage from '../../../assets/harry-potter.jpeg';
 
 const WishListStore = types
   .model({
@@ -33,6 +32,9 @@ const WishListStore = types
       } catch(e) {
         console.error('fetch items error',e)
       }
+    },
+    remove(item) {
+      destroy(item);
     }
   }))
   .views(self => ({

@@ -6,27 +6,27 @@ import {
     Route,
 } from "react-router-dom";
 import { Header } from '../../modules'
-import { Home, Form, WishList } from '../../pages';
-import { initStore } from '../../store';
-
+import { Home, Form, Dashboard } from '../../pages';
+// import { initStore } from '../../store';
+import { StoreProvider } from '../../store/StoreProvider';
 
 const App = () => {
   return (
     <Router>
-      <Provider mobxStore={initStore()}>
+      <StoreProvider>
         <Header />
         <Switch>
-            <Route exact path="/">
-                <Home />
-            </Route>
-            <Route exact path="/form">
-                <Form />
-            </Route>
-            <Route exact path="/wish-list">
-                <WishList />
+            {/*<Route exact path="/">*/}
+                {/*<Home />*/}
+            {/*</Route>*/}
+            {/*<Route exact path="/form">*/}
+                {/*<Form />*/}
+            {/*</Route>*/}
+            <Route exact path="/dashboard">
+                <Dashboard />
             </Route>
         </Switch>
-      </Provider>
+      </StoreProvider>
     </Router>
   );
 }

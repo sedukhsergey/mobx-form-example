@@ -1,4 +1,4 @@
-import {types} from "mobx-state-tree";
+import {types, getParent} from "mobx-state-tree";
 
 const WishListItem = types
   .model({
@@ -15,6 +15,9 @@ const WishListItem = types
     },
     changeImage(newImage) {
       self.image = newImage;
+    },
+    remove() {
+      getParent(self, 2).remove(self);
     }
   }))
 

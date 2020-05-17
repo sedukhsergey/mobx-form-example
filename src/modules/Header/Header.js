@@ -8,7 +8,7 @@ const Header = () => {
             <ul className={styles.list}>
                 <li><Link to={'/'}>Home</Link></li>
                 <li><Link to={'/form'}>Form</Link></li>
-                <li><Link to={'/wish-list'}>WishList</Link></li>
+                <li><Link to={'/dashboard'}>Dashboard</Link></li>
             </ul>
         </div>
     )

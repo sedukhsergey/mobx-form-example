@@ -1,7 +1,11 @@
-.item {
+.list {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  list-style: none;
+}
+
+.item {
   width: 400px;
   background: white;
   padding: 12px;
@@ -11,7 +15,9 @@
   border-right: 8px solid brown;
 }
 
-.item img {
-  border-radius: 4px;
-  width: 80px;
+.totalContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
