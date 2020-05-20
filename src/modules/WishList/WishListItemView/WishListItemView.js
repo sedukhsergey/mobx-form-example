@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { clone, getSnapshot, applySnapshot } from 'mobx-state-tree';
 import styles from './styles.module.css';
+import { clone, getSnapshot, applySnapshot } from 'mobx-state-tree';
 import { WishListItemEdit } from '../../index';
 
 const WishListItemView = ({ item }) => {
@@ -9,6 +9,7 @@ const WishListItemView = ({ item }) => {
 
   const handleEditEnabled = () => {
     setIsEditable(true);
+
     setClone(clone(item));
   };
 

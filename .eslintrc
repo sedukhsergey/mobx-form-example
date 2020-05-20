@@ -18,6 +18,7 @@
   "rules": {
     "react/prop-types": 0,
     "no-console": 1,
-    "semi": 0
+    "semi": 1,
+    "react/no-array-index-key": "error"
   }
 }

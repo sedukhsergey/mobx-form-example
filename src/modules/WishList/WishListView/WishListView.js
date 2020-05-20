@@ -18,8 +18,8 @@ const WishListView = ({ selected }) => {
         </li>
         {items.map((item, index) => {
           return (
-            <li className={styles.item}>
-              <WishListItemView item={item} key={index} />
+            <li className={styles.item} key={item.name}>
+              <WishListItemView item={item} />
             </li>
           );
         })}
