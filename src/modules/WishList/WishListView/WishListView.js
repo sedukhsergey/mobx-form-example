@@ -1,27 +1,16 @@
-import React, {useEffect} from 'react';
-import { observer, useObserver } from "mobx-react";
-import WishListItemView from "../WishListItemView";
+import React from 'react';
+import { useObserver } from 'mobx-react';
+import WishListItemView from '../WishListItemView';
 import styles from './styles.module.css';
-import { WishListTotal, WishListItemEntry } from "../../index";
-import { useWishListData } from "../../../hooks/useWishListData";
+import { WishListTotal, WishListItemEntry } from '../../index';
 
-const WishListView = () => {
-  const {
-    items,
-    add,
-    totalPrice,
-    fetchItems
-  } = useWishListData();
+const WishListView = ({ selected }) => {
+  const { items = [], add, totalPrice } = selected;
 
-  useEffect(() => {
-    if (!items.length) {
-      fetchItems()
-    }
-  },[]);
   return useObserver(() => (
     <>
       <div className={styles.totalContainer}>
-        <WishListTotal totalPrice={totalPrice}/>
+        <WishListTotal totalPrice={totalPrice} />
       </div>
       <ul className={styles.list}>
         <li className={styles.item}>
@@ -32,12 +21,11 @@ const WishListView = () => {
             <li className={styles.item}>
               <WishListItemView item={item} key={index} />
             </li>
-          )
+          );
         })}
       </ul>
     </>
-  ))
+  ));
 };
-
 
 export default WishListView;

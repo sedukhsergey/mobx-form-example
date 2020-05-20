@@ -1,14 +1,23 @@
 {
+  "root": true,
   "env": {
-    "commonjs": true,
-    "es6": true,
+    "browser": true,
     "node": true
   },
-  "extends": "eslint:recommended",
   "parserOptions": {
-    "ecmaVersion": 2018
+    "parser": "babel-eslint",
+    "ecmaVersion": 2018,
+    "sourceType": "module"
   },
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": [],
+  // add your custom rules here
   "rules": {
-    "no-console": "error"
+    "react/prop-types": 0,
+    "no-console": 1,
+    "semi": 0
   }
 }

@@ -1,0 +1,16 @@
+.editItem {
+  width: 100%;
+}
+
+.inputContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.inputContainer label {
+  width: 60px;
+}
+
+.inputContainer input {
+  width: 100%;
+}
