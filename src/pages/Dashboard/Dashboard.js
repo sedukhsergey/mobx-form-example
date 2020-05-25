@@ -20,9 +20,11 @@ const Dashboard = () => {
   return useObserver(() => (
     <div className={styles.container}>
       <header className={styles.hero}>
+
         <h1>Wish List</h1>
         <img src={SantaImage} alt="santa" />
         <select name="user" id="user" onChange={handleSelectedUser}>
+          <option value=''>---</option>
           {values(users).map((item) => (
             <option key={item.id} value={item.id}>
               {item.name}

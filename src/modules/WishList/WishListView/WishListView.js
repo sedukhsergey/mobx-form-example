@@ -1,13 +1,12 @@
 import React from 'react';
-import { useObserver } from 'mobx-react';
+import { observer } from 'mobx-react';
 import WishListItemView from '../WishListItemView';
 import styles from './styles.module.css';
 import { WishListTotal, WishListItemEntry } from '../../index';
 
 const WishListView = ({ selected }) => {
   const { items = [], add, totalPrice } = selected;
-
-  return useObserver(() => (
+  return (
     <>
       <div className={styles.totalContainer}>
         <WishListTotal totalPrice={totalPrice} />
@@ -25,7 +24,7 @@ const WishListView = ({ selected }) => {
         })}
       </ul>
     </>
-  ));
+  )
 };
 
-export default WishListView;
+export default observer(WishListView);
