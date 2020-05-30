@@ -10,7 +10,7 @@ const initializeStore = initStore();
 
 ReactDOM.render(
   <React.StrictMode>
-    <StoreProvider store={initializeStore}>
+    <StoreProvider store={ initializeStore }>
       <App />
     </StoreProvider>
   </React.StrictMode>,

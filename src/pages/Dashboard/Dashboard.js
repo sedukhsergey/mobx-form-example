@@ -16,23 +16,23 @@ const Dashboard = () => {
   const handleSelectedUser = (e) => {
     setSelectedUser(e.target.value);
   };
+
   const selected = users.get(selectedUser);
   return useObserver(() => (
-    <div className={styles.container}>
-      <header className={styles.hero}>
-
+    <div className={ styles.container }>
+      <header className={ styles.hero }>
         <h1>Wish List</h1>
-        <img src={SantaImage} alt="santa" />
-        <select name="user" id="user" onChange={handleSelectedUser}>
-          <option value=''>---</option>
+        <img src={ SantaImage } alt="santa" />
+        <select name="user" id="user" onChange={ handleSelectedUser }>
+          <option value="">---</option>
           {values(users).map((item) => (
-            <option key={item.id} value={item.id}>
+            <option key={ item.id } value={ item.id }>
               {item.name}
             </option>
           ))}
         </select>
       </header>
-      {selected && <WishListView selected={selected.wishList} />}
+      {selected && <WishListView selected={ selected.wishList } />}
     </div>
   ));
 };

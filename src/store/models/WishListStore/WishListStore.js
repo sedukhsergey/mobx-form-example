@@ -1,7 +1,7 @@
 import { types, destroy } from 'mobx-state-tree';
 import WishListItem from './WishListItem';
 
-let initialState = [
+const initialState = [
   {
     name: 'Item 1',
     price: 22.4,

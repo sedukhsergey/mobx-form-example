@@ -12,7 +12,7 @@ const App = () => {
           <Dashboard />
         </Route>
         <Route>
-          <Form exact path='/form' />
+          <Form exact path="/form" />
         </Route>
       </Switch>
     </Router>

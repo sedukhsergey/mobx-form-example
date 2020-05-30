@@ -4,6 +4,6 @@ export const users = observable({
   name: 'some',
   value: 2,
   user: {
-    'one': 1,
-  }
+    one: 1,
+  },
 });
