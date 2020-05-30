@@ -32,7 +32,7 @@ const Form = () => {
 
   return (
     <div>
-      <button onClick={ () => setCount((count) => count + 1) }>{count}</button>
+      <button onClick={ () => setCount(state => state + 1) }>{count}</button>
       <button onClick={ handleReactionFalse }>false</button>
       <button onClick={ handleReactionTrue }>true</button>
     </div>

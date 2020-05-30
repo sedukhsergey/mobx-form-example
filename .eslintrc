@@ -7,6 +7,10 @@
     "react-hooks"
 //    "prettier"
   ],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "jsx": true
+  },
 //  "extends": ["plugin:prettier/recommended"],
   "rules": {
     "space-in-parens": [ 0, "always" ],
@@ -39,6 +43,7 @@
   "env": {
     "browser": true,
     "node": true,
-    "jest/globals": true
+    "jest/globals": true,
+    "es6": true
   }
 }

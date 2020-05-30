@@ -6,7 +6,14 @@ import SantaImage from '../../assets/santa.jpeg';
 import { WishListView } from '../../modules';
 import { useGroupData } from '../../hooks/useGroupData';
 
+const obj = {
+  user: {
+    name: 'some name'
+  }
+};
+
 const Dashboard = () => {
+  console.log('obj.another.name',obj?.another?.name)
   const [selectedUser, setSelectedUser] = useState(null);
   const { users, fetchUsers } = useGroupData();
   useEffect(() => {
