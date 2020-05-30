@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { clone, getSnapshot, applySnapshot } from 'mobx-state-tree';
+import React, { useState } from 'react';
 import styles from './styles.module.css';
+import { clone, getSnapshot, applySnapshot } from 'mobx-state-tree';
 import { WishListItemEdit } from '../../index';
 
 const WishListItemView = ({ item }) => {
@@ -9,6 +9,7 @@ const WishListItemView = ({ item }) => {
 
   const handleEditEnabled = () => {
     setIsEditable(true);
+
     setClone(clone(item));
   };
 
@@ -28,14 +29,14 @@ const WishListItemView = ({ item }) => {
 
   const renderEditableItem = (
     <>
-      <WishListItemEdit item={cloneItem} />
-      <div className={styles.actionsContainer}>
-        <button className={styles.editButton} onClick={handleSave}>
+      <WishListItemEdit item={ cloneItem } />
+      <div className={ styles.actionsContainer }>
+        <button className={ styles.editButton } onClick={ handleSave }>
           <span role="img" aria-label="confirm">
             ✓
           </span>
         </button>
-        <button className={styles.editButton} onClick={handleEditDisabled}>
+        <button className={ styles.editButton } onClick={ handleEditDisabled }>
           <span role="img" aria-label="delete">
             ❌
           </span>
@@ -47,14 +48,14 @@ const WishListItemView = ({ item }) => {
   return isEditable ? (
     renderEditableItem
   ) : (
-    <div className={styles.item}>
-      {item.image && <img className={styles.img} src={item.image} alt="logo" />}
+    <div className={ styles.item }>
+      {item.image && <img className={ styles.img } src={ item.image } alt="logo" />}
       <h3>{item.name}</h3>
       <span>{item.price}</span>
-      <button className={styles.editButton} onClick={handleEditEnabled}>
+      <button className={ styles.editButton } onClick={ handleEditEnabled }>
         &#9998;
       </button>
-      <button className={styles.editButton} onClick={handleItemRemove}>
+      <button className={ styles.editButton } onClick={ handleItemRemove }>
         &#128465;
       </button>
     </div>
