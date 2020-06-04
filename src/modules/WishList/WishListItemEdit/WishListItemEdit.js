@@ -19,20 +19,20 @@ const WishListItemEdit = ({ item }) => {
   };
 
   return useObserver(() => (
-    <div className={ styles.editItem }>
-      <div className={ styles.inputContainer }>
+    <div className={styles.editItem}>
+      <div className={styles.inputContainer}>
         <label htmlFor="image">Image:</label>
-        <input type="text" name="image" value={ item.image } onChange={ handleChangeImage } />
+        <input type="text" name="image" value={item.image} onChange={handleChangeImage} />
       </div>
       <br />
-      <div className={ styles.inputContainer }>
+      <div className={styles.inputContainer}>
         <label htmlFor="image">Name:</label>
-        <input type="text" name="name" value={ item.name } onChange={ handleChangeName } />
+        <input type="text" name="name" value={item.name} onChange={handleChangeName} />
       </div>
       <br />
-      <div className={ styles.inputContainer }>
+      <div className={styles.inputContainer}>
         <label htmlFor="image">Price:</label>
-        <input type="text" name="price" value={ item.price } onChange={ handleChangePrice } />
+        <input type="text" name="price" value={item.price} onChange={handleChangePrice} />
       </div>
     </div>
   ));

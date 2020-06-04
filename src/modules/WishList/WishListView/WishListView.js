@@ -8,17 +8,17 @@ const WishListView = ({ selected }) => {
   const { items = [], add, totalPrice } = selected;
   return (
     <>
-      <div className={ styles.totalContainer }>
-        <WishListTotal totalPrice={ totalPrice } />
+      <div className={styles.totalContainer}>
+        <WishListTotal totalPrice={totalPrice} />
       </div>
-      <ul className={ styles.list }>
-        <li className={ styles.item }>
-          <WishListItemEntry add={ add } />
+      <ul className={styles.list}>
+        <li className={styles.item}>
+          <WishListItemEntry add={add} />
         </li>
         {items.map((item, index) => {
           return (
-            <li className={ styles.item } key={ item.name }>
-              <WishListItemView item={ item } />
+            <li className={styles.item} key={item.name}>
+              <WishListItemView item={item} />
             </li>
           );
         })}

@@ -18,30 +18,30 @@ const Home = inject('mobxStore')(
           <ul>
             {values(users).map((item) => {
               return (
-                <div key={ item.id } className={ styles.inputContainer }>
+                <div key={item.id} className={styles.inputContainer}>
                   <input
-                    className={ styles.input }
+                    className={styles.input}
                     type="text"
-                    value={ item.name }
-                    onChange={ (e) => item.setName(e.target.value) }
-                    ref={ inputEl }
+                    value={item.name}
+                    onChange={(e) => item.setName(e.target.value)}
+                    ref={inputEl}
                   />
-                  <button onClick={ item.delete }>Delete</button>
+                  <button onClick={item.delete}>Delete</button>
                 </div>
               );
             })}
           </ul>
         </div>
-        <input type="text" value={ name } onChange={ (e) => setName(e.target.value) } />
+        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
         <button
-          onClick={ () => {
+          onClick={() => {
             addUser(name);
             setName('');
-          } }
+          }}
         >
           Add new User
         </button>
-        <button onClick={ reset }>Reset</button>
+        <button onClick={reset}>Reset</button>
       </div>
     );
   }),

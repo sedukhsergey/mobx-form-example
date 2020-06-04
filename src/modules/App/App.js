@@ -1,18 +1,26 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Header } from '../../modules';
-import { Dashboard, Form } from '../../pages';
+import { Dashboard, Navigator, Login, Page404 } from '../../pages';
+import history from '../../utils/history';
 
 const App = () => {
   return (
-    <Router>
+    <Router history={history}>
       <Header />
       <Switch>
-        <Route exact path="/">
+        <Route exact path="/dashboard">
           <Dashboard />
         </Route>
+        <Route exact path="/login">
+          <Login />
+        </Route>
+        <Route exact path="/page404">
+          <Page404 />
+        </Route>
+
         <Route>
-          <Form exact path="/form" />
+          <Navigator exact path="/" />
         </Route>
       </Switch>
     </Router>

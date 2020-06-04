@@ -5,12 +5,11 @@ import { StoreProvider } from './store/StoreProvider';
 import './index.css';
 import App from './modules/App/App';
 import * as serviceWorker from './serviceWorker';
-console.log('');
 const initializeStore = initStore();
 
 ReactDOM.render(
   <React.StrictMode>
-    <StoreProvider store={ initializeStore }>
+    <StoreProvider store={initializeStore}>
       <App />
     </StoreProvider>
   </React.StrictMode>,
