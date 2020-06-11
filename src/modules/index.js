@@ -6,3 +6,4 @@ export { default as WishListTotal } from './WishList/WishListTotal';
 export { default as WishListItemEdit } from './WishList/WishListItemEdit';
 export { default as WishListItemEntry } from './WishList/WishListItemEntry';
 export { default as LoginView } from './LoginView';
+export { default as RegistrationView } from './RegistrationView';

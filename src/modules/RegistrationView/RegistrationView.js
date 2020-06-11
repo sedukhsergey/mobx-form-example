@@ -1,14 +1,13 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import { form } from './LoginForm';
+import { form } from './RegistrationForm';
 import { Input, ErrorMessage } from 'components';
-import RedirectRouter from 'utils/RedirectRouter';
 import styles from './styles.module.css';
 
-const LoginView = observer(() => {
+const RegistrationView = observer(() => {
   return (
     <div className={styles.container}>
-      <h1>LoginView</h1>
+      <h1>RegistrationView</h1>
       <form>
         <div className={styles.inputContainer}>
           <Input
@@ -20,19 +19,22 @@ const LoginView = observer(() => {
         </div>
         <div className={styles.inputContainer}>
           <Input
-            type={'password'}
             name={form.$('password').id}
             label={form.$('password').label}
             {...form.$('password').bind()}
           />
           <ErrorMessage>{form.$('password').error}</ErrorMessage>
         </div>
-        <button
-          type="submit"
-          onClick={form.onSubmit}
-          disabled={!form.isValid}
-          className={styles.submit}
-        >
+        <div className={styles.inputContainer}>
+          <Input
+            name={form.$('passwordConfirm').id}
+            label={form.$('passwordConfirm').label}
+            {...form.$('passwordConfirm').bind()}
+          />
+          <ErrorMessage>{form.$('passwordConfirm').error}</ErrorMessage>
+        </div>
+
+        <button type="submit" onClick={form.onSubmit} disabled={!form.isValid}>
           Submit
         </button>
         <p>{form.error}</p>
@@ -41,4 +43,4 @@ const LoginView = observer(() => {
   );
 });
 
-export default LoginView;
+export default RegistrationView;

@@ -1,16 +1,45 @@
 import dvr from 'mobx-react-form/lib/validators/DVR';
 import validatorjs from 'validatorjs';
 import Form from 'mobx-react-form';
+import RedirectRouter from 'utils/RedirectRouter';
+
+const rules = {
+  couponCode: {
+    function: (value) => /^[a-zA-Z]+$/.test(value),
+    message: 'The :attribute should contain only latin letters',
+  },
+  uppercase: {
+    function: (value) => value.match(/^[A-Z]*$/),
+    message: 'The :attribute should be only in uppercase',
+  },
+};
+
+const registerRule = (rules, validator) => {
+  Object.keys(rules).forEach((key) =>
+    validator.register(key, rules[key].function, rules[key].message),
+  );
+};
 
 const plugins = {
-  dvr: dvr(validatorjs),
+  dvr: dvr({
+    package: validatorjs,
+    extend: ({ validator }) => registerRule(rules, validator),
+  }),
 };
 
 const fields = [
+  // {
+  //   name: 'couponCode',
+  //   label: 'Coupon Code',
+  //   placeholder: 'Insert Coupon Code',
+  //   rules: 'couponCode|uppercase',
+  //   options: {
+  //     validateOnChange: true,
+  //   }
+  // },
   {
     name: 'email',
     label: 'Email',
-
     placeholder: 'Insert Email',
     rules: 'required|email|string|between:5,25',
   },
@@ -20,19 +49,17 @@ const fields = [
     placeholder: 'Insert Password',
     rules: 'required|string|between:5,25',
   },
-  {
-    name: 'passwordConfirm',
-    label: 'Password Confirmation',
-    placeholder: 'Confirm Password',
-    rules: 'required|string|same:password',
-  },
 ];
 
 const hooks = {
   onSuccess(form) {
-    alert('Form is valid! Send the request here.');
-    // get field values
-    console.log('Form Values!', form.values());
+    // get field values;
+    try {
+      localStorage.setItem('auth', JSON.stringify({ isLogin: true }));
+      RedirectRouter.goToDashboard();
+    } catch (err) {
+      console.error('error message', err);
+    }
   },
   onError(form) {
     alert('Form has errors!');
@@ -40,5 +67,11 @@ const hooks = {
     console.log('All form errors', form.errors());
   },
 };
+
+// const options = {
+//    'couponCode': {
+//     validateOnChange: true,
+//   },
+// }
 
 export const form = new Form({ fields }, { plugins, hooks });

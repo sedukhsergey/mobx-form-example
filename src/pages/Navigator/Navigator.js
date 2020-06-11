@@ -1,18 +1,15 @@
 import React from 'react';
-import history from '../../utils/history';
+import { Redirect } from 'react-router-dom';
 
 const Navigator = () => {
   try {
     const response = JSON.parse(localStorage.getItem('auth'));
     if (response?.isLogin) {
-      history.push('/dashboard');
-      return <></>;
+      return <Redirect to={'/dashboard'} />;
     }
-    history.push('/login');
-    return <></>;
+    return <Redirect to={'/login'} />;
   } catch (e) {
-    history.push('/page404');
-    return <></>;
+    return <Redirect to={'/page404'} />;
   }
 };
 

@@ -1,13 +1,16 @@
 import React from 'react';
+import { observer } from 'mobx-react';
 import styles from './styles.module.css';
 
-const Input = ({ label, name, ...rest }) => {
+const Input = ({ id, label, ...rest }) => {
   return (
     <>
-      <label htmlFor={name}>{label}</label>
-      <input className={styles.input} {...rest} />
+      <label className={styles.label} htmlFor={id}>
+        {label}
+      </label>
+      <input id={id} className={styles.input} {...rest} />
     </>
   );
 };
 
-export default Input;
+export default observer(Input);
