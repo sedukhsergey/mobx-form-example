@@ -16,8 +16,8 @@ it('WishListStore test', () => {
   });
   list.add(data);
   expect(list.items.length).toBe(1);
-  list.items[ 0 ].changeName('Another name');
-  expect(list.items[ 0 ].name).toBe('Another name');
+  list.items[0].changeName('Another name');
+  expect(list.items[0].name).toBe('Another name');
 
   expect(getSnapshot(list))
     //   .toEqual({
@@ -41,8 +41,8 @@ it('WishListStore test - 2', () => {
   });
   list.add(data);
   expect(list.items.length).toBe(1);
-  list.items[ 0 ].changeName('Another name');
-  expect(list.items[ 0 ].name).toBe('Another name');
+  list.items[0].changeName('Another name');
+  expect(list.items[0].name).toBe('Another name');
 
   expect(getSnapshot(list))
     //   .toEqual({
@@ -77,9 +77,8 @@ it('can calculate totalPrice', () => {
     () => changed++,
   );
   expect(changed).toBe(0);
-  console.log('totalPrice', list.totalPrice);
-  list.items[ 0 ].changeName('test');
+  list.items[0].changeName('test');
   expect(changed).toBe(0);
-  list.items[ 0 ].changePrice(23);
+  list.items[0].changePrice(23);
   expect(changed).toBe(1);
 });

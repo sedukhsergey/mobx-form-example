@@ -25,9 +25,9 @@ const WishListItemEntry = ({ add }) => {
 
   return (
     <div>
-      <WishListItemEdit item={ item } />
-      <div className={ styles.buttonContainer }>
-        <button className={ styles.button } onClick={ handleItemAdd }>
+      <WishListItemEdit item={item} />
+      <div className={styles.buttonContainer}>
+        <button className={styles.button} onClick={handleItemAdd}>
           Add
         </button>
       </div>
