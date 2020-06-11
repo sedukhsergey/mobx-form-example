@@ -13,6 +13,10 @@ class RedirectRouter {
     this.history.push('/login');
   }
 
+  goToRegistration() {
+    this.history.push('/registration');
+  }
+
   goToDashboard() {
     this.history.push('/dashboard');
   }

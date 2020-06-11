@@ -1,8 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { Header } from '../../modules';
 import { Dashboard, Navigator, Login, Page404, Registration } from '../../pages';
-import RedirectRouter from '../../utils/RedirectRouter';
 
 const App = () => {
   return (

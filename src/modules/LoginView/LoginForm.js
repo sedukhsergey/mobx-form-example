@@ -41,13 +41,13 @@ const fields = [
     name: 'email',
     label: 'Email',
     placeholder: 'Insert Email',
-    rules: 'required|email|string|between:5,25',
+    rules: 'required|email|string',
   },
   {
     name: 'password',
     label: 'Password',
     placeholder: 'Insert Password',
-    rules: 'required|string|between:5,25',
+    rules: 'required|string|min:5',
   },
 ];
 
@@ -55,8 +55,21 @@ const hooks = {
   onSuccess(form) {
     // get field values;
     try {
-      localStorage.setItem('auth', JSON.stringify({ isLogin: true }));
-      RedirectRouter.goToDashboard();
+      const user = JSON.parse(localStorage.getItem('auth'));
+      if (!user) {
+      }
+      if (form.values().email === user.email && form.values().password) {
+        localStorage.setItem(
+          'auth',
+          JSON.stringify({
+            isLogin: true,
+            email: form.values().email,
+            password: form.values().password,
+          }),
+        );
+        RedirectRouter.goToDashboard();
+      }
+      console.log('form', form);
     } catch (err) {
       console.error('error message', err);
     }

@@ -2,10 +2,9 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import { form } from './LoginForm';
 import { Input, ErrorMessage } from 'components';
-import RedirectRouter from 'utils/RedirectRouter';
 import styles from './styles.module.css';
 
-const LoginView = observer(() => {
+const LoginView = () => {
   return (
     <div className={styles.container}>
       <h1>LoginView</h1>
@@ -39,6 +38,6 @@ const LoginView = observer(() => {
       </form>
     </div>
   );
-});
+};
 
-export default LoginView;
+export default observer(LoginView);
