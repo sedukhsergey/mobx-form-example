@@ -15,6 +15,10 @@
   margin: 0;
   width: 100%;
 }
+.buttonContainer {
+  max-width: 150px;
+  width: 100%;
+}
 
 .list > li > a {
   color: white;

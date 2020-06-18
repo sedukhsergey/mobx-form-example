@@ -1,7 +1,7 @@
+import { initStore } from 'store';
 import dvr from 'mobx-react-form/lib/validators/DVR';
 import validatorjs from 'validatorjs';
 import Form from 'mobx-react-form';
-import RedirectRouter from 'utils/RedirectRouter';
 
 const rules = {
   couponCode: {
@@ -14,9 +14,9 @@ const rules = {
   },
 };
 
-const registerRule = (rules, validator) => {
-  Object.keys(rules).forEach((key) =>
-    validator.register(key, rules[key].function, rules[key].message),
+const registerRule = (formRules, validator) => {
+  Object.keys(formRules).forEach((key) =>
+    validator.register(key, formRules[key].function, formRules[key].message),
   );
 };
 
@@ -48,28 +48,32 @@ const fields = [
     label: 'Password',
     placeholder: 'Insert Password',
     rules: 'required|string|min:5',
+    type: 'password',
   },
 ];
 
 const hooks = {
   onSuccess(form) {
     // get field values;
+    const {
+      authStore: { logIn },
+    } = initStore();
     try {
-      const user = JSON.parse(localStorage.getItem('auth'));
+      const user = JSON.parse(localStorage.getItem('user'));
       if (!user) {
+        form.invalidate("User with this email doesn't exist");
+        return;
       }
-      if (form.values().email === user.email && form.values().password) {
-        localStorage.setItem(
-          'auth',
-          JSON.stringify({
-            isLogin: true,
-            email: form.values().email,
-            password: form.values().password,
-          }),
-        );
-        RedirectRouter.goToDashboard();
+      if (form.values().email !== user.email || form.values().password !== user.password) {
+        form.invalidate('Incorrect email or password');
+        return;
       }
-      console.log('form', form);
+      if (form.values().email === user.email && form.values().password === user.password) {
+        logIn({
+          email: form.values().email,
+          password: form.values().password,
+        });
+      }
     } catch (err) {
       console.error('error message', err);
     }
@@ -77,7 +81,6 @@ const hooks = {
   onError(form) {
     alert('Form has errors!');
     // get all form errors
-    console.log('All form errors', form.errors());
   },
 };
 

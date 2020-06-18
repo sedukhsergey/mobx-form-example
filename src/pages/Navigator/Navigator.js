@@ -1,10 +1,12 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import { observer } from 'mobx-react';
+import { useAuthData } from 'hooks/useAuthData';
 
 const Navigator = () => {
+  const { isAuthorizedStatus } = useAuthData();
   try {
-    const response = JSON.parse(localStorage.getItem('auth'));
-    if (response?.isLogin) {
+    if (isAuthorizedStatus) {
       return <Redirect to={'/dashboard'} />;
     }
     return <Redirect to={'/login'} />;
@@ -13,4 +15,4 @@ const Navigator = () => {
   }
 };
 
-export default Navigator;
+export default observer(Navigator);

@@ -1,10 +1,12 @@
 import { types, applySnapshot } from 'mobx-state-tree';
-import { UiStore, WishListStore, GroupStore } from './models';
+import { UiStore, WishListStore, GroupStore, AuthStore, UserStore } from './models';
 let storeContainer = null;
 export let store = null;
 
 try {
   storeContainer = types.model('Store', {
+    userStore: types.optional(UserStore, {}),
+    authStore: types.optional(AuthStore, {}),
     dashboardStore: types.optional(UiStore, {}),
     wishListStore: types.optional(WishListStore, {}),
     usersStore: types.optional(GroupStore, {}),
