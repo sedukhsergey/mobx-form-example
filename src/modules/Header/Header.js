@@ -7,35 +7,35 @@ import { useAuthData } from 'hooks/useAuthData';
 
 const handleFetchUsers = () => {
   fetch('http://localhost:8080/users')
-    .then(res => res.json())
-    .then(data => {
-      console.log('fetch data',data)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log('fetch data', data);
     })
-    .catch(err => {
-      console.log('fetch err',err)
-    })
-}
+    .catch((err) => {
+      console.log('fetch err', err);
+    });
+};
 
 const handleCreateUser = () => {
-  const data = JSON.stringify({name: 'Soe', email: 'some@email.com'})
+  const data = JSON.stringify({ name: 'Soe', email: 'some@email.com' });
   fetch('http://localhost:8080/users', {
     method: 'POST',
     body: data,
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     },
   })
-    .then(res => {
-      console.log('res',res)
-      return res.json()
+    .then((res) => {
+      console.log('res', res);
+      return res.json();
     })
-    .then(data => {
-      console.log('fetch data',data)
+    .then((data) => {
+      console.log('fetch data', data);
     })
-    .catch(err => {
-      console.log('fetch err',err)
-    })
-}
+    .catch((err) => {
+      console.log('fetch err', err);
+    });
+};
 
 const Header = () => {
   const { isAuthorized, logOut } = useAuthData();
@@ -46,8 +46,8 @@ const Header = () => {
           <Link to={'/'}>Home</Link>
         </li>
       </ul>
-          <Button onClick={handleFetchUsers}>Fetch users</Button>
-          <Button onClick={handleCreateUser}>Create user</Button>
+      <Button onClick={handleFetchUsers}>Fetch users</Button>
+      <Button onClick={handleCreateUser}>Create user</Button>
       {isAuthorized && (
         <div className={styles.buttonContainer}>
           <Button onClick={logOut}>Log out</Button>
@@ -58,10 +58,6 @@ const Header = () => {
 };
 
 export default observer(Header);
-
-
-
-
 
 //
 //
