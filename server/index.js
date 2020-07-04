@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv').config({path: '../.env'})
 
 var app = require('./server');
 var debug = require('debug')('sqllite3:server');
@@ -8,7 +8,7 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '8080');
+var port = normalizePort(process.env.PORT || '3001');
 app.set('port', port);
 
 /**
