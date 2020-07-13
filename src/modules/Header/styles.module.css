@@ -30,3 +30,12 @@
 .list > li > a:hover {
   color: red;
 }
+
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex span {
+  margin-bottom: 20px;
+}

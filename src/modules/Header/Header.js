@@ -6,19 +6,30 @@ import { Button } from 'components';
 import { useAuthData } from 'hooks/useAuthData';
 
 const handleFetchUsers = () => {
-  fetch('http://localhost:8080/users')
+  fetch(`${process.env.REACT_APP_BACKEND_API}/users`)
     .then((res) => res.json())
     .then((data) => {
-      console.log('fetch data', data);
+      console.log('fetch users data', data);
     })
     .catch((err) => {
-      console.log('fetch err', err);
+      console.error('fetch err', err);
+    });
+};
+
+const handleFetchUser = (id) => {
+  fetch(`${process.env.REACT_APP_BACKEND_API}/users?id=${1}`)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log('fetch user dta', data);
+    })
+    .catch((err) => {
+      console.error('fetch err', err);
     });
 };
 
 const handleCreateUser = () => {
   const data = JSON.stringify({ name: 'Soe', email: 'some@email.com' });
-  fetch('http://localhost:8080/users', {
+  fetch(`${process.env.REACT_APP_BACKEND_API}/users`, {
     method: 'POST',
     body: data,
     headers: {
@@ -26,11 +37,45 @@ const handleCreateUser = () => {
     },
   })
     .then((res) => {
-      console.log('res', res);
       return res.json();
     })
     .then((data) => {
-      console.log('fetch data', data);
+      console.log('create user', data);
+    })
+    .catch((err) => {});
+};
+const handleUpdateUser = (id) => {
+  const data = JSON.stringify({ name: 'SoeUPDATED', email: 'some@email.comUp' });
+  fetch(`${process.env.REACT_APP_BACKEND_API}/users?id=${id}`, {
+    method: 'PUT',
+    body: data,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      console.log('update user data', data);
+    })
+    .catch((err) => {
+      console.log('fetch err', err);
+    });
+};
+
+const handleDeleteUser = (id) => {
+  fetch(`${process.env.REACT_APP_BACKEND_API}/users?id=${1}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      console.log('delete user data', data);
     })
     .catch((err) => {
       console.log('fetch err', err);
@@ -46,8 +91,23 @@ const Header = () => {
           <Link to={'/'}>Home</Link>
         </li>
       </ul>
-      <Button onClick={handleFetchUsers}>Fetch users</Button>
-      <Button onClick={handleCreateUser}>Create user</Button>
+      <div className={styles.flex}>
+        <span>
+          <Button onClick={handleFetchUsers}>Fetch users</Button>
+        </span>
+        <span>
+          <Button onClick={() => handleFetchUser(4)}>Fetch user</Button>
+        </span>
+        <span>
+          <Button onClick={handleCreateUser}>Create user</Button>
+        </span>
+        <span>
+          <Button onClick={() => handleUpdateUser(2)}>update user</Button>
+        </span>
+        <span>
+          <Button onClick={() => handleDeleteUser(3)}>Delete user</Button>
+        </span>
+      </div>
       {isAuthorized && (
         <div className={styles.buttonContainer}>
           <Button onClick={logOut}>Log out</Button>

@@ -1,57 +1,33 @@
-const pool = require('./db');
+const { pool } = require('../db/db');
 
 class Users {
   static async find(id) {
     const sql = 'SELECT * FROM users WHERE id = $1';
-    try {
-      const response = await pool.query(sql, [id]);
-      return new Promise((res, rej) => res(response.rows))
-    }
-    catch(err) {
-      return new Promise((res, rej) => rej(err))
-    }
+    const result = await pool.query(sql, [id]);
+    return result.rows[0]
   }
 
-  static all(cb) {
+  static async all() {
     const sql = 'SELECT * FROM users';
-    pool.query(sql, (err, results) => {
-      if (err) {
-        return cb(err);
-      }
-      return cb(null, results.rows);
-    })
+      const results = await pool.query(sql);
+      return results.rows;
   }
 
-  static async create(data, cb) {
-    console.log('create data',data)
+  static async create(data) {
     const sql = 'INSERT INTO users(name, email) VALUES($1, $2) RETURNING id';
-    pool.query(sql, [data.name, data.email], (err, results) => {
-      if (err) {
-        console.log('err from create',err )
-        return cb(err);
-      }
-      return cb(null, results.rows);
-    })
+    const results = await pool.query(sql, [data.name, data.email]);
+    return results.rows[0];
   }
 
-  static update(data, cb) {
+  static async update(data) {
     const sql = 'UPDATE users SET name = $1, email = $2 WHERE id = $3';
-    pool.query(sql, [data.name, data.email, data.id], (err, results) => {
-      if (err) {
-        return cb(err)
-      }
-      return cb(null, results.rows)
-    })
+    const results = await pool.query(sql, [data.name, data.email, data.id])
+    return results.rows;
   }
 
-  static delete(data, cb) {
+  static async delete(data) {
     const sql = 'DELETE FROM users WHERE id = $1';
-    pool.query(sql, [data], (err, results) => {
-      if (err) {
-        return cb(err);
-      }
-      return cb(null, data)
-    })
+    return await pool.query(sql, [data]);
   }
 }
 
