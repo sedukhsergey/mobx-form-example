@@ -1,14 +1,14 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 import { form } from './RegistrationForm';
-import { Input, ErrorMessage } from 'components';
+import { Input, ErrorMessage, Button } from 'components';
 import styles from './styles.module.css';
 
 const RegistrationView = observer(() => {
   return (
     <div className={styles.container}>
-      <h1>RegistrationView</h1>
-      <form>
+      <h1>Registration</h1>
+      <form className={styles.form}>
         <div className={styles.inputContainer}>
           <Input
             name={form.$('email').id}
@@ -33,11 +33,10 @@ const RegistrationView = observer(() => {
           />
           <ErrorMessage>{form.$('passwordConfirm').error}</ErrorMessage>
         </div>
-
-        <button type="submit" onClick={form.onSubmit} disabled={!form.isValid}>
+        <Button type="submit" onClick={form.onSubmit} disabled={!form.isValid}>
           Submit
-        </button>
-        <p>{form.error}</p>
+        </Button>
+        <ErrorMessage>{form.error}</ErrorMessage>
       </form>
     </div>
   );

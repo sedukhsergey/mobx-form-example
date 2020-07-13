@@ -15,6 +15,10 @@
   margin: 0;
   width: 100%;
 }
+.buttonContainer {
+  max-width: 150px;
+  width: 100%;
+}
 
 .list > li > a {
   color: white;
@@ -25,4 +29,13 @@
 
 .list > li > a:hover {
   color: red;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex span {
+  margin-bottom: 20px;
 }

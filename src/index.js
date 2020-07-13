@@ -1,17 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router } from 'react-router-dom';
-import { initStore } from './store';
 import { StoreProvider } from './store/StoreProvider';
+import { getStoreSnapshot } from './store/getStoreSnapshot';
 import './index.css';
 import App from './modules/App/App';
 import RedirectRouter from 'utils/RedirectRouter';
 import * as serviceWorker from './serviceWorker';
-const initializeStore = initStore();
+
+const store = getStoreSnapshot();
 
 ReactDOM.render(
   <React.StrictMode>
-    <StoreProvider store={initializeStore}>
+    <StoreProvider store={store}>
       <Router history={RedirectRouter.history}>
         <App />
       </Router>
