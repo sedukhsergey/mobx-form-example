@@ -1,13 +1,13 @@
 require('ignore-styles');
 require('@babel/register')({
-  ignore:  [/(node_modules)/],
-  presets: ["@babel/preset-env"]
+  ignore: [/(node_modules)/],
+  presets: ['@babel/preset-env'],
 });
 
 /**
  * If just a regular server boot
  */
-
+console.log('process.argv', process.argv);
 if (process.argv.length < 3) {
   return require('./index.new');
 }
