@@ -35,7 +35,7 @@ export default class Server {
    */
   start() {
     return this._init().then((_) => {
-      const PORT = this.container.configService.PORT;
+      const PORT = this.container.configService.SERVER_PORT;
 
       return new Promise((resolve, _) => {
         this.server = this.app.listen(PORT, '0.0.0.0', function () {

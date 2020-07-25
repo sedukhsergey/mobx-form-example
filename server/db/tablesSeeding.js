@@ -1,20 +1,19 @@
-require('dotenv').config({path: '../.env'});
+require('dotenv').config({ path: '../.env' });
 const { pool } = require('./db');
 /**
  * Create Users Table
  */
 const createUsersTable = async () => {
-  const queryText =
-    `CREATE TABLE IF NOT EXISTS users (
+  const queryText = `CREATE TABLE IF NOT EXISTS users (
       id serial primary key,
       name varchar(50) not null,
       email varchar (50) not null
     )`;
   try {
-    const response = pool.query(queryText)
-    console.log('create user table response',response)
-  } catch(err) {
-    console.error('create user table error',err)
+    const response = pool.query(queryText);
+    console.log('create user table response', response);
+  } catch (err) {
+    console.error('create user table error', err);
   }
 };
 //
@@ -174,10 +173,9 @@ const createUsersTable = async () => {
  */
 const createAllTables = () => {
   createUsersTable();
-}
+};
 /**
  * Drop All Tables
  */
-
 
 createAllTables();

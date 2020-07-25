@@ -3,15 +3,21 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-server": "cross-env NODE_ENV=development ./node_modules/.bin/nodemon ./bootstrap.js -L --watch ../server",
-    "dbCreate": "node ./db/tablesSeeding.js"
+    "dbCreate": "node ./db/tablesSeeding.js",
+    "lint": "eslint './**/*.{js,jsx}'",
+    "lint:fix": "eslint './**/*.{js,jsx}' --fix"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Sergey Siedykh",
+  "license": "MIT",
   "dependencies": {
+    "@hapi/joi": "^17.1.1",
     "body-parser": "^1.19.0",
+    "chalk": "^4.1.0",
+    "colors": "^1.4.0",
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
     "cross-env": "^7.0.2",

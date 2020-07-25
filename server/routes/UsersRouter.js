@@ -11,7 +11,7 @@ const UsersRouter = () => {
       return usersController.getUser(req, res);
     }
     return usersController.getAllUsers(req, res);
-  })
+  });
 
   router.put('/', (req, res, next) => usersController.updateUser(req, res));
 
@@ -19,9 +19,8 @@ const UsersRouter = () => {
     return usersController.createUser(req, res);
   });
 
-  router.delete('/', (req, res, next) => usersController.deleteUser(req, res))
+  router.delete('/', (req, res, next) => usersController.deleteUser(req, res));
   return router;
-}
-
+};
 
 module.exports = UsersRouter;

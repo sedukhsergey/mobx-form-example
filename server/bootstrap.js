@@ -7,7 +7,6 @@ require('@babel/register')({
 /**
  * If just a regular server boot
  */
-console.log('process.argv', process.argv);
 if (process.argv.length < 3) {
   return require('./index.new');
 }
