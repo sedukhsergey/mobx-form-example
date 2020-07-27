@@ -1,7 +1,8 @@
 import express from 'express';
-// import {
-//   beforeMiddleware, afterMiddleware
-// } from './middleware';
+import {
+  beforeMiddleware,
+  //   afterMiddleware
+} from './middleware';
 // import setupRoutes from './routes';
 import getContainer from './container';
 
@@ -18,7 +19,7 @@ export default class Server {
     try {
       const container = await getContainer();
       this.container = Object.assign(this.container, container);
-      // beforeMiddleware(this.app, this.container);
+      beforeMiddleware(this.app, this.container);
       // setupRoutes(this.app, this.container);
       // afterMiddleware(this.app, this.container);
     } catch (err) {
