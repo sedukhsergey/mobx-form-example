@@ -9,9 +9,15 @@ import {
 } from 'mobx';
 import styles from './style.module.css';
 const Home = inject('mobxStore')(observer(props => {
-  const [name, setName] = useState('');
+  const [name, setName, ] = useState('');
   const inputEl = useRef(null);
-  const { mobxStore: { dashboardStore: { users, addUser, reset, }, }, } = props;
+  const {
+    mobxStore: {
+      dashboardStore: {
+        users, addUser, reset,
+      },
+    },
+  } = props;
 
   return (
     <div>
@@ -48,6 +54,6 @@ const Home = inject('mobxStore')(observer(props => {
       <button onClick={reset}>Reset</button>
     </div>
   );
-}),);
+}));
 
 export default Home;

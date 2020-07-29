@@ -8,8 +8,12 @@ import {
   WishListTotal, WishListItemEntry
 } from '../../index';
 
-const WishListView = ({ selected }) => {
-  const { items = [], add, totalPrice } = selected;
+const WishListView = ({
+  selected,
+}) => {
+  const {
+    items = [], add, totalPrice,
+  } = selected;
   return (
     <>
       <div className={styles.totalContainer}>

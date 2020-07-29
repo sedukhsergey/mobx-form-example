@@ -10,7 +10,7 @@ describe('LoginView', () => {
     const email = screen.getByPlaceholderText('Insert Email');
     fireEvent.change(screen.getByPlaceholderText('Insert Email'), {
       target: {
-        value: 'wrongEmail'
+        value: 'wrongEmail',
       },
     });
     expect(email.value).toBe('wrongEmail');

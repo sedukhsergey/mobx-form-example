@@ -11,7 +11,9 @@ const UiStore = types
     setAuthorizedStatus(status) {
       self.isAuthorized = status;
     },
-    logIn({ email }) {
+    logIn({
+      email,
+    }) {
       getRoot(self).userStore.updateUserEmail(email);
       self.setAuthorizedStatus(true);
       RedirectRouter.goToDashboard();

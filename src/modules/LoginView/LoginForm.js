@@ -18,13 +18,15 @@ const rules = {
 
 const registerRule = (formRules, validator) => {
   Object.keys(formRules).forEach(key =>
-    validator.register(key, formRules[key].function, formRules[key].message),);
+    validator.register(key, formRules[key].function, formRules[key].message));
 };
 
 const plugins = {
   dvr: dvr({
     package: validatorjs,
-    extend: ({ validator }) => registerRule(rules, validator),
+    extend: ({
+      validator,
+    }) => registerRule(rules, validator),
   }),
 };
 
@@ -56,7 +58,11 @@ const fields = [
 const hooks = {
   onSuccess(form) {
     // get field values;
-    const { authStore: { logIn }, } = initStore();
+    const {
+      authStore: {
+        logIn,
+      },
+    } = initStore();
     try {
       const user = JSON.parse(localStorage.getItem('user'));
       if (!user) {
@@ -96,7 +102,7 @@ const hooks = {
 // }
 
 export const form = new Form({
-  fields
+  fields,
 }, {
-  plugins, hooks
+  plugins, hooks,
 });

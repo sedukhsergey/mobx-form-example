@@ -23,7 +23,7 @@ try {
 } catch (e) {
   // eslint-disable-next-line
   console.error('MOBX STORE ERROR: Check mobx state tree models and make prop values and types match.',
-    e,);
+    e);
 }
 
 const Store = storeContainer;

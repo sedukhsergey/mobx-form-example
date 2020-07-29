@@ -27,7 +27,9 @@ class RedirectRouter {
     this.history.push('/page404');
   }
 
-  gotToSomeRouteWithParams({ campaignId, assessmentId }) {
+  gotToSomeRouteWithParams({
+    campaignId, assessmentId,
+  }) {
     this.history.push(
       `/main/campaign/${campaignId}/assessment/${assessmentId}`
     );

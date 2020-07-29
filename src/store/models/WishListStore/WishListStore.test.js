@@ -77,7 +77,7 @@ it('can calculate totalPrice', () => {
   expect(list.totalPrice).toBe(94);
   let changed = 0;
   reaction(() => list.totalPrice,
-    () => changed++,);
+    () => changed++);
   expect(changed).toBe(0);
   list.items[0].changeName('test');
   expect(changed).toBe(0);

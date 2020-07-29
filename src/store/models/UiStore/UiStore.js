@@ -14,7 +14,7 @@ const UiStore = types
         User.create({
           name,
           id,
-        }),);
+        }));
       id++;
     },
     reset() {

@@ -38,7 +38,11 @@ const hooks = {
   onSuccess(form) {
     // get field values
     try {
-      const { userStore: { createUser }, } = initStore();
+      const {
+        userStore: {
+          createUser,
+        },
+      } = initStore();
       const user = JSON.parse(localStorage.getItem('user'));
       if (!user) {
         createUser({
@@ -68,7 +72,7 @@ const hooks = {
 // }
 
 export const form = new Form({
-  fields
+  fields,
 }, {
-  plugins, hooks
+  plugins, hooks,
 });

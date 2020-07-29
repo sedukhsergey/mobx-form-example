@@ -17,11 +17,13 @@ import {
 } from '../../hooks/useGroupData';
 
 const Dashboard = () => {
-  const [selectedUser, setSelectedUser] = useState(null);
-  const { users, fetchUsers } = useGroupData();
+  const [selectedUser, setSelectedUser, ] = useState(null);
+  const {
+    users, fetchUsers,
+  } = useGroupData();
   useEffect(() => {
     fetchUsers();
-  }, [fetchUsers]);
+  }, [fetchUsers, ]);
 
   const handleSelectedUser = e => {
     setSelectedUser(e.target.value);

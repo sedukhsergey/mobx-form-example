@@ -37,7 +37,7 @@ const handleFetchUser = () => {
 
 const handleCreateUser = () => {
   const data = JSON.stringify({
-    name: 'Soe', email: 'some@email.com'
+    name: 'Soe', email: 'some@email.com',
   });
   fetch(`${process.env.REACT_APP_BACKEND_API}/users`, {
     method: 'POST',
@@ -56,7 +56,7 @@ const handleCreateUser = () => {
 };
 const handleUpdateUser = id => {
   const data = JSON.stringify({
-    name: 'SoeUPDATED', email: 'some@email.comUp'
+    name: 'SoeUPDATED', email: 'some@email.comUp',
   });
   fetch(`${process.env.REACT_APP_BACKEND_API}/users?id=${id}`, {
     method: 'PUT',
@@ -91,7 +91,9 @@ const handleDeleteUser = () => {
 };
 
 const Header = () => {
-  const { isAuthorized, logOut } = useAuthData();
+  const {
+    isAuthorized, logOut,
+  } = useAuthData();
   return (
     <div className={styles.container}>
       <ul className={styles.list}>

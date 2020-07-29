@@ -10,7 +10,9 @@ import {
 } from 'hooks/useAuthData';
 
 const Navigator = () => {
-  const { isAuthorizedStatus } = useAuthData();
+  const {
+    isAuthorizedStatus,
+  } = useAuthData();
   try {
     if (isAuthorizedStatus) {
       return <Redirect to={'/dashboard'} />;

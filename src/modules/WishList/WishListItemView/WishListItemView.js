@@ -9,9 +9,11 @@ import {
   WishListItemEdit
 } from '../../index';
 
-const WishListItemView = ({ item }) => {
-  const [isEditable, setIsEditable] = useState(false);
-  const [cloneItem, setClone] = useState(null);
+const WishListItemView = ({
+  item,
+}) => {
+  const [isEditable, setIsEditable, ] = useState(false);
+  const [cloneItem, setClone, ] = useState(null);
 
   const handleEditEnabled = () => {
     setIsEditable(true);

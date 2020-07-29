@@ -2,9 +2,11 @@ import React from 'react';
 import styles from './styles.module.css';
 import getStyle from 'utils/getStyle';
 
-const Button = ({ children, looks, ...rest }) => {
+const Button = ({
+  children, looks, ...rest
+}) => {
   const customStyles = getStyle({
-    looks, styles
+    looks, styles,
   });
   return (
     <button
@@ -16,7 +18,7 @@ const Button = ({ children, looks, ...rest }) => {
 };
 
 Button.defaultProps = {
-  looks: ['submit'],
+  looks: ['submit', ],
 };
 
 export default Button;

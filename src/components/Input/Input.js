@@ -4,7 +4,9 @@ import {
 } from 'mobx-react';
 import styles from './styles.module.css';
 
-const Input = ({ id, label, ...rest }) => (
+const Input = ({
+  id, label, ...rest
+}) => (
   <>
     <label
       className={styles.label}
