@@ -1,4 +1,6 @@
-import { createBrowserHistory } from 'history';
+import {
+  createBrowserHistory
+} from 'history';
 
 class RedirectRouter {
   constructor() {
@@ -26,12 +28,12 @@ class RedirectRouter {
   }
 
   gotToSomeRouteWithParams({ campaignId, assessmentId }) {
-    this.history.push(`/main/campaign/${campaignId}/assessment/${assessmentId}`);
+    this.history.push(
+      `/main/campaign/${campaignId}/assessment/${assessmentId}`
+    );
   }
 
-  getCurrentPath = () => {
-    return this.history.location.pathname;
-  };
+  getCurrentPath = () => this.history.location.pathname;
 }
 
 export default new RedirectRouter();

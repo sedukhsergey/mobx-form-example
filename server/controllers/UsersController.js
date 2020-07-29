@@ -23,7 +23,9 @@ class UsersController {
 
   async updateUser(req, res) {
     try {
-      await this.usersService.update({ ...req.body, id: req.query.id });
+      await this.usersService.update({
+        ...req.body, id: req.query.id
+      });
       res.send({ data: 'success' });
     } catch (err) {
       res.status(500).send({ message: err.message });

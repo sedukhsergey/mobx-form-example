@@ -18,7 +18,9 @@ export const beforeMiddleware = (app, container = {}) => {
   // app.use(ua.middleware(GA_TRACKING_ID, { cookieName: '_ga' }));
   // reactDevCors(app);
   app.use(bodyParser.json({ limit: '50mb' }));
-  app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+  app.use(bodyParser.urlencoded({
+    limit: '50mb', extended: true
+  }));
   // // Helmet create security related HTTP headers
   // app.use(helmet());
   // if (!EnvironmentAwareService.isDev()) {

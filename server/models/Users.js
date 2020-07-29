@@ -3,8 +3,14 @@ export default class Users {
     this.databaseService = databaseService;
   }
   async find(id) {
+
+
+
+
     const sql = 'SELECT * FROM users WHERE id = $1';
-    const result = await this.databaseService.pool.query(sql, [id]);
+
+
+    const result = await     this.databaseService.pool.query(sql, [id]);
     return result.rows[0];
   }
 

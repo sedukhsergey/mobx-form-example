@@ -12,7 +12,9 @@ class ConfigService {
   _getLoadedConfig(filePath) {
     const envFileVars = this._readFileVars(filePath);
     const envVars = this._readEnvVars();
-    return { ...envFileVars, ...envVars };
+    return {
+      ...envFileVars, ...envVars
+    };
   }
 
   _readFileVars(filePath) {
@@ -46,9 +48,9 @@ class ConfigService {
 
   _validateInput(envConfig) {
     const envVarsSchema = Joi.object(ConfigService.VALIDATION_SCHEMA);
-    const { error, value: validatedEnvConfig } = envVarsSchema.validate(envConfig, {
-      abortEarly: false,
-    });
+    const {
+      error, value: validatedEnvConfig
+    } = envVarsSchema.validate(envConfig, { abortEarly: false, });
     if (error) {
       console.log('errord', error);
       throw new Error(colors.red(`Config validation erorr: ${error.message}`));

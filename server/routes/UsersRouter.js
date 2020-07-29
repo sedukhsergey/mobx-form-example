@@ -8,30 +8,22 @@ export default (container = {}) => {
 
   const usersController = new UsersController(container);
 
-  router.get(
-    '/',
+  router.get('/',
     asyncMiddleware(async (req, res, next) => {
       if (req.query.id) {
         return usersController.getUser(req, res);
       }
       return usersController.getAllUsers(req, res);
-    }),
-  );
+    }),);
 
-  router.put(
-    '/',
-    asyncMiddleware((req, res, next) => usersController.updateUser(req, res)),
-  );
+  router.put('/',
+    asyncMiddleware((req, res, next) => usersController.updateUser(req, res)),);
 
-  router.post(
-    '/',
-    asyncMiddleware((req, res, next) => usersController.createUser(req, res)),
-  );
+  router.post('/',
+    asyncMiddleware((req, res, next) => usersController.createUser(req, res)),);
 
-  router.delete(
-    '/',
-    asyncMiddleware((req, res, next) => usersController.deleteUser(req, res)),
-  );
+  router.delete('/',
+    asyncMiddleware((req, res, next) => usersController.deleteUser(req, res)),);
 
   return router;
 };

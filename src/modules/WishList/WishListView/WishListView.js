@@ -1,8 +1,12 @@
 import React from 'react';
-import { observer } from 'mobx-react';
+import {
+  observer
+} from 'mobx-react';
 import WishListItemView from '../WishListItemView';
 import styles from './styles.module.css';
-import { WishListTotal, WishListItemEntry } from '../../index';
+import {
+  WishListTotal, WishListItemEntry
+} from '../../index';
 
 const WishListView = ({ selected }) => {
   const { items = [], add, totalPrice } = selected;
@@ -15,13 +19,13 @@ const WishListView = ({ selected }) => {
         <li className={styles.item}>
           <WishListItemEntry add={add} />
         </li>
-        {items.map((item, index) => {
-          return (
-            <li className={styles.item} key={item.name}>
-              <WishListItemView item={item} />
-            </li>
-          );
-        })}
+        {items.map(item => (
+          <li
+            className={styles.item}
+            key={item.name}>
+            <WishListItemView item={item} />
+          </li>
+        ))}
       </ul>
     </>
   );

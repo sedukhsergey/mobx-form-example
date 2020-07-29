@@ -1,4 +1,6 @@
-import { types, getParent } from 'mobx-state-tree';
+import {
+  types, getParent
+} from 'mobx-state-tree';
 
 const User = types
   .model({
@@ -6,7 +8,7 @@ const User = types
     isActive: types.optional(types.boolean, false),
     id: types.optional(types.number, 1),
   })
-  .actions((self) => ({
+  .actions(self => ({
     setName(newName) {
       self.name = newName;
     },

@@ -1,8 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router } from 'react-router-dom';
-import { StoreProvider } from './store/StoreProvider';
-import { getStoreSnapshot } from './store/getStoreSnapshot';
+import {
+  Router
+} from 'react-router-dom';
+import {
+  StoreProvider
+} from './store/StoreProvider';
+import {
+  getStoreSnapshot
+} from './store/getStoreSnapshot';
 import './index.css';
 import App from './modules/App/App';
 import RedirectRouter from 'utils/RedirectRouter';
@@ -10,16 +16,14 @@ import * as serviceWorker from './serviceWorker';
 
 const store = getStoreSnapshot();
 
-ReactDOM.render(
-  <React.StrictMode>
-    <StoreProvider store={store}>
-      <Router history={RedirectRouter.history}>
-        <App />
-      </Router>
-    </StoreProvider>
-  </React.StrictMode>,
-  document.getElementById('root'),
-);
+ReactDOM.render(<React.StrictMode>
+  <StoreProvider store={store}>
+    <Router history={RedirectRouter.history}>
+      <App />
+    </Router>
+  </StoreProvider>
+</React.StrictMode>,
+document.getElementById('root'),);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

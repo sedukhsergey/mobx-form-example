@@ -1,10 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import { values } from 'mobx';
-import { useObserver } from 'mobx-react';
+import React, {
+  useState, useEffect
+} from 'react';
+import {
+  values
+} from 'mobx';
+import {
+  useObserver
+} from 'mobx-react';
 import styles from './styles.module.css';
 import SantaImage from '../../assets/santa.jpeg';
-import { WishListView } from '../../modules';
-import { useGroupData } from '../../hooks/useGroupData';
+import {
+  WishListView
+} from '../../modules';
+import {
+  useGroupData
+} from '../../hooks/useGroupData';
 
 const Dashboard = () => {
   const [selectedUser, setSelectedUser] = useState(null);
@@ -13,7 +23,7 @@ const Dashboard = () => {
     fetchUsers();
   }, [fetchUsers]);
 
-  const handleSelectedUser = (e) => {
+  const handleSelectedUser = e => {
     setSelectedUser(e.target.value);
   };
 
@@ -22,11 +32,18 @@ const Dashboard = () => {
     <div className={styles.container}>
       <header className={styles.hero}>
         <h1>Wish List</h1>
-        <img src={SantaImage} alt="santa" />
-        <select name="user" id="user" onChange={handleSelectedUser}>
+        <img
+          src={SantaImage}
+          alt="santa" />
+        <select
+          name="user"
+          id="user"
+          onChange={handleSelectedUser}>
           <option value="">---</option>
-          {values(users).map((item) => (
-            <option key={item.id} value={item.id}>
+          {values(users).map(item => (
+            <option
+              key={item.id}
+              value={item.id}>
               {item.name}
             </option>
           ))}

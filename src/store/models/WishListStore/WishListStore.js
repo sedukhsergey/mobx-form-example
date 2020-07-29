@@ -1,4 +1,6 @@
-import { types, destroy } from 'mobx-state-tree';
+import {
+  types, destroy
+} from 'mobx-state-tree';
 import WishListItem from './WishListItem';
 
 const initialState = [
@@ -18,7 +20,7 @@ const WishListStore = types
   .model({
     items: types.optional(types.array(WishListItem), []),
   })
-  .actions((self) => ({
+  .actions(self => ({
     add(item) {
       self.items.push(item);
     },
@@ -38,7 +40,7 @@ const WishListStore = types
       destroy(item);
     },
   }))
-  .views((self) => ({
+  .views(self => ({
     get totalPrice() {
       return self.items.reduce((acc, curr) => acc + curr.price, 0);
     },

@@ -1,17 +1,19 @@
 import React from 'react';
 import styles from './styles.module.css';
-import { useObserver } from 'mobx-react';
+import {
+  useObserver
+} from 'mobx-react';
 
 const WishListItemEdit = ({ item }) => {
-  const handleChangeImage = (e) => {
+  const handleChangeImage = e => {
     item.changeImage(e.target.value);
   };
 
-  const handleChangeName = (e) => {
+  const handleChangeName = e => {
     item.changeName(e.target.value);
   };
 
-  const handleChangePrice = (e) => {
+  const handleChangePrice = e => {
     const price = parseInt(e.target.value);
     if (!isNaN(price)) {
       item.changePrice(price);
@@ -22,17 +24,32 @@ const WishListItemEdit = ({ item }) => {
     <div className={styles.editItem}>
       <div className={styles.inputContainer}>
         <label htmlFor="image">Image:</label>
-        <input type="text" name="image" value={item.image} onChange={handleChangeImage} />
+        <input
+          type="text"
+          name="image"
+          value={item.image}
+          onChange={handleChangeImage}
+        />
       </div>
       <br />
       <div className={styles.inputContainer}>
         <label htmlFor="image">Name:</label>
-        <input type="text" name="name" value={item.name} onChange={handleChangeName} />
+        <input
+          type="text"
+          name="name"
+          value={item.name}
+          onChange={handleChangeName}
+        />
       </div>
       <br />
       <div className={styles.inputContainer}>
         <label htmlFor="image">Price:</label>
-        <input type="text" name="price" value={item.price} onChange={handleChangePrice} />
+        <input
+          type="text"
+          name="price"
+          value={item.price}
+          onChange={handleChangePrice}
+        />
       </div>
     </div>
   ));

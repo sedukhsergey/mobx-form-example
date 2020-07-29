@@ -1,12 +1,12 @@
 import React from 'react';
-import { RegistrationView } from 'modules';
+import {
+  RegistrationView
+} from 'modules';
 
-const Registration = () => {
-  return (
-    <>
-      <RegistrationView />
-    </>
-  );
-};
+const Registration = () => (
+  <>
+    <RegistrationView />
+  </>
+);
 
 export default Registration;

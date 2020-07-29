@@ -1,11 +1,13 @@
-import { types, getRoot } from 'mobx-state-tree';
+import {
+  types, getRoot
+} from 'mobx-state-tree';
 import RedirectRouter from 'utils/RedirectRouter';
 
 const UiStore = types
   .model('AuthStore', {
     isAuthorized: types.optional(types.boolean, false),
   })
-  .actions((self) => ({
+  .actions(self => ({
     setAuthorizedStatus(status) {
       self.isAuthorized = status;
     },
@@ -19,7 +21,6 @@ const UiStore = types
       self.setAuthorizedStatus(false);
       RedirectRouter.goToLogin();
     },
-  }))
-  .views((self) => ({}));
+  }));
 
 export default UiStore;

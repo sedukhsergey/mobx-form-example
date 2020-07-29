@@ -1,6 +1,5 @@
 import express from 'express';
-import {
-  beforeMiddleware,
+import { beforeMiddleware,
   //   afterMiddleware
 } from './middleware';
 import setupRoutes from './routes';
@@ -35,14 +34,12 @@ export default class Server {
    * @return {Promise<any>}
    */
   start() {
-    return this._init().then((_) => {
+    return this._init().then(_ => {
       const PORT = this.container.configService.SERVER_PORT;
       return new Promise((resolve, _) => {
-        this.server = this.app.listen(PORT, '0.0.0.0', function () {
+        this.server = this.app.listen(PORT, '0.0.0.0', () => {
           // eslint-disable-next-line no-console
-          console.info(
-            `Express Web Service listening on port ${PORT} in ${process.env.NODE_ENV} environment!`,
-          );
+          console.info(`Express Web Service listening on port ${PORT} in ${process.env.NODE_ENV} environment!`,);
           resolve();
         });
       });

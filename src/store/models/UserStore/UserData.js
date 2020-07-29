@@ -1,14 +1,15 @@
-import { types } from 'mobx-state-tree';
+import {
+  types
+} from 'mobx-state-tree';
 
 const UserData = types
   .model('UserData', {
     email: types.maybeNull(types.string),
   })
-  .actions((self) => ({
+  .actions(self => ({
     setEmail(email) {
       self.email = email;
     },
-  }))
-  .views((self) => ({}));
+  }));
 
 export default UserData;
