@@ -2,7 +2,7 @@ import dvr from 'mobx-react-form/lib/validators/DVR';
 import validatorjs from 'validatorjs';
 import Form from 'mobx-react-form';
 import {
-  initStore
+  initStore,
 } from 'store';
 
 const plugins = {
@@ -38,11 +38,7 @@ const hooks = {
   onSuccess(form) {
     // get field values
     try {
-      const {
-        userStore: {
-          createUser,
-        },
-      } = initStore();
+      const { userStore: { createUser, }, } = initStore();
       const user = JSON.parse(localStorage.getItem('user'));
       if (!user) {
         createUser({

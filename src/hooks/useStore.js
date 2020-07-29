@@ -1,8 +1,8 @@
 import {
-  useContext
+  useContext,
 } from 'react';
 import {
-  storeContext
+  storeContext,
 } from '../store/StoreProvider';
 
 export const useStore = () => useContext(storeContext);

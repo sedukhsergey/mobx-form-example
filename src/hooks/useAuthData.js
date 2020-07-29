@@ -1,8 +1,8 @@
 import {
-  useObserver
+  useObserver,
 } from 'mobx-react';
 import {
-  useStore
+  useStore,
 } from './useStore';
 
 export const useAuthData = () => {

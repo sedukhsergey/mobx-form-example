@@ -1,9 +1,9 @@
 import React from 'react';
 import {
-  Link
+  Link,
 } from 'react-router-dom';
 import {
-  LoginView
+  LoginView,
 } from '../../modules';
 import styles from './styles.module.css';
 

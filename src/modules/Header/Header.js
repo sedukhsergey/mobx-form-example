@@ -1,16 +1,16 @@
 import React from 'react';
 import {
-  observer
+  observer,
 } from 'mobx-react';
 import {
-  Link
+  Link,
 } from 'react-router-dom';
 import styles from './styles.module.css';
 import {
-  Button
+  Button,
 } from 'components';
 import {
-  useAuthData
+  useAuthData,
 } from 'hooks/useAuthData';
 
 const handleFetchUsers = () => {

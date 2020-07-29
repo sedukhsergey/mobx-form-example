@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  observer
+  observer,
 } from 'mobx-react';
 import styles from './styles.module.css';
 

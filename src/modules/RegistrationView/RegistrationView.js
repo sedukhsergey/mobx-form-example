@@ -1,12 +1,12 @@
 import React from 'react';
 import {
-  observer
+  observer,
 } from 'mobx-react';
 import {
-  form
+  form,
 } from './RegistrationForm';
 import {
-  Input, ErrorMessage, Button
+  Input, ErrorMessage, Button,
 } from 'components';
 import styles from './styles.module.css';
 

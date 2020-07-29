@@ -1,5 +1,5 @@
 import {
-  types, destroy
+  types, destroy,
 } from 'mobx-state-tree';
 import WishListItem from './WishListItem';
 

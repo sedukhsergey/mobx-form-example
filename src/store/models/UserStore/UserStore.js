@@ -1,5 +1,5 @@
 import {
-  types, getRoot
+  types, getRoot,
 } from 'mobx-state-tree';
 import RedirectRouter from 'utils/RedirectRouter';
 import UserData from './UserData';

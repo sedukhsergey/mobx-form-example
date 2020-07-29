@@ -1,19 +1,19 @@
 import React, {
-  useState, useEffect
+  useState, useEffect,
 } from 'react';
 import {
-  values
+  values,
 } from 'mobx';
 import {
-  useObserver
+  useObserver,
 } from 'mobx-react';
 import styles from './styles.module.css';
 import SantaImage from '../../assets/santa.jpeg';
 import {
-  WishListView
+  WishListView,
 } from '../../modules';
 import {
-  useGroupData
+  useGroupData,
 } from '../../hooks/useGroupData';
 
 const Dashboard = () => {

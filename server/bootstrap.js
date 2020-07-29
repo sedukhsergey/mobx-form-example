@@ -12,7 +12,7 @@ require('@babel/register')({
  * If just a regular server boot
  */
 if (process.argv.length < 3) {
-  return require('./index.new');
+  return require('./index');
 }
 
 const executionType = process.argv[2];

@@ -1,5 +1,5 @@
 import {
-  types
+  types,
 } from 'mobx-state-tree';
 
 const UserData = types

@@ -1,15 +1,15 @@
 import React from 'react';
 import {
-  Switch, Route
+  Switch, Route,
 } from 'react-router-dom';
 import {
-  Header
+  Header,
 } from 'modules';
 import {
-  PublicLayout
+  PublicLayout,
 } from 'layouts';
 import {
-  Dashboard, Navigator, Login, Page404, Registration
+  Dashboard, Navigator, Login, Page404, Registration,
 } from 'pages';
 
 const App = () => (

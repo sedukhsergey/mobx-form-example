@@ -1,8 +1,8 @@
 import {
-  getSnapshot, onSnapshot, onPatch
+  getSnapshot, onSnapshot, onPatch,
 } from 'mobx-state-tree';
 import {
-  reaction
+  reaction,
 } from 'mobx';
 import WishListStore from './WishListStore';
 

@@ -1,11 +1,11 @@
 import React, {
-  useState, useRef
+  useState, useRef,
 } from 'react';
 import {
-  inject, observer
+  inject, observer,
 } from 'mobx-react';
 import {
-  values
+  values,
 } from 'mobx';
 import styles from './style.module.css';
 const Home = inject('mobxStore')(observer(props => {

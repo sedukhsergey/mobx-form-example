@@ -1,7 +1,7 @@
 import express from 'express';
 import {
-  beforeMiddleware
-  //   afterMiddleware
+  beforeMiddleware,
+  afterMiddleware,
 } from './middleware';
 import setupRoutes from './routes';
 import getContainer from './container';
@@ -22,6 +22,7 @@ export default class Server {
       this.container = Object.assign(this.container, container);
       beforeMiddleware(this.app, this.container);
       setupRoutes(this.app, this.container);
+      afterMiddleware(this.app, this.container);
     } catch (err) {
       console.error(err);
       throw err;

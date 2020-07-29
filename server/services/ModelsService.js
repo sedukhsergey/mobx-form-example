@@ -1,5 +1,5 @@
 import {
-  Users
+  Users,
 } from '../models';
 
 export default class ModelsService {

@@ -1,13 +1,11 @@
 import React, {
-  useState
+  useState,
 } from 'react';
 import WishListItemModel from 'store/models/WishListStore/WishListItem';
 import  WishListItemEdit  from '../WishListItemEdit';
 import styles from './styles.module.css';
 
-const WishListItemEntry = ({
-  add,
-}) => {
+const WishListItemEntry = ({ add, }) => {
   const [
     item, setItem,
   ] = useState(WishListItemModel.create({

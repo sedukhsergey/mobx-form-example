@@ -1,12 +1,10 @@
 import React from 'react';
 import styles from './styles.module.css';
 import {
-  useObserver
+  useObserver,
 } from 'mobx-react';
 
-const WishListItemEdit = ({
-  item,
-}) => {
+const WishListItemEdit = ({ item, }) => {
   const handleChangeImage = e => {
     item.changeImage(e.target.value);
   };

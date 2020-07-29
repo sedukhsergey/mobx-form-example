@@ -1,8 +1,8 @@
 import {
-  types
+  types,
 } from 'mobx-state-tree';
 import {
-  WishListStore
+  WishListStore,
 } from '../index';
 
 const User = types.model({

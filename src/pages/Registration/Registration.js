@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  RegistrationView
+  RegistrationView,
 } from 'modules';
 
 const Registration = () => (

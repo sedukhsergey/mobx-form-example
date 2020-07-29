@@ -1,6 +1,6 @@
 import * as path from 'path';
 import {
-  ConfigService, DatabaseService, ModelsService
+  ConfigService, DatabaseService, ModelsService,
 } from './services';
 
 export default async () => {

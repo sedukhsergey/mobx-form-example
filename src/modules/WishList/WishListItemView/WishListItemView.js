@@ -1,17 +1,15 @@
 import React, {
-  useState
+  useState,
 } from 'react';
 import styles from './styles.module.css';
 import {
-  clone, getSnapshot, applySnapshot
+  clone, getSnapshot, applySnapshot,
 } from 'mobx-state-tree';
 import {
-  WishListItemEdit
+  WishListItemEdit,
 } from '../../index';
 
-const WishListItemView = ({
-  item,
-}) => {
+const WishListItemView = ({ item, }) => {
   const [
     isEditable, setIsEditable,
   ] = useState(false);

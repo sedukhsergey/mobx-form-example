@@ -1,9 +1,9 @@
 import {
-  Router
+  Router,
 } from 'express';
 import UsersController from '../controllers/UsersController';
 import {
-  asyncMiddleware
+  asyncMiddleware,
 } from '../middleware/utils';
 
 export default (container = {

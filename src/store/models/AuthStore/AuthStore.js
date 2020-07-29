@@ -1,5 +1,5 @@
 import {
-  types, getRoot
+  types, getRoot,
 } from 'mobx-state-tree';
 import RedirectRouter from 'utils/RedirectRouter';
 
@@ -11,9 +11,7 @@ const UiStore = types
     setAuthorizedStatus(status) {
       self.isAuthorized = status;
     },
-    logIn({
-      email,
-    }) {
+    logIn({ email, }) {
       getRoot(self).userStore.updateUserEmail(email);
       self.setAuthorizedStatus(true);
       RedirectRouter.goToDashboard();

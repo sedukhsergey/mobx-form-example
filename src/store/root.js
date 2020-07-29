@@ -1,8 +1,8 @@
 import {
-  types, applySnapshot
+  types, applySnapshot,
 } from 'mobx-state-tree';
 import {
-  UiStore, WishListStore, GroupStore, AuthStore, UserStore
+  UiStore, WishListStore, GroupStore, AuthStore, UserStore,
 } from './models';
 let storeContainer = null;
 export let store = null;

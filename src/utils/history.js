@@ -1,5 +1,5 @@
 import {
-  createBrowserHistory
+  createBrowserHistory,
 } from 'history';
 
 export default createBrowserHistory();

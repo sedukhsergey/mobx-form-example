@@ -1,5 +1,5 @@
 import {
-  types, getParent
+  types, getParent,
 } from 'mobx-state-tree';
 
 const WishListItem = types

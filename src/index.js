@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {
-  Router
+  Router,
 } from 'react-router-dom';
 import {
-  StoreProvider
+  StoreProvider,
 } from './store/StoreProvider';
 import {
-  getStoreSnapshot
+  getStoreSnapshot,
 } from './store/getStoreSnapshot';
 import './index.css';
 import App from './modules/App/App';

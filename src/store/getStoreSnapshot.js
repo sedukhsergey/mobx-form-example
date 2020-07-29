@@ -1,5 +1,5 @@
 import {
-  initStore
+  initStore,
 } from './root';
 
 export const getStoreSnapshot = () => {

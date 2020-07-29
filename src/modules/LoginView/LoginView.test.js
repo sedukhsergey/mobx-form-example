@@ -1,7 +1,7 @@
 import React from 'react';
 import LoginView from './LoginView';
 import {
-  render, screen, fireEvent
+  render, screen, fireEvent,
 } from '@testing-library/react';
 
 describe('LoginView', () => {

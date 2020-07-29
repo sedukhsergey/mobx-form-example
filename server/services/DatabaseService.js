@@ -1,5 +1,5 @@
 import {
-  Pool
+  Pool,
 } from 'pg';
 
 export default class DatabaseService {
