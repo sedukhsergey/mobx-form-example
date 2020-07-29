@@ -1,4 +1,6 @@
-require('dotenv').config({ path: '../.env' });
+require('dotenv').config({
+  path: '../.env',
+});
 
 const app = require('./server');
 const debug = require('debug')('sqllite3:server');

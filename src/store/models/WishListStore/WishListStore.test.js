@@ -14,7 +14,8 @@ const data = {
 
 it('WishListStore test', () => {
   const list = WishListStore.create();
-  const states = [];
+  const states = [
+  ];
   onSnapshot(list, snapshot => {
     states.push(snapshot);
   });
@@ -39,7 +40,8 @@ it('WishListStore test', () => {
 
 it('WishListStore test - 2', () => {
   const list = WishListStore.create();
-  const patches = [];
+  const patches = [
+  ];
   onPatch(list, patch => {
     patches.push(patch);
   });

@@ -8,7 +8,9 @@ import styles from './styles.module.css';
 const WishListItemEntry = ({
   add,
 }) => {
-  const [item, setItem, ] = useState(WishListItemModel.create({
+  const [
+    item, setItem,
+  ] = useState(WishListItemModel.create({
     name: '',
     price: 0,
     image: '',

@@ -18,7 +18,8 @@ const initialState = [
 
 const WishListStore = types
   .model({
-    items: types.optional(types.array(WishListItem), []),
+    items: types.optional(types.array(WishListItem), [
+    ]),
   })
   .actions(self => ({
     add(item) {

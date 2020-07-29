@@ -9,7 +9,9 @@ import {
 } from 'mobx';
 import styles from './style.module.css';
 const Home = inject('mobxStore')(observer(props => {
-  const [name, setName, ] = useState('');
+  const [
+    name, setName,
+  ] = useState('');
   const inputEl = useRef(null);
   const {
     mobxStore: {

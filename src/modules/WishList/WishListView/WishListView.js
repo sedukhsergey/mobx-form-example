@@ -12,7 +12,8 @@ const WishListView = ({
   selected,
 }) => {
   const {
-    items = [], add, totalPrice,
+    items = [
+    ], add, totalPrice,
   } = selected;
   return (
     <>

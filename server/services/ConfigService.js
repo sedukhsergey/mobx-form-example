@@ -13,7 +13,7 @@ class ConfigService {
     const envFileVars = this._readFileVars(filePath);
     const envVars = this._readEnvVars();
     return {
-      ...envFileVars, ...envVars
+      ...envFileVars, ...envVars,
     };
   }
 
@@ -21,7 +21,8 @@ class ConfigService {
     if (!fs.existsSync(filePath)) {
       // eslint-disable-next-line
       console.log(chalk.yellow('.env file not found, relying on process env vars'));
-      return {};
+      return {
+      };
     }
     const envFileVars = dotenv.parse(fs.readFileSync(filePath));
     const fileName = filePath.substr(filePath.lastIndexOf('/') + 1);
@@ -33,24 +34,29 @@ class ConfigService {
       if (curr.startsWith('REACT_APP')) return acc;
       acc[curr] = envFileVars[curr];
       return acc;
-    }, {});
+    }, {
+    });
     return filteredVars;
   }
 
   _readEnvVars() {
-    const envVars = Object.keys(ConfigService.VALIDATION_SCHEMA).reduce((acc, curr) => {
-      if (process.env[curr] === undefined) return;
-      acc[curr] = process.env[curr];
-      return acc;
-    }, {});
+    const envVars = Object.keys(ConfigService.VALIDATION_SCHEMA)
+      .reduce((acc, curr) => {
+        if (process.env[curr] === undefined) return;
+        acc[curr] = process.env[curr];
+        return acc;
+      }, {
+      });
     return envVars;
   }
 
   _validateInput(envConfig) {
     const envVarsSchema = Joi.object(ConfigService.VALIDATION_SCHEMA);
     const {
-      error, value: validatedEnvConfig
-    } = envVarsSchema.validate(envConfig, { abortEarly: false, });
+      error, value: validatedEnvConfig,
+    } = envVarsSchema.validate(envConfig, {
+      abortEarly: false,
+    });
     if (error) {
       console.log('errord', error);
       throw new Error(colors.red(`Config validation erorr: ${error.message}`));
@@ -61,7 +67,9 @@ class ConfigService {
     return {
       NODE_ENV: Joi.string(),
       NODE_PATH: Joi.string(),
-      COOKIES_SECRET: Joi.string().default('f26d60305dae929ef8640a75e70dd78ab809cfe9'),
+      COOKIES_SECRET: Joi
+        .string()
+        .default('f26d60305dae929ef8640a75e70dd78ab809cfe9'),
       PORT: Joi.number().default(3000),
       SERVER_PORT: Joi.number().default(8080),
       DB_PASSWORD: Joi.string(),

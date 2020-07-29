@@ -18,7 +18,9 @@ const Button = ({
 };
 
 Button.defaultProps = {
-  looks: ['submit', ],
+  looks: [
+    'submit',
+  ],
 };
 
 export default Button;

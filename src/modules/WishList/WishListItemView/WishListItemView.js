@@ -12,8 +12,12 @@ import {
 const WishListItemView = ({
   item,
 }) => {
-  const [isEditable, setIsEditable, ] = useState(false);
-  const [cloneItem, setClone, ] = useState(null);
+  const [
+    isEditable, setIsEditable,
+  ] = useState(false);
+  const [
+    cloneItem, setClone,
+  ] = useState(null);
 
   const handleEditEnabled = () => {
     setIsEditable(true);

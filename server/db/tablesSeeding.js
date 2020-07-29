@@ -1,6 +1,10 @@
-require('dotenv').config({ path: '../.env' });
+require('dotenv').config({
+  path: '../.env',
+});
 const chalk = require('chalk');
-const { Pool } = require('pg');
+const {
+  Pool,
+} = require('pg');
 /**
  * Create Users Table
  */
@@ -13,7 +17,7 @@ const pool = new Pool({
   port: process.env.DB_PORT,
 });
 
-pool.on('error', (err, client) => {
+pool.on('error', err => {
   // eslint-disable-next-line
   console.log(chalk.red('Unexpected error on idle client', err));
   process.exit(-1);

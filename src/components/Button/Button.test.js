@@ -8,7 +8,10 @@ describe('Button', () => {
   it('Button looks props', () => {
     const {
       container,
-    } = render(<Button looks={['standard', ]} />);
+    } = render(<Button
+      looks={[
+        'standard',
+      ]} />);
     const button = container.querySelector('button');
     expect(button.className).toBe('standard');
   });
