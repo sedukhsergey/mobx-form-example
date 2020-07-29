@@ -1,5 +1,9 @@
-import { getSnapshot, onSnapshot, onPatch } from 'mobx-state-tree';
-import { reaction } from 'mobx';
+import {
+  getSnapshot, onSnapshot, onPatch,
+} from 'mobx-state-tree';
+import {
+  reaction,
+} from 'mobx';
 import WishListStore from './WishListStore';
 
 const data = {
@@ -10,12 +14,13 @@ const data = {
 
 it('WishListStore test', () => {
   const list = WishListStore.create();
-  const states = [];
-  onSnapshot(list, (snapshot) => {
+  const states = [
+  ];
+  onSnapshot(list, snapshot => {
     states.push(snapshot);
   });
   list.add(data);
-  expect(list.items.length).toBe(1);
+  expect(list.items).toHaveLength(1);
   list.items[0].changeName('Another name');
   expect(list.items[0].name).toBe('Another name');
 
@@ -35,12 +40,13 @@ it('WishListStore test', () => {
 
 it('WishListStore test - 2', () => {
   const list = WishListStore.create();
-  const patches = [];
-  onPatch(list, (patch) => {
+  const patches = [
+  ];
+  onPatch(list, patch => {
     patches.push(patch);
   });
   list.add(data);
-  expect(list.items.length).toBe(1);
+  expect(list.items).toHaveLength(1);
   list.items[0].changeName('Another name');
   expect(list.items[0].name).toBe('Another name');
 
@@ -72,10 +78,8 @@ it('can calculate totalPrice', () => {
   });
   expect(list.totalPrice).toBe(94);
   let changed = 0;
-  reaction(
-    () => list.totalPrice,
-    () => changed++,
-  );
+  reaction(() => list.totalPrice,
+    () => changed++);
   expect(changed).toBe(0);
   list.items[0].changeName('test');
   expect(changed).toBe(0);

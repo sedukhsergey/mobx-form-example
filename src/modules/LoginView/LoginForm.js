@@ -1,29 +1,30 @@
-import { initStore } from 'store';
+import {
+  initStore,
+} from 'store';
 import dvr from 'mobx-react-form/lib/validators/DVR';
 import validatorjs from 'validatorjs';
 import Form from 'mobx-react-form';
 
 const rules = {
   couponCode: {
-    function: (value) => /^[a-zA-Z]+$/.test(value),
+    function: value => /^[a-zA-Z]+$/.test(value),
     message: 'The :attribute should contain only latin letters',
   },
   uppercase: {
-    function: (value) => value.match(/^[A-Z]*$/),
+    function: value => value.match(/^[A-Z]*$/),
     message: 'The :attribute should be only in uppercase',
   },
 };
 
 const registerRule = (formRules, validator) => {
-  Object.keys(formRules).forEach((key) =>
-    validator.register(key, formRules[key].function, formRules[key].message),
-  );
+  Object.keys(formRules).forEach(key =>
+    validator.register(key, formRules[key].function, formRules[key].message));
 };
 
 const plugins = {
   dvr: dvr({
     package: validatorjs,
-    extend: ({ validator }) => registerRule(rules, validator),
+    extend: ({ validator, }) => registerRule(rules, validator),
   }),
 };
 
@@ -55,20 +56,24 @@ const fields = [
 const hooks = {
   onSuccess(form) {
     // get field values;
-    const {
-      authStore: { logIn },
-    } = initStore();
+    const { authStore: { logIn, }, } = initStore();
     try {
       const user = JSON.parse(localStorage.getItem('user'));
       if (!user) {
-        form.invalidate("User with this email doesn't exist");
+        form.invalidate('User with this email doesn\'t exist');
         return;
       }
-      if (form.values().email !== user.email || form.values().password !== user.password) {
+      if (
+        form.values().email !== user.email ||
+        form.values().password !== user.password
+      ) {
         form.invalidate('Incorrect email or password');
         return;
       }
-      if (form.values().email === user.email && form.values().password === user.password) {
+      if (
+        form.values().email === user.email &&
+        form.values().password === user.password
+      ) {
         logIn({
           email: form.values().email,
           password: form.values().password,
@@ -78,7 +83,7 @@ const hooks = {
       console.error('error message', err);
     }
   },
-  onError(form) {
+  onError() {
     alert('Form has errors!');
     // get all form errors
   },
@@ -90,4 +95,8 @@ const hooks = {
 //   },
 // }
 
-export const form = new Form({ fields }, { plugins, hooks });
+export const form = new Form({
+  fields,
+}, {
+  plugins, hooks,
+});

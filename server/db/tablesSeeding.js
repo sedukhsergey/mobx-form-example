@@ -1,20 +1,37 @@
-require('dotenv').config({path: '../.env'});
-const { pool } = require('./db');
+require('dotenv').config({
+  path: '../.env',
+});
+const chalk = require('chalk');
+const { Pool, } = require('pg');
 /**
  * Create Users Table
  */
+
+const pool = new Pool({
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_API,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
+});
+
+pool.on('error', err => {
+  // eslint-disable-next-line
+  console.log(chalk.red('Unexpected error on idle client', err));
+  process.exit(-1);
+});
+
 const createUsersTable = async () => {
-  const queryText =
-    `CREATE TABLE IF NOT EXISTS users (
+  const queryText = `CREATE TABLE IF NOT EXISTS users (
       id serial primary key,
       name varchar(50) not null,
       email varchar (50) not null
     )`;
   try {
-    const response = pool.query(queryText)
-    console.log('create user table response',response)
-  } catch(err) {
-    console.error('create user table error',err)
+    const response = pool.query(queryText);
+    console.log('create user table response', response);
+  } catch (err) {
+    console.error('create user table error', err);
   }
 };
 //
@@ -174,10 +191,9 @@ const createUsersTable = async () => {
  */
 const createAllTables = () => {
   createUsersTable();
-}
+};
 /**
  * Drop All Tables
  */
-
 
 createAllTables();

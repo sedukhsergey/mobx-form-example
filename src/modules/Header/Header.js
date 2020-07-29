@@ -1,34 +1,44 @@
 import React from 'react';
-import { observer } from 'mobx-react';
-import { Link } from 'react-router-dom';
+import {
+  observer,
+} from 'mobx-react';
+import {
+  Link,
+} from 'react-router-dom';
 import styles from './styles.module.css';
-import { Button } from 'components';
-import { useAuthData } from 'hooks/useAuthData';
+import {
+  Button,
+} from 'components';
+import {
+  useAuthData,
+} from 'hooks/useAuthData';
 
 const handleFetchUsers = () => {
   fetch(`${process.env.REACT_APP_BACKEND_API}/users`)
-    .then((res) => res.json())
-    .then((data) => {
+    .then(res => res.json())
+    .then(data => {
       console.log('fetch users data', data);
     })
-    .catch((err) => {
+    .catch(err => {
       console.error('fetch err', err);
     });
 };
 
-const handleFetchUser = (id) => {
+const handleFetchUser = () => {
   fetch(`${process.env.REACT_APP_BACKEND_API}/users?id=${1}`)
-    .then((res) => res.json())
-    .then((data) => {
+    .then(res => res.json())
+    .then(data => {
       console.log('fetch user dta', data);
     })
-    .catch((err) => {
-      console.error('fetch err', err);
+    .catch(err => {
+      console.log('fetch err', err);
     });
 };
 
 const handleCreateUser = () => {
-  const data = JSON.stringify({ name: 'Soe', email: 'some@email.com' });
+  const data = JSON.stringify({
+    name: 'Soe', email: 'some@email.com',
+  });
   fetch(`${process.env.REACT_APP_BACKEND_API}/users`, {
     method: 'POST',
     body: data,
@@ -36,16 +46,18 @@ const handleCreateUser = () => {
       'Content-Type': 'application/json',
     },
   })
-    .then((res) => {
-      return res.json();
-    })
-    .then((data) => {
+    .then(res => res.json())
+    .then(data => {
       console.log('create user', data);
     })
-    .catch((err) => {});
+    .catch(err => {
+      console.log('err', err);
+    });
 };
-const handleUpdateUser = (id) => {
-  const data = JSON.stringify({ name: 'SoeUPDATED', email: 'some@email.comUp' });
+const handleUpdateUser = id => {
+  const data = JSON.stringify({
+    name: 'SoeUPDATED', email: 'some@email.comUp',
+  });
   fetch(`${process.env.REACT_APP_BACKEND_API}/users?id=${id}`, {
     method: 'PUT',
     body: data,
@@ -53,37 +65,35 @@ const handleUpdateUser = (id) => {
       'Content-Type': 'application/json',
     },
   })
-    .then((res) => {
-      return res.json();
-    })
-    .then((data) => {
+    .then(res => res.json())
+    .then(data => {
       console.log('update user data', data);
     })
-    .catch((err) => {
+    .catch(err => {
       console.log('fetch err', err);
     });
 };
 
-const handleDeleteUser = (id) => {
+const handleDeleteUser = () => {
   fetch(`${process.env.REACT_APP_BACKEND_API}/users?id=${1}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
     },
   })
-    .then((res) => {
-      return res.json();
-    })
-    .then((data) => {
+    .then(res => res.json())
+    .then(data => {
       console.log('delete user data', data);
     })
-    .catch((err) => {
+    .catch(err => {
       console.log('fetch err', err);
     });
 };
 
 const Header = () => {
-  const { isAuthorized, logOut } = useAuthData();
+  const {
+    isAuthorized, logOut,
+  } = useAuthData();
   return (
     <div className={styles.container}>
       <ul className={styles.list}>
@@ -96,16 +106,25 @@ const Header = () => {
           <Button onClick={handleFetchUsers}>Fetch users</Button>
         </span>
         <span>
-          <Button onClick={() => handleFetchUser(4)}>Fetch user</Button>
+          <Button
+            onClick={() => handleFetchUser(4)}>
+Fetch user
+          </Button>
         </span>
         <span>
           <Button onClick={handleCreateUser}>Create user</Button>
         </span>
         <span>
-          <Button onClick={() => handleUpdateUser(2)}>update user</Button>
+          <Button
+            onClick={() => handleUpdateUser(2)}>
+update user
+          </Button>
         </span>
         <span>
-          <Button onClick={() => handleDeleteUser(3)}>Delete user</Button>
+          <Button
+            onClick={() => handleDeleteUser(3)}>
+Delete user
+          </Button>
         </span>
       </div>
       {isAuthorized && (
