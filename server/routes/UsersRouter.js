@@ -1,27 +1,34 @@
-const express = require('express');
-const router = express.Router();
-const Users = require('../models/Users');
-const UsersController = require('../controllers/UsersController');
+import {
+  Router,
+} from 'express';
+import UsersController from '../controllers/UsersController';
+import {
+  asyncMiddleware,
+} from '../middleware/utils';
 
-const UsersRouter = () => {
+export default (container = {
+}) => {
   /* GET users listing. */
-  const usersController = new UsersController();
-  router.get('/', (req, res, next) => {
-    if (req.query.id) {
-      return usersController.getUser(req, res);
-    }
-    return usersController.getAllUsers(req, res);
-  })
+  const router = Router();
 
-  router.put('/', (req, res, next) => usersController.updateUser(req, res));
+  const usersController = new UsersController(container);
 
-  router.post('/', (req, res, next) => {
-    return usersController.createUser(req, res);
-  });
+  router.get('/',
+    asyncMiddleware(async (req, res) => {
+      if (req.query.id) {
+        return usersController.getUser(req, res);
+      }
+      return usersController.getAllUsers(req, res);
+    }));
 
-  router.delete('/', (req, res, next) => usersController.deleteUser(req, res))
+  router.put('/',
+    asyncMiddleware((req, res) => usersController.updateUser(req, res)));
+
+  router.post('/',
+    asyncMiddleware((req, res) => usersController.createUser(req, res)));
+
+  router.delete('/',
+    asyncMiddleware((req, res) => usersController.deleteUser(req, res)));
+
   return router;
-}
-
-
-module.exports = UsersRouter;
+};
