@@ -3,7 +3,7 @@ import {
   beforeMiddleware,
   //   afterMiddleware
 } from './middleware';
-// import setupRoutes from './routes';
+import setupRoutes from './routes';
 import getContainer from './container';
 
 export default class Server {
@@ -20,7 +20,7 @@ export default class Server {
       const container = await getContainer();
       this.container = Object.assign(this.container, container);
       beforeMiddleware(this.app, this.container);
-      // setupRoutes(this.app, this.container);
+      setupRoutes(this.app, this.container);
       // afterMiddleware(this.app, this.container);
     } catch (err) {
       // this.container.sentryService && this.container.sentryService.error(err);
@@ -37,7 +37,6 @@ export default class Server {
   start() {
     return this._init().then((_) => {
       const PORT = this.container.configService.SERVER_PORT;
-
       return new Promise((resolve, _) => {
         this.server = this.app.listen(PORT, '0.0.0.0', function () {
           // eslint-disable-next-line no-console

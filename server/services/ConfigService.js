@@ -59,6 +59,7 @@ class ConfigService {
     return {
       NODE_ENV: Joi.string(),
       NODE_PATH: Joi.string(),
+      COOKIES_SECRET: Joi.string().default('f26d60305dae929ef8640a75e70dd78ab809cfe9'),
       PORT: Joi.number().default(3000),
       SERVER_PORT: Joi.number().default(8080),
       DB_PASSWORD: Joi.string(),
@@ -73,8 +74,28 @@ class ConfigService {
     return this._envConfig.NODE_ENV;
   }
 
-  get PORT() {
+  get SERVER_PORT() {
     return this._envConfig.SERVER_PORT;
+  }
+
+  get COOKIES_SECRET() {
+    return this._envConfig.COOKIES_SECRET;
+  }
+
+  get DB_PASSWORD() {
+    return this._envConfig.DB_PASSWORD;
+  }
+  get DB_USER() {
+    return this._envConfig.DB_USER;
+  }
+  get DB_API() {
+    return this._envConfig.DB_API;
+  }
+  get DB_HOST() {
+    return this._envConfig.DB_HOST;
+  }
+  get DB_PORT() {
+    return this._envConfig.DB_PORT;
   }
 }
 
