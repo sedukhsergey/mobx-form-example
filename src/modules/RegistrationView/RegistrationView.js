@@ -20,9 +20,7 @@ const RegistrationView = observer(() => (
           label={form.$('email').label}
           {...form.$('email').bind()}
         />
-        <ErrorMessage>
-          {form.$('email').error}
-        </ErrorMessage>
+        <ErrorMessage>{form.$('email').error}</ErrorMessage>
       </div>
       <div className={styles.inputContainer}>
         <Input
@@ -30,9 +28,7 @@ const RegistrationView = observer(() => (
           label={form.$('password').label}
           {...form.$('password').bind()}
         />
-        <ErrorMessage>
-          {form.$('password').error}
-        </ErrorMessage>
+        <ErrorMessage>{form.$('password').error}</ErrorMessage>
       </div>
       <div className={styles.inputContainer}>
         <Input
@@ -40,9 +36,7 @@ const RegistrationView = observer(() => (
           label={form.$('passwordConfirm').label}
           {...form.$('passwordConfirm').bind()}
         />
-        <ErrorMessage>
-          {form.$('passwordConfirm').error}
-        </ErrorMessage>
+        <ErrorMessage>{form.$('passwordConfirm').error}</ErrorMessage>
       </div>
       <Button
         type="submit"
@@ -50,9 +44,7 @@ const RegistrationView = observer(() => (
         disabled={!form.isValid}>
         Submit
       </Button>
-      <ErrorMessage>
-        {form.error}
-      </ErrorMessage>
+      <ErrorMessage>{form.error}</ErrorMessage>
     </form>
   </div>
 ));

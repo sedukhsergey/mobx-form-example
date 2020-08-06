@@ -4,7 +4,7 @@ import {
   ENV_DEV, ENV_PROD, ENV_TEST, ENV_UNDEFINED,
 } from '../services/EnvironmentAwareService';
 const HTTP_AUTH_IGNORED_ENVIRONMENTS = [
-  ENV_PROD, ENV_TEST, ENV_UNDEFINED, ENV_DEV,
+  ENV_PROD, ENV_TEST, ENV_UNDEFINED, ENV_DEV
 ];
 const HTTP_AUTH_REALM = 'Simon Area.';
 const HTTP_AUTH_FILE = path.resolve(`${__dirname}/../../users.htpasswd`);

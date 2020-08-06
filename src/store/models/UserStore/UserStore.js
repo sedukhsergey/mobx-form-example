@@ -13,11 +13,13 @@ const UserStore = types
     createUser({
       email, password,
     }) {
-      localStorage.setItem('user',
+      localStorage.setItem(
+        'user',
         JSON.stringify({
           email,
           password,
-        }));
+        })
+      );
       self.updateUserEmail(email);
       getRoot(self).authStore.setAuthorizedStatus(true);
       RedirectRouter.goToDashboard();

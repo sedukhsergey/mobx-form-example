@@ -11,7 +11,6 @@ import {
 import {
   Dashboard, Navigator, Login, Page404, Registration,
 } from 'pages';
-
 const App = () => (
   <>
     <Header />

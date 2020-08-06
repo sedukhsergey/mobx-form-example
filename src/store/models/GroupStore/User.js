@@ -8,9 +8,7 @@ import {
 const User = types.model({
   id: types.number,
   name: types.string,
-  gender: types.enumeration('gender', [
-    'f', 'm',
-  ]),
+  gender: types.enumeration('gender', ['f', 'm']),
   wishList: types.optional(WishListStore, {
   }),
 });

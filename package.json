@@ -5,30 +5,29 @@
   "author": "Sergey Siedykh",
   "license": "MIT",
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
+    "autoprefixer": "^9.8.5",
     "history": "^4.10.1",
     "method-override": "^3.0.0",
     "mobx": "^5.15.4",
     "mobx-react": "^6.2.2",
     "mobx-react-form": "^2.0.8",
     "mobx-state-tree": "^3.16.0",
+    "postcss-cli": "^7.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "socket.io-client": "^2.3.0",
+    "typescript": "^3.9.7",
     "validatorjs": "^3.18.1"
   },
   "scripts": {
-    "start": "cross-env NODE_PATH=src react-scripts start",
-    "build": "react-scripts build",
+    "build:style": "tailwind build src/styles/index.css -o src/styles/tailwind.css",
+    "start": "npm run build:style && react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint './src/**/*.{js,jsx}'",
-    "lint:fix": "eslint './src/**/*.{js,jsx}' --fix",
-    "prettier": "prettier --write src/*"
+    "lint": "eslint './src/**/*.{ts,tsx,js,jsx}'",
+    "lint:fix": "eslint './src/**/*.{tx,tsx,js,jsx}' --fix"
   },
   "browserslist": {
     "production": [
@@ -43,17 +42,24 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/react": "^16.9.43",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-router": "^5.1.8",
+    "@types/react-router-dom": "^5.1.5",
+    "@typescript-eslint/eslint-plugin": "^3.7.1",
+    "@typescript-eslint/parser": "^3.7.1",
     "cross-env": "^7.0.2",
     "eslint": "^6.6.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-loader": "^4.0.2",
-    "eslint-plugin-jest": "^23.13.2",
-    "eslint-plugin-prettier": "^3.1.3",
-    "eslint-plugin-react": "^7.20.0",
-    "eslint-plugin-react-hooks": "^4.0.4",
+    "eslint-plugin-jest": "^23.19.0",
+    "eslint-plugin-react": "^7.20.5",
+    "eslint-plugin-react-hooks": "^4.0.8",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.4",
-    "prettier": "^2.0.5"
+    "tailwindcss": "^1.6.0",
+    "tailwindcss-transitions": "^2.2.0"
   },
   "husky": {
     "hooks": {

@@ -4,10 +4,7 @@ import styles from './styles.module.css';
 const WishListTotal = ({ totalPrice, }) => (
   <h3 className={styles.total}>
     <span className={styles.text}>Total: </span>
-    <span className={styles.price}>
-$
-      {totalPrice}
-    </span>
+    <span className={styles.price}>${totalPrice}</span>
   </h3>
 );
 

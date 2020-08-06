@@ -13,7 +13,7 @@ const initialState = [
     name: 'Item 2',
     price: 33.6,
     image: 'https://picsum.photos/id/237/200/300',
-  },
+  }
 ];
 
 const WishListStore = types
