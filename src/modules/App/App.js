@@ -1,54 +1,25 @@
 import React from 'react';
+import { Switch, } from 'react-router-dom';
 import {
-  Switch, Route,
-} from 'react-router-dom';
-import {
-  Header,
-} from 'modules';
-import {
-  PublicLayout,
-} from 'layouts';
-import {
-  Dashboard, Navigator, Login, Page404, Registration,
-} from 'pages';
-const App = () => (
-  <>
-    <Header />
-    <Switch>
-      <Route
-        exact
-        path="/dashboard">
-        <Dashboard />
-      </Route>
-      <Route
-        exact
-        path="/login">
-        <PublicLayout>
-          <Login />
-        </PublicLayout>
-      </Route>
-      <Route
-        exact
-        path="/registration">
-        <PublicLayout>
-          <Registration />
-        </PublicLayout>
-      </Route>
-      <Route
-        exact
-        path="/page404">
-        <PublicLayout>
-          <Page404 />
-        </PublicLayout>
-      </Route>
+  RouterConfig, RoutesWithSubRoutes,
+} from 'routes';
 
-      <Route>
-        <Navigator
-          exact
-          path="/" />
-      </Route>
-    </Switch>
-  </>
-);
+const App = () => {
+  const {
+    routes, noRouteFound,
+  } = RouterConfig();
+  return (
+    <div id="body">
+      <Switch>
+        {routes.map(route => (
+          <RoutesWithSubRoutes
+            key={route.path}
+            {...route} />
+        ))}
+        {noRouteFound}
+      </Switch>
+    </div>
+  );
+};
 
 export default App;

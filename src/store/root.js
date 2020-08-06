@@ -13,16 +13,11 @@ export let store = null;
 
 try {
   storeContainer = types.model('Store', {
-    userStore: types.optional(UserStore, {
-    }),
-    authStore: types.optional(AuthStore, {
-    }),
-    dashboardStore: types.optional(UiStore, {
-    }),
-    wishListStore: types.optional(WishListStore, {
-    }),
-    usersStore: types.optional(GroupStore, {
-    }),
+    userStore: types.optional(UserStore, {}),
+    authStore: types.optional(AuthStore, {}),
+    dashboardStore: types.optional(UiStore, {}),
+    wishListStore: types.optional(WishListStore, {}),
+    usersStore: types.optional(GroupStore, {}),
   });
 } catch (e) {
   // eslint-disable-next-line

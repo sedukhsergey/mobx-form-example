@@ -1,12 +1,10 @@
 import {
   types, getRoot,
 } from 'mobx-state-tree';
-import RedirectRouter from 'utils/RedirectRouter';
+import { RedirectRouter, } from 'routes';
 
 const UiStore = types
-  .model('AuthStore', {
-    isAuthorized: types.optional(types.boolean, false),
-  })
+  .model('AuthStore', { isAuthorized: types.optional(types.boolean, false), })
   .actions(self => ({
     setAuthorizedStatus(status) {
       self.isAuthorized = status;

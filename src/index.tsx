@@ -2,15 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {
   Router,
+  Route,
 } from 'react-router-dom';
-import {
-  StoreProvider,
-} from 'store/StoreProvider';
-import {
-  getStoreSnapshot,
-} from 'store/getStoreSnapshot';
+import { StoreProvider, } from 'store/StoreProvider';
+import { getStoreSnapshot, } from 'store/getStoreSnapshot';
 import App from 'modules/App/App';
-import RedirectRouter from 'utils/RedirectRouter';
+import { RedirectRouter, } from './routes';
+// import RedirectRouter from 'utils/RedirectRouter';
 import * as serviceWorker from './serviceWorker';
 import './styles/tailwind.css';
 
@@ -20,7 +18,9 @@ ReactDOM.render(
   <React.StrictMode>
     <StoreProvider store={store}>
       <Router history={RedirectRouter.history}>
-        <App />
+        <Route
+          path="/:locale(en|ru)?"
+          component={App} />
       </Router>
     </StoreProvider>
   </React.StrictMode>,
