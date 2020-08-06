@@ -6,7 +6,8 @@ const Button = ({
   children, looks, ...rest
 }) => {
   const customStyles = getStyle({
-    looks, styles,
+    looks,
+    styles,
   });
   return (
     <button
@@ -18,9 +19,7 @@ const Button = ({
 };
 
 Button.defaultProps = {
-  looks: [
-    'submit',
-  ],
+  looks: ['submit'],
 };
 
 export default Button;

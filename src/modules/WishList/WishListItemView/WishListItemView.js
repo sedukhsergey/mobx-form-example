@@ -10,12 +10,8 @@ import {
 } from '../../index';
 
 const WishListItemView = ({ item, }) => {
-  const [
-    isEditable, setIsEditable,
-  ] = useState(false);
-  const [
-    cloneItem, setClone,
-  ] = useState(null);
+  const [isEditable, setIsEditable] = useState(false);
+  const [cloneItem, setClone] = useState(null);
 
   const handleEditEnabled = () => {
     setIsEditable(true);
@@ -71,12 +67,8 @@ const WishListItemView = ({ item, }) => {
         className={styles.img}
         src={item.image}
         alt="logo" />}
-      <h3>
-        {item.name}
-      </h3>
-      <span>
-        {item.price}
-      </span>
+      <h3>{item.name}</h3>
+      <span>{item.price}</span>
       <button
         className={styles.editButton}
         onClick={handleEditEnabled}>

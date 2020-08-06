@@ -13,13 +13,12 @@ const initialState = [
     name: 'Item 2',
     price: 33.6,
     image: 'https://picsum.photos/id/237/200/300',
-  },
+  }
 ];
 
 const WishListStore = types
   .model({
-    items: types.optional(types.array(WishListItem), [
-    ]),
+    items: types.optional(types.array(WishListItem), []),
   })
   .actions(self => ({
     add(item) {

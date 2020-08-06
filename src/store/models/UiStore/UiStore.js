@@ -10,11 +10,13 @@ const UiStore = types
   })
   .actions(self => ({
     addUser(name) {
-      self.users.set(id,
+      self.users.set(
+        id,
         User.create({
           name,
           id,
-        }));
+        })
+      );
       id++;
     },
     reset() {

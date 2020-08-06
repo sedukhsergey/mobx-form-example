@@ -18,7 +18,8 @@ const rules = {
 
 const registerRule = (formRules, validator) => {
   Object.keys(formRules).forEach(key =>
-    validator.register(key, formRules[key].function, formRules[key].message));
+    validator.register(key, formRules[key].function, formRules[key].message)
+  );
 };
 
 const plugins = {
@@ -50,7 +51,7 @@ const fields = [
     placeholder: 'Insert Password',
     rules: 'required|string|min:5',
     type: 'password',
-  },
+  }
 ];
 
 const hooks = {
@@ -95,8 +96,12 @@ const hooks = {
 //   },
 // }
 
-export const form = new Form({
-  fields,
-}, {
-  plugins, hooks,
-});
+export const form = new Form(
+  {
+    fields,
+  },
+  {
+    plugins,
+    hooks,
+  }
+);

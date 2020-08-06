@@ -31,7 +31,7 @@ const fields = [
     placeholder: 'Confirm Password',
     rules: 'required|string|same:password',
     type: 'password',
-  },
+  }
 ];
 
 const hooks = {
@@ -67,8 +67,12 @@ const hooks = {
 //   },
 // }
 
-export const form = new Form({
-  fields,
-}, {
-  plugins, hooks,
-});
+export const form = new Form(
+  {
+    fields,
+  },
+  {
+    plugins,
+    hooks,
+  }
+);

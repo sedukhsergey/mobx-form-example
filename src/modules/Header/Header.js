@@ -37,7 +37,8 @@ const handleFetchUser = () => {
 
 const handleCreateUser = () => {
   const data = JSON.stringify({
-    name: 'Soe', email: 'some@email.com',
+    name: 'Soe',
+    email: 'some@email.com',
   });
   fetch(`${process.env.REACT_APP_BACKEND_API}/users`, {
     method: 'POST',
@@ -56,7 +57,8 @@ const handleCreateUser = () => {
 };
 const handleUpdateUser = id => {
   const data = JSON.stringify({
-    name: 'SoeUPDATED', email: 'some@email.comUp',
+    name: 'SoeUPDATED',
+    email: 'some@email.comUp',
   });
   fetch(`${process.env.REACT_APP_BACKEND_API}/users?id=${id}`, {
     method: 'PUT',
@@ -106,25 +108,16 @@ const Header = () => {
           <Button onClick={handleFetchUsers}>Fetch users</Button>
         </span>
         <span>
-          <Button
-            onClick={() => handleFetchUser(4)}>
-Fetch user
-          </Button>
+          <Button onClick={() => handleFetchUser(4)}>Fetch user</Button>
         </span>
         <span>
           <Button onClick={handleCreateUser}>Create user</Button>
         </span>
         <span>
-          <Button
-            onClick={() => handleUpdateUser(2)}>
-update user
-          </Button>
+          <Button onClick={() => handleUpdateUser(2)}>update user</Button>
         </span>
         <span>
-          <Button
-            onClick={() => handleDeleteUser(3)}>
-Delete user
-          </Button>
+          <Button onClick={() => handleDeleteUser(3)}>Delete user</Button>
         </span>
       </div>
       {isAuthorized && (

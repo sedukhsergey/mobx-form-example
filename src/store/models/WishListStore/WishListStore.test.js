@@ -14,8 +14,7 @@ const data = {
 
 it('WishListStore test', () => {
   const list = WishListStore.create();
-  const states = [
-  ];
+  const states = [];
   onSnapshot(list, snapshot => {
     states.push(snapshot);
   });
@@ -40,8 +39,7 @@ it('WishListStore test', () => {
 
 it('WishListStore test - 2', () => {
   const list = WishListStore.create();
-  const patches = [
-  ];
+  const patches = [];
   onPatch(list, patch => {
     patches.push(patch);
   });
@@ -78,8 +76,10 @@ it('can calculate totalPrice', () => {
   });
   expect(list.totalPrice).toBe(94);
   let changed = 0;
-  reaction(() => list.totalPrice,
-    () => changed++);
+  reaction(
+    () => list.totalPrice,
+    () => changed++
+  );
   expect(changed).toBe(0);
   list.items[0].changeName('test');
   expect(changed).toBe(0);

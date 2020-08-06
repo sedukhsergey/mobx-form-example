@@ -34,8 +34,9 @@ class RedirectRouter {
       `/main/campaign/${campaignId}/assessment/${assessmentId}`
     );
   }
-
-  getCurrentPath = () => this.history.location.pathname;
+  getCurrentPath = () => (
+    this.history.location.pathname
+  )
 }
 
 export default new RedirectRouter();

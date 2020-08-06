@@ -1,6 +1,5 @@
 const getStyle = ({
-  looks = [
-  ], styles,
+  looks = [], styles,
 }) =>
   // map looks to a styles[look] string
   looks.map(look => styles[look]).join(' ');
