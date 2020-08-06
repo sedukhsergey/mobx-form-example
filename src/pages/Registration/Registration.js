@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  RegistrationView,
-} from 'modules';
+import RegistrationView from './RegistrationView';
 
 const Registration = () => (
   <>

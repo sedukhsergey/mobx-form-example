@@ -1,10 +1,6 @@
-import {
-  Router,
-} from 'express';
+import { Router, } from 'express';
 import UsersController from '../controllers/UsersController';
-import {
-  asyncMiddleware,
-} from '../middleware/utils';
+import { asyncMiddleware, } from '../middleware/utils';
 
 export default (container = {
 }) => {

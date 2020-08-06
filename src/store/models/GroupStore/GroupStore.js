@@ -1,6 +1,4 @@
-import {
-  types,
-} from 'mobx-state-tree';
+import { types, } from 'mobx-state-tree';
 import User from './User';
 
 const initialState = {
@@ -17,9 +15,7 @@ const initialState = {
 };
 
 const GroupStore = types
-  .model({
-    users: types.map(User),
-  })
+  .model({ users: types.map(User), })
   .actions(self => ({
     createItems(items) {
       self.users = items;

@@ -5,9 +5,7 @@ import User from './User';
 
 let id = 1;
 const UiStore = types
-  .model('UiStore', {
-    users: types.map(User),
-  })
+  .model('UiStore', { users: types.map(User), })
   .actions(self => ({
     addUser(name) {
       self.users.set(

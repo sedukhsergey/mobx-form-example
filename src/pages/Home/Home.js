@@ -4,9 +4,7 @@ import React, {
 import {
   inject, observer,
 } from 'mobx-react';
-import {
-  values,
-} from 'mobx';
+import { values, } from 'mobx';
 import styles from './style.module.css';
 const Home = inject('mobxStore')(
   observer(props => {
