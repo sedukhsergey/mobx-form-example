@@ -1,6 +1,6 @@
 import React from 'react';
-import { Redirect, } from 'react-router-dom';
-import { localStorage, } from '../../utils';
+import { Redirect } from 'react-router-dom';
+import { localStorage } from '../../utils';
 
 type Props = {
     allowedRoles: string[];

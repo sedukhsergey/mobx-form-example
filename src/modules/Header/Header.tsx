@@ -1,5 +1,5 @@
-import React, { useState, } from 'react';
-import { Button, } from 'components';
+import React, { useState } from 'react';
+import { Button } from 'components';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);

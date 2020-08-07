@@ -3,7 +3,7 @@ import {
   Route, Redirect,
 } from 'react-router-dom';
 import RoutesList from '../RoutesList';
-import { localStorage, } from 'utils';
+import { localStorage } from 'utils';
 
 type RouteElement = {
     path: string;
@@ -41,7 +41,7 @@ const PrivateRoute: React.FC<Props> = ({
         <Redirect
           to={{
             pathname: RoutesList.login,
-            state: { from: props.location, },
+            state: { from: props.location },
           }}
         />
       );

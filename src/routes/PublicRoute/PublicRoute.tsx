@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Route, Redirect,
 } from 'react-router-dom';
-import { localStorage, } from 'utils';
+import { localStorage } from 'utils';
 import RoutesList from '../RoutesList';
 
 type RouteElement = {
@@ -35,7 +35,7 @@ const PublicRoute: React.FC<Props> = ({
         <Redirect
           to={{
             pathname: RoutesList.splash,
-            state: { from: props.location, },
+            state: { from: props.location },
           }}
         />
       ) : (

@@ -1,12 +1,12 @@
 import React from 'react';
-import { observer, } from 'mobx-react';
+import { observer } from 'mobx-react';
 import WishListItemView from '../WishListItemView';
 import styles from './styles.module.css';
 import {
   WishListTotal, WishListItemEntry,
 } from '../../../../modules';
 
-const WishListView = ({ selected, }) => {
+const WishListView = ({ selected }) => {
   const {
     items = [], add, totalPrice,
   } = selected;

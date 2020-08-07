@@ -1,6 +1,6 @@
 import React from 'react';
-import { observer, } from 'mobx-react';
-import { form, } from './RegistrationForm';
+import { observer } from 'mobx-react';
+import { form } from './RegistrationForm';
 import {
   Input, ErrorMessage, Button,
 } from 'components';

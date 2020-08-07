@@ -1,12 +1,12 @@
 import React, {
   useState, useEffect,
 } from 'react';
-import { values, } from 'mobx';
-import { useObserver, } from 'mobx-react';
+import { values } from 'mobx';
+import { useObserver } from 'mobx-react';
 import styles from './styles.module.css';
 import SantaImage from '../../assets/santa.jpeg';
 import WishListView from './WishList/WishListItemView';
-import { useGroupData, } from '../../hooks/useGroupData';
+import { useGroupData } from '../../hooks/useGroupData';
 
 const Dashboard = () => {
   const [selectedUser, setSelectedUser] = useState(null);

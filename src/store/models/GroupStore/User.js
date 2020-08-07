@@ -1,5 +1,5 @@
-import { types, } from 'mobx-state-tree';
-import { WishListStore, } from '../index';
+import { types } from 'mobx-state-tree';
+import { WishListStore } from '../index';
 
 const User = types.model({
   id: types.number,
