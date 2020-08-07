@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './styles.module.css';
-import { useObserver, } from 'mobx-react';
+import { useObserver } from 'mobx-react';
 
-const WishListItemEdit = ({ item, }) => {
+const WishListItemEdit = ({ item }) => {
   const handleChangeImage = e => {
     item.changeImage(e.target.value);
   };
@@ -53,6 +53,6 @@ const WishListItemEdit = ({ item, }) => {
   ));
 };
 
-WishListItemEdit.defaultProps = { item: { image: '', }, };
+WishListItemEdit.defaultProps = { item: { image: '' } };
 
 export default WishListItemEdit;

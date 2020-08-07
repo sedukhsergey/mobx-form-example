@@ -1,11 +1,11 @@
-import React, { useState, } from 'react';
+import React, { useState } from 'react';
 import styles from './styles.module.css';
 import {
   clone, getSnapshot, applySnapshot,
 } from 'mobx-state-tree';
 import WishListItemEdit from '../WishListItemEdit';
 
-const WishListItemView = ({ item, }) => {
+const WishListItemView = ({ item }) => {
   const [isEditable, setIsEditable] = useState(false);
   const [cloneItem, setClone] = useState(null);
 

@@ -18,6 +18,6 @@ const Button = ({
   );
 };
 
-Button.defaultProps = { looks: ['submit'], };
+Button.defaultProps = { looks: ['submit'] };
 
 export default Button;

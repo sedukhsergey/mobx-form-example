@@ -1,4 +1,4 @@
-import { initStore, } from './root';
+import { initStore } from './root';
 
 export const getStoreSnapshot = () => {
   const auth = JSON.parse(localStorage.getItem('authStatus'));
@@ -6,5 +6,5 @@ export const getStoreSnapshot = () => {
   if (auth?.isLogin) {
     authStore.isAuthorized = true;
   }
-  return initStore({ authStore, });
+  return initStore({ authStore });
 };

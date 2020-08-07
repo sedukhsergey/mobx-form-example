@@ -1,11 +1,11 @@
 import {
   types, getRoot,
 } from 'mobx-state-tree';
-import { RedirectRouter, } from 'routes';
+import { RedirectRouter } from 'routes';
 import UserData from './UserData';
 
 const UserStore = types
-  .model('UserStore', { userData: types.optional(UserData, {}), })
+  .model('UserStore', { userData: types.optional(UserData, {}) })
   .actions(self => ({
     createUser({
       email, password,

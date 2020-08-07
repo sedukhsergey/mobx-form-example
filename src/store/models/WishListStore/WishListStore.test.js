@@ -1,7 +1,7 @@
 import {
   getSnapshot, onSnapshot, onPatch,
 } from 'mobx-state-tree';
-import { reaction, } from 'mobx';
+import { reaction } from 'mobx';
 import WishListStore from './WishListStore';
 
 const data = {

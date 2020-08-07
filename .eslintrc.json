@@ -35,6 +35,26 @@
     "jest/prefer-to-have-length": "warn",
     "jest/valid-expect": "error",
     "@typescript-eslint/no-var-requires": 0,
+    "@typescript-eslint/ban-types": [
+      "warn",
+      {
+        "types": {
+          // add a custom message to help explain why not to use it
+          "Foo": "Don't use Far because it is unsafe",
+
+          // add a custom message, AND tell the plugin how to fix it
+          "String": {
+            "message": "Use string instead",
+            "fixWith": "string"
+          },
+
+          "{}": {
+            "message": "Use object instead",
+            "fixWith": "object"
+          }
+        }
+      }
+    ],
     "react/prop-types": [ 0 ],
     "react/jsx-first-prop-new-line": [1, "multiline"],
     "react/jsx-max-props-per-line": [1, {"maximum": 1}],
@@ -49,8 +69,8 @@
     ],
     "comma-dangle": ["error", {
       "arrays": "never",
-      "objects": "always",
-      "imports": "always",
+      "objects": "always-multiline",
+      "imports": "always-multiline",
       "exports": "never",
       "functions": "never"
     }],

@@ -1,4 +1,4 @@
-import { RoutesList, } from '../../routes';
+import { RoutesList } from '../../routes';
 import {
   createBrowserHistory, History,
 } from 'history';
