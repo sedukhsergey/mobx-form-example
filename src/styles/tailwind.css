@@ -578,21 +578,12 @@ video {
 }
 
 @keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-
   to {
     transform: rotate(360deg);
   }
 }
 
 @keyframes ping {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-
   75%, 100% {
     transform: scale(2);
     opacity: 0;
@@ -600,10 +591,6 @@ video {
 }
 
 @keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-
   50% {
     opacity: .5;
   }
@@ -616,13 +603,9 @@ video {
   }
 
   50% {
-    transform: translateY(0);
+    transform: none;
     animation-timing-function: cubic-bezier(0,0,0.2,1);
   }
-}
-
-*, *::before, *::after {
-  --transition-duration: 250ms;
 }
 
 .container {
@@ -12436,7 +12419,7 @@ video {
 }
 
 .shadow-outline {
-  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5) !important;
+  box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5) !important;
 }
 
 .shadow-none {
@@ -12468,7 +12451,7 @@ video {
 }
 
 .hover\:shadow-outline:hover {
-  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5) !important;
+  box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5) !important;
 }
 
 .hover\:shadow-none:hover {
@@ -12500,7 +12483,7 @@ video {
 }
 
 .focus\:shadow-outline:focus {
-  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5) !important;
+  box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5) !important;
 }
 
 .focus\:shadow-none:focus {
@@ -18164,110 +18147,104 @@ video {
   transition-property: all !important;
 }
 
-.transition-color {
-  transition-property: color !important;
-}
-
-.transition-bg {
-  transition-property: background-color !important;
-}
-
-.transition-border {
-  transition-property: border-color !important;
+.transition {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform !important;
 }
 
 .transition-colors {
-  transition-property: color !important;
-  transition-property: background-color !important;
-  transition-property: border-color !important;
+  transition-property: background-color, border-color, color, fill, stroke !important;
 }
 
 .transition-opacity {
   transition-property: opacity !important;
 }
 
-.transition-transform {
-  transition-property: transform !important;
+.transition-shadow {
+  transition-property: box-shadow !important;
 }
 
-.ease {
-  transition-timing-function: ease !important;
+.transition-transform {
+  transition-property: transform !important;
 }
 
 .ease-linear {
   transition-timing-function: linear !important;
 }
 
-.ease-ease {
-  transition-timing-function: ease !important;
+.ease-in {
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1) !important;
 }
 
-.ease-ease-in {
-  transition-timing-function: ease-in !important;
+.ease-out {
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1) !important;
 }
 
-.ease-ease-out {
-  transition-timing-function: ease-out !important;
+.ease-in-out {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-.ease-ease-in-out {
-  transition-timing-function: ease-in-out !important;
-}
-
-.duration-0 {
-  transition-duration: 0ms !important;
+.duration-75 {
+  transition-duration: 75ms !important;
 }
 
 .duration-100 {
   transition-duration: 100ms !important;
 }
 
-.duration-250 {
-  transition-duration: 250ms !important;
+.duration-150 {
+  transition-duration: 150ms !important;
+}
+
+.duration-200 {
+  transition-duration: 200ms !important;
+}
+
+.duration-300 {
+  transition-duration: 300ms !important;
 }
 
 .duration-500 {
   transition-duration: 500ms !important;
 }
 
-.duration-750 {
-  transition-duration: 750ms !important;
+.duration-700 {
+  transition-duration: 700ms !important;
 }
 
 .duration-1000 {
   transition-duration: 1000ms !important;
 }
 
-.duration {
-  transition-duration: 250ms !important;
-}
-
-.delay-0 {
-  transition-delay: 0ms !important;
+.delay-75 {
+  transition-delay: 75ms !important;
 }
 
 .delay-100 {
   transition-delay: 100ms !important;
 }
 
-.delay-250 {
-  transition-delay: 250ms !important;
+.delay-150 {
+  transition-delay: 150ms !important;
+}
+
+.delay-200 {
+  transition-delay: 200ms !important;
+}
+
+.delay-300 {
+  transition-delay: 300ms !important;
 }
 
 .delay-500 {
   transition-delay: 500ms !important;
 }
 
-.delay-750 {
-  transition-delay: 750ms !important;
+.delay-700 {
+  transition-delay: 700ms !important;
 }
 
 .delay-1000 {
   transition-delay: 1000ms !important;
-}
-
-.delay {
-  transition-delay: 0ms !important;
 }
 
 .animate-none {
@@ -18288,154 +18265,6 @@ video {
 
 .animate-bounce {
   animation: bounce 1s infinite !important;
-}
-
-.transition-none {
-  transition-property: none !important;
-  transition-duration: 250ms !important;
-  transition-duration: var(--transition-duration) !important;
-}
-
-.transition-all {
-  transition-property: all !important;
-  transition-duration: 250ms !important;
-  transition-duration: var(--transition-duration) !important;
-}
-
-.transition-color {
-  transition-property: color !important;
-  transition-duration: 250ms !important;
-  transition-duration: var(--transition-duration) !important;
-}
-
-.transition-bg {
-  transition-property: background-color !important;
-  transition-duration: 250ms !important;
-  transition-duration: var(--transition-duration) !important;
-}
-
-.transition-border {
-  transition-property: border-color !important;
-  transition-duration: 250ms !important;
-  transition-duration: var(--transition-duration) !important;
-}
-
-.transition-colors {
-  transition-property: color, background-color, border-color !important;
-  transition-duration: 250ms !important;
-  transition-duration: var(--transition-duration) !important;
-}
-
-.transition-opacity {
-  transition-property: opacity !important;
-  transition-duration: 250ms !important;
-  transition-duration: var(--transition-duration) !important;
-}
-
-.transition-transform {
-  transition-property: transform !important;
-  transition-duration: 250ms !important;
-  transition-duration: var(--transition-duration) !important;
-}
-
-.transition-0 {
-  --transition-duration: 0ms !important;
-  transition-duration: 0ms !important;
-  transition-duration: var(--transition-duration) !important;
-}
-
-.transition-100 {
-  --transition-duration: 100ms !important;
-  transition-duration: 100ms !important;
-  transition-duration: var(--transition-duration) !important;
-}
-
-.transition-250 {
-  --transition-duration: 250ms !important;
-  transition-duration: 250ms !important;
-  transition-duration: var(--transition-duration) !important;
-}
-
-.transition-500 {
-  --transition-duration: 500ms !important;
-  transition-duration: 500ms !important;
-  transition-duration: var(--transition-duration) !important;
-}
-
-.transition-750 {
-  --transition-duration: 750ms !important;
-  transition-duration: 750ms !important;
-  transition-duration: var(--transition-duration) !important;
-}
-
-.transition-1000 {
-  --transition-duration: 1000ms !important;
-  transition-duration: 1000ms !important;
-  transition-duration: var(--transition-duration) !important;
-}
-
-.transition-linear {
-  transition-timing-function: linear !important;
-}
-
-.transition-ease {
-  transition-timing-function: ease !important;
-}
-
-.transition-ease-in {
-  transition-timing-function: ease-in !important;
-}
-
-.transition-ease-out {
-  transition-timing-function: ease-out !important;
-}
-
-.transition-ease-in-out {
-  transition-timing-function: ease-in-out !important;
-}
-
-.transition-delay-0 {
-  transition-delay: 0ms !important;
-}
-
-.transition-delay-100 {
-  transition-delay: 100ms !important;
-}
-
-.transition-delay-250 {
-  transition-delay: 250ms !important;
-}
-
-.transition-delay-500 {
-  transition-delay: 500ms !important;
-}
-
-.transition-delay-750 {
-  transition-delay: 750ms !important;
-}
-
-.transition-delay-1000 {
-  transition-delay: 1000ms !important;
-}
-
-.will-change-auto {
-  will-change: auto !important;
-}
-
-.will-change-scroll {
-  will-change: scroll-position !important;
-}
-
-.will-change-contents {
-  will-change: contents !important;
-}
-
-.will-change-opacity {
-  will-change: opacity !important;
-}
-
-.will-change-transform {
-  will-change: transform !important;
 }
 
 @media (min-width: 640px) {
@@ -30242,7 +30071,7 @@ video {
   }
 
   .sm\:shadow-outline {
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5) !important;
+    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5) !important;
   }
 
   .sm\:shadow-none {
@@ -30274,7 +30103,7 @@ video {
   }
 
   .sm\:hover\:shadow-outline:hover {
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5) !important;
+    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5) !important;
   }
 
   .sm\:hover\:shadow-none:hover {
@@ -30306,7 +30135,7 @@ video {
   }
 
   .sm\:focus\:shadow-outline:focus {
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5) !important;
+    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5) !important;
   }
 
   .sm\:focus\:shadow-none:focus {
@@ -35970,110 +35799,104 @@ video {
     transition-property: all !important;
   }
 
-  .sm\:transition-color {
-    transition-property: color !important;
-  }
-
-  .sm\:transition-bg {
-    transition-property: background-color !important;
-  }
-
-  .sm\:transition-border {
-    transition-property: border-color !important;
+  .sm\:transition {
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform !important;
   }
 
   .sm\:transition-colors {
-    transition-property: color !important;
-    transition-property: background-color !important;
-    transition-property: border-color !important;
+    transition-property: background-color, border-color, color, fill, stroke !important;
   }
 
   .sm\:transition-opacity {
     transition-property: opacity !important;
   }
 
-  .sm\:transition-transform {
-    transition-property: transform !important;
+  .sm\:transition-shadow {
+    transition-property: box-shadow !important;
   }
 
-  .sm\:ease {
-    transition-timing-function: ease !important;
+  .sm\:transition-transform {
+    transition-property: transform !important;
   }
 
   .sm\:ease-linear {
     transition-timing-function: linear !important;
   }
 
-  .sm\:ease-ease {
-    transition-timing-function: ease !important;
+  .sm\:ease-in {
+    transition-timing-function: cubic-bezier(0.4, 0, 1, 1) !important;
   }
 
-  .sm\:ease-ease-in {
-    transition-timing-function: ease-in !important;
+  .sm\:ease-out {
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1) !important;
   }
 
-  .sm\:ease-ease-out {
-    transition-timing-function: ease-out !important;
+  .sm\:ease-in-out {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
   }
 
-  .sm\:ease-ease-in-out {
-    transition-timing-function: ease-in-out !important;
-  }
-
-  .sm\:duration-0 {
-    transition-duration: 0ms !important;
+  .sm\:duration-75 {
+    transition-duration: 75ms !important;
   }
 
   .sm\:duration-100 {
     transition-duration: 100ms !important;
   }
 
-  .sm\:duration-250 {
-    transition-duration: 250ms !important;
+  .sm\:duration-150 {
+    transition-duration: 150ms !important;
+  }
+
+  .sm\:duration-200 {
+    transition-duration: 200ms !important;
+  }
+
+  .sm\:duration-300 {
+    transition-duration: 300ms !important;
   }
 
   .sm\:duration-500 {
     transition-duration: 500ms !important;
   }
 
-  .sm\:duration-750 {
-    transition-duration: 750ms !important;
+  .sm\:duration-700 {
+    transition-duration: 700ms !important;
   }
 
   .sm\:duration-1000 {
     transition-duration: 1000ms !important;
   }
 
-  .sm\:duration {
-    transition-duration: 250ms !important;
-  }
-
-  .sm\:delay-0 {
-    transition-delay: 0ms !important;
+  .sm\:delay-75 {
+    transition-delay: 75ms !important;
   }
 
   .sm\:delay-100 {
     transition-delay: 100ms !important;
   }
 
-  .sm\:delay-250 {
-    transition-delay: 250ms !important;
+  .sm\:delay-150 {
+    transition-delay: 150ms !important;
+  }
+
+  .sm\:delay-200 {
+    transition-delay: 200ms !important;
+  }
+
+  .sm\:delay-300 {
+    transition-delay: 300ms !important;
   }
 
   .sm\:delay-500 {
     transition-delay: 500ms !important;
   }
 
-  .sm\:delay-750 {
-    transition-delay: 750ms !important;
+  .sm\:delay-700 {
+    transition-delay: 700ms !important;
   }
 
   .sm\:delay-1000 {
     transition-delay: 1000ms !important;
-  }
-
-  .sm\:delay {
-    transition-delay: 0ms !important;
   }
 
   .sm\:animate-none {
@@ -36094,154 +35917,6 @@ video {
 
   .sm\:animate-bounce {
     animation: bounce 1s infinite !important;
-  }
-
-  .sm\:transition-none {
-    transition-property: none !important;
-    transition-duration: 250ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .sm\:transition-all {
-    transition-property: all !important;
-    transition-duration: 250ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .sm\:transition-color {
-    transition-property: color !important;
-    transition-duration: 250ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .sm\:transition-bg {
-    transition-property: background-color !important;
-    transition-duration: 250ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .sm\:transition-border {
-    transition-property: border-color !important;
-    transition-duration: 250ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .sm\:transition-colors {
-    transition-property: color, background-color, border-color !important;
-    transition-duration: 250ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .sm\:transition-opacity {
-    transition-property: opacity !important;
-    transition-duration: 250ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .sm\:transition-transform {
-    transition-property: transform !important;
-    transition-duration: 250ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .sm\:transition-0 {
-    --transition-duration: 0ms !important;
-    transition-duration: 0ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .sm\:transition-100 {
-    --transition-duration: 100ms !important;
-    transition-duration: 100ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .sm\:transition-250 {
-    --transition-duration: 250ms !important;
-    transition-duration: 250ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .sm\:transition-500 {
-    --transition-duration: 500ms !important;
-    transition-duration: 500ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .sm\:transition-750 {
-    --transition-duration: 750ms !important;
-    transition-duration: 750ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .sm\:transition-1000 {
-    --transition-duration: 1000ms !important;
-    transition-duration: 1000ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .sm\:transition-linear {
-    transition-timing-function: linear !important;
-  }
-
-  .sm\:transition-ease {
-    transition-timing-function: ease !important;
-  }
-
-  .sm\:transition-ease-in {
-    transition-timing-function: ease-in !important;
-  }
-
-  .sm\:transition-ease-out {
-    transition-timing-function: ease-out !important;
-  }
-
-  .sm\:transition-ease-in-out {
-    transition-timing-function: ease-in-out !important;
-  }
-
-  .sm\:transition-delay-0 {
-    transition-delay: 0ms !important;
-  }
-
-  .sm\:transition-delay-100 {
-    transition-delay: 100ms !important;
-  }
-
-  .sm\:transition-delay-250 {
-    transition-delay: 250ms !important;
-  }
-
-  .sm\:transition-delay-500 {
-    transition-delay: 500ms !important;
-  }
-
-  .sm\:transition-delay-750 {
-    transition-delay: 750ms !important;
-  }
-
-  .sm\:transition-delay-1000 {
-    transition-delay: 1000ms !important;
-  }
-
-  .sm\:will-change-auto {
-    will-change: auto !important;
-  }
-
-  .sm\:will-change-scroll {
-    will-change: scroll-position !important;
-  }
-
-  .sm\:will-change-contents {
-    will-change: contents !important;
-  }
-
-  .sm\:will-change-opacity {
-    will-change: opacity !important;
-  }
-
-  .sm\:will-change-transform {
-    will-change: transform !important;
   }
 }
 
@@ -48049,7 +47724,7 @@ video {
   }
 
   .md\:shadow-outline {
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5) !important;
+    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5) !important;
   }
 
   .md\:shadow-none {
@@ -48081,7 +47756,7 @@ video {
   }
 
   .md\:hover\:shadow-outline:hover {
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5) !important;
+    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5) !important;
   }
 
   .md\:hover\:shadow-none:hover {
@@ -48113,7 +47788,7 @@ video {
   }
 
   .md\:focus\:shadow-outline:focus {
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5) !important;
+    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5) !important;
   }
 
   .md\:focus\:shadow-none:focus {
@@ -53777,110 +53452,104 @@ video {
     transition-property: all !important;
   }
 
-  .md\:transition-color {
-    transition-property: color !important;
-  }
-
-  .md\:transition-bg {
-    transition-property: background-color !important;
-  }
-
-  .md\:transition-border {
-    transition-property: border-color !important;
+  .md\:transition {
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform !important;
   }
 
   .md\:transition-colors {
-    transition-property: color !important;
-    transition-property: background-color !important;
-    transition-property: border-color !important;
+    transition-property: background-color, border-color, color, fill, stroke !important;
   }
 
   .md\:transition-opacity {
     transition-property: opacity !important;
   }
 
-  .md\:transition-transform {
-    transition-property: transform !important;
+  .md\:transition-shadow {
+    transition-property: box-shadow !important;
   }
 
-  .md\:ease {
-    transition-timing-function: ease !important;
+  .md\:transition-transform {
+    transition-property: transform !important;
   }
 
   .md\:ease-linear {
     transition-timing-function: linear !important;
   }
 
-  .md\:ease-ease {
-    transition-timing-function: ease !important;
+  .md\:ease-in {
+    transition-timing-function: cubic-bezier(0.4, 0, 1, 1) !important;
   }
 
-  .md\:ease-ease-in {
-    transition-timing-function: ease-in !important;
+  .md\:ease-out {
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1) !important;
   }
 
-  .md\:ease-ease-out {
-    transition-timing-function: ease-out !important;
+  .md\:ease-in-out {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
   }
 
-  .md\:ease-ease-in-out {
-    transition-timing-function: ease-in-out !important;
-  }
-
-  .md\:duration-0 {
-    transition-duration: 0ms !important;
+  .md\:duration-75 {
+    transition-duration: 75ms !important;
   }
 
   .md\:duration-100 {
     transition-duration: 100ms !important;
   }
 
-  .md\:duration-250 {
-    transition-duration: 250ms !important;
+  .md\:duration-150 {
+    transition-duration: 150ms !important;
+  }
+
+  .md\:duration-200 {
+    transition-duration: 200ms !important;
+  }
+
+  .md\:duration-300 {
+    transition-duration: 300ms !important;
   }
 
   .md\:duration-500 {
     transition-duration: 500ms !important;
   }
 
-  .md\:duration-750 {
-    transition-duration: 750ms !important;
+  .md\:duration-700 {
+    transition-duration: 700ms !important;
   }
 
   .md\:duration-1000 {
     transition-duration: 1000ms !important;
   }
 
-  .md\:duration {
-    transition-duration: 250ms !important;
-  }
-
-  .md\:delay-0 {
-    transition-delay: 0ms !important;
+  .md\:delay-75 {
+    transition-delay: 75ms !important;
   }
 
   .md\:delay-100 {
     transition-delay: 100ms !important;
   }
 
-  .md\:delay-250 {
-    transition-delay: 250ms !important;
+  .md\:delay-150 {
+    transition-delay: 150ms !important;
+  }
+
+  .md\:delay-200 {
+    transition-delay: 200ms !important;
+  }
+
+  .md\:delay-300 {
+    transition-delay: 300ms !important;
   }
 
   .md\:delay-500 {
     transition-delay: 500ms !important;
   }
 
-  .md\:delay-750 {
-    transition-delay: 750ms !important;
+  .md\:delay-700 {
+    transition-delay: 700ms !important;
   }
 
   .md\:delay-1000 {
     transition-delay: 1000ms !important;
-  }
-
-  .md\:delay {
-    transition-delay: 0ms !important;
   }
 
   .md\:animate-none {
@@ -53901,154 +53570,6 @@ video {
 
   .md\:animate-bounce {
     animation: bounce 1s infinite !important;
-  }
-
-  .md\:transition-none {
-    transition-property: none !important;
-    transition-duration: 250ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .md\:transition-all {
-    transition-property: all !important;
-    transition-duration: 250ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .md\:transition-color {
-    transition-property: color !important;
-    transition-duration: 250ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .md\:transition-bg {
-    transition-property: background-color !important;
-    transition-duration: 250ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .md\:transition-border {
-    transition-property: border-color !important;
-    transition-duration: 250ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .md\:transition-colors {
-    transition-property: color, background-color, border-color !important;
-    transition-duration: 250ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .md\:transition-opacity {
-    transition-property: opacity !important;
-    transition-duration: 250ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .md\:transition-transform {
-    transition-property: transform !important;
-    transition-duration: 250ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .md\:transition-0 {
-    --transition-duration: 0ms !important;
-    transition-duration: 0ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .md\:transition-100 {
-    --transition-duration: 100ms !important;
-    transition-duration: 100ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .md\:transition-250 {
-    --transition-duration: 250ms !important;
-    transition-duration: 250ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .md\:transition-500 {
-    --transition-duration: 500ms !important;
-    transition-duration: 500ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .md\:transition-750 {
-    --transition-duration: 750ms !important;
-    transition-duration: 750ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .md\:transition-1000 {
-    --transition-duration: 1000ms !important;
-    transition-duration: 1000ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .md\:transition-linear {
-    transition-timing-function: linear !important;
-  }
-
-  .md\:transition-ease {
-    transition-timing-function: ease !important;
-  }
-
-  .md\:transition-ease-in {
-    transition-timing-function: ease-in !important;
-  }
-
-  .md\:transition-ease-out {
-    transition-timing-function: ease-out !important;
-  }
-
-  .md\:transition-ease-in-out {
-    transition-timing-function: ease-in-out !important;
-  }
-
-  .md\:transition-delay-0 {
-    transition-delay: 0ms !important;
-  }
-
-  .md\:transition-delay-100 {
-    transition-delay: 100ms !important;
-  }
-
-  .md\:transition-delay-250 {
-    transition-delay: 250ms !important;
-  }
-
-  .md\:transition-delay-500 {
-    transition-delay: 500ms !important;
-  }
-
-  .md\:transition-delay-750 {
-    transition-delay: 750ms !important;
-  }
-
-  .md\:transition-delay-1000 {
-    transition-delay: 1000ms !important;
-  }
-
-  .md\:will-change-auto {
-    will-change: auto !important;
-  }
-
-  .md\:will-change-scroll {
-    will-change: scroll-position !important;
-  }
-
-  .md\:will-change-contents {
-    will-change: contents !important;
-  }
-
-  .md\:will-change-opacity {
-    will-change: opacity !important;
-  }
-
-  .md\:will-change-transform {
-    will-change: transform !important;
   }
 }
 
@@ -65856,7 +65377,7 @@ video {
   }
 
   .lg\:shadow-outline {
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5) !important;
+    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5) !important;
   }
 
   .lg\:shadow-none {
@@ -65888,7 +65409,7 @@ video {
   }
 
   .lg\:hover\:shadow-outline:hover {
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5) !important;
+    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5) !important;
   }
 
   .lg\:hover\:shadow-none:hover {
@@ -65920,7 +65441,7 @@ video {
   }
 
   .lg\:focus\:shadow-outline:focus {
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5) !important;
+    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5) !important;
   }
 
   .lg\:focus\:shadow-none:focus {
@@ -71584,110 +71105,104 @@ video {
     transition-property: all !important;
   }
 
-  .lg\:transition-color {
-    transition-property: color !important;
-  }
-
-  .lg\:transition-bg {
-    transition-property: background-color !important;
-  }
-
-  .lg\:transition-border {
-    transition-property: border-color !important;
+  .lg\:transition {
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform !important;
   }
 
   .lg\:transition-colors {
-    transition-property: color !important;
-    transition-property: background-color !important;
-    transition-property: border-color !important;
+    transition-property: background-color, border-color, color, fill, stroke !important;
   }
 
   .lg\:transition-opacity {
     transition-property: opacity !important;
   }
 
-  .lg\:transition-transform {
-    transition-property: transform !important;
+  .lg\:transition-shadow {
+    transition-property: box-shadow !important;
   }
 
-  .lg\:ease {
-    transition-timing-function: ease !important;
+  .lg\:transition-transform {
+    transition-property: transform !important;
   }
 
   .lg\:ease-linear {
     transition-timing-function: linear !important;
   }
 
-  .lg\:ease-ease {
-    transition-timing-function: ease !important;
+  .lg\:ease-in {
+    transition-timing-function: cubic-bezier(0.4, 0, 1, 1) !important;
   }
 
-  .lg\:ease-ease-in {
-    transition-timing-function: ease-in !important;
+  .lg\:ease-out {
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1) !important;
   }
 
-  .lg\:ease-ease-out {
-    transition-timing-function: ease-out !important;
+  .lg\:ease-in-out {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
   }
 
-  .lg\:ease-ease-in-out {
-    transition-timing-function: ease-in-out !important;
-  }
-
-  .lg\:duration-0 {
-    transition-duration: 0ms !important;
+  .lg\:duration-75 {
+    transition-duration: 75ms !important;
   }
 
   .lg\:duration-100 {
     transition-duration: 100ms !important;
   }
 
-  .lg\:duration-250 {
-    transition-duration: 250ms !important;
+  .lg\:duration-150 {
+    transition-duration: 150ms !important;
+  }
+
+  .lg\:duration-200 {
+    transition-duration: 200ms !important;
+  }
+
+  .lg\:duration-300 {
+    transition-duration: 300ms !important;
   }
 
   .lg\:duration-500 {
     transition-duration: 500ms !important;
   }
 
-  .lg\:duration-750 {
-    transition-duration: 750ms !important;
+  .lg\:duration-700 {
+    transition-duration: 700ms !important;
   }
 
   .lg\:duration-1000 {
     transition-duration: 1000ms !important;
   }
 
-  .lg\:duration {
-    transition-duration: 250ms !important;
-  }
-
-  .lg\:delay-0 {
-    transition-delay: 0ms !important;
+  .lg\:delay-75 {
+    transition-delay: 75ms !important;
   }
 
   .lg\:delay-100 {
     transition-delay: 100ms !important;
   }
 
-  .lg\:delay-250 {
-    transition-delay: 250ms !important;
+  .lg\:delay-150 {
+    transition-delay: 150ms !important;
+  }
+
+  .lg\:delay-200 {
+    transition-delay: 200ms !important;
+  }
+
+  .lg\:delay-300 {
+    transition-delay: 300ms !important;
   }
 
   .lg\:delay-500 {
     transition-delay: 500ms !important;
   }
 
-  .lg\:delay-750 {
-    transition-delay: 750ms !important;
+  .lg\:delay-700 {
+    transition-delay: 700ms !important;
   }
 
   .lg\:delay-1000 {
     transition-delay: 1000ms !important;
-  }
-
-  .lg\:delay {
-    transition-delay: 0ms !important;
   }
 
   .lg\:animate-none {
@@ -71708,154 +71223,6 @@ video {
 
   .lg\:animate-bounce {
     animation: bounce 1s infinite !important;
-  }
-
-  .lg\:transition-none {
-    transition-property: none !important;
-    transition-duration: 250ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .lg\:transition-all {
-    transition-property: all !important;
-    transition-duration: 250ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .lg\:transition-color {
-    transition-property: color !important;
-    transition-duration: 250ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .lg\:transition-bg {
-    transition-property: background-color !important;
-    transition-duration: 250ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .lg\:transition-border {
-    transition-property: border-color !important;
-    transition-duration: 250ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .lg\:transition-colors {
-    transition-property: color, background-color, border-color !important;
-    transition-duration: 250ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .lg\:transition-opacity {
-    transition-property: opacity !important;
-    transition-duration: 250ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .lg\:transition-transform {
-    transition-property: transform !important;
-    transition-duration: 250ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .lg\:transition-0 {
-    --transition-duration: 0ms !important;
-    transition-duration: 0ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .lg\:transition-100 {
-    --transition-duration: 100ms !important;
-    transition-duration: 100ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .lg\:transition-250 {
-    --transition-duration: 250ms !important;
-    transition-duration: 250ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .lg\:transition-500 {
-    --transition-duration: 500ms !important;
-    transition-duration: 500ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .lg\:transition-750 {
-    --transition-duration: 750ms !important;
-    transition-duration: 750ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .lg\:transition-1000 {
-    --transition-duration: 1000ms !important;
-    transition-duration: 1000ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .lg\:transition-linear {
-    transition-timing-function: linear !important;
-  }
-
-  .lg\:transition-ease {
-    transition-timing-function: ease !important;
-  }
-
-  .lg\:transition-ease-in {
-    transition-timing-function: ease-in !important;
-  }
-
-  .lg\:transition-ease-out {
-    transition-timing-function: ease-out !important;
-  }
-
-  .lg\:transition-ease-in-out {
-    transition-timing-function: ease-in-out !important;
-  }
-
-  .lg\:transition-delay-0 {
-    transition-delay: 0ms !important;
-  }
-
-  .lg\:transition-delay-100 {
-    transition-delay: 100ms !important;
-  }
-
-  .lg\:transition-delay-250 {
-    transition-delay: 250ms !important;
-  }
-
-  .lg\:transition-delay-500 {
-    transition-delay: 500ms !important;
-  }
-
-  .lg\:transition-delay-750 {
-    transition-delay: 750ms !important;
-  }
-
-  .lg\:transition-delay-1000 {
-    transition-delay: 1000ms !important;
-  }
-
-  .lg\:will-change-auto {
-    will-change: auto !important;
-  }
-
-  .lg\:will-change-scroll {
-    will-change: scroll-position !important;
-  }
-
-  .lg\:will-change-contents {
-    will-change: contents !important;
-  }
-
-  .lg\:will-change-opacity {
-    will-change: opacity !important;
-  }
-
-  .lg\:will-change-transform {
-    will-change: transform !important;
   }
 }
 
@@ -83663,7 +83030,7 @@ video {
   }
 
   .xl\:shadow-outline {
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5) !important;
+    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5) !important;
   }
 
   .xl\:shadow-none {
@@ -83695,7 +83062,7 @@ video {
   }
 
   .xl\:hover\:shadow-outline:hover {
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5) !important;
+    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5) !important;
   }
 
   .xl\:hover\:shadow-none:hover {
@@ -83727,7 +83094,7 @@ video {
   }
 
   .xl\:focus\:shadow-outline:focus {
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5) !important;
+    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5) !important;
   }
 
   .xl\:focus\:shadow-none:focus {
@@ -89391,110 +88758,104 @@ video {
     transition-property: all !important;
   }
 
-  .xl\:transition-color {
-    transition-property: color !important;
-  }
-
-  .xl\:transition-bg {
-    transition-property: background-color !important;
-  }
-
-  .xl\:transition-border {
-    transition-property: border-color !important;
+  .xl\:transition {
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform !important;
   }
 
   .xl\:transition-colors {
-    transition-property: color !important;
-    transition-property: background-color !important;
-    transition-property: border-color !important;
+    transition-property: background-color, border-color, color, fill, stroke !important;
   }
 
   .xl\:transition-opacity {
     transition-property: opacity !important;
   }
 
-  .xl\:transition-transform {
-    transition-property: transform !important;
+  .xl\:transition-shadow {
+    transition-property: box-shadow !important;
   }
 
-  .xl\:ease {
-    transition-timing-function: ease !important;
+  .xl\:transition-transform {
+    transition-property: transform !important;
   }
 
   .xl\:ease-linear {
     transition-timing-function: linear !important;
   }
 
-  .xl\:ease-ease {
-    transition-timing-function: ease !important;
+  .xl\:ease-in {
+    transition-timing-function: cubic-bezier(0.4, 0, 1, 1) !important;
   }
 
-  .xl\:ease-ease-in {
-    transition-timing-function: ease-in !important;
+  .xl\:ease-out {
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1) !important;
   }
 
-  .xl\:ease-ease-out {
-    transition-timing-function: ease-out !important;
+  .xl\:ease-in-out {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
   }
 
-  .xl\:ease-ease-in-out {
-    transition-timing-function: ease-in-out !important;
-  }
-
-  .xl\:duration-0 {
-    transition-duration: 0ms !important;
+  .xl\:duration-75 {
+    transition-duration: 75ms !important;
   }
 
   .xl\:duration-100 {
     transition-duration: 100ms !important;
   }
 
-  .xl\:duration-250 {
-    transition-duration: 250ms !important;
+  .xl\:duration-150 {
+    transition-duration: 150ms !important;
+  }
+
+  .xl\:duration-200 {
+    transition-duration: 200ms !important;
+  }
+
+  .xl\:duration-300 {
+    transition-duration: 300ms !important;
   }
 
   .xl\:duration-500 {
     transition-duration: 500ms !important;
   }
 
-  .xl\:duration-750 {
-    transition-duration: 750ms !important;
+  .xl\:duration-700 {
+    transition-duration: 700ms !important;
   }
 
   .xl\:duration-1000 {
     transition-duration: 1000ms !important;
   }
 
-  .xl\:duration {
-    transition-duration: 250ms !important;
-  }
-
-  .xl\:delay-0 {
-    transition-delay: 0ms !important;
+  .xl\:delay-75 {
+    transition-delay: 75ms !important;
   }
 
   .xl\:delay-100 {
     transition-delay: 100ms !important;
   }
 
-  .xl\:delay-250 {
-    transition-delay: 250ms !important;
+  .xl\:delay-150 {
+    transition-delay: 150ms !important;
+  }
+
+  .xl\:delay-200 {
+    transition-delay: 200ms !important;
+  }
+
+  .xl\:delay-300 {
+    transition-delay: 300ms !important;
   }
 
   .xl\:delay-500 {
     transition-delay: 500ms !important;
   }
 
-  .xl\:delay-750 {
-    transition-delay: 750ms !important;
+  .xl\:delay-700 {
+    transition-delay: 700ms !important;
   }
 
   .xl\:delay-1000 {
     transition-delay: 1000ms !important;
-  }
-
-  .xl\:delay {
-    transition-delay: 0ms !important;
   }
 
   .xl\:animate-none {
@@ -89515,153 +88876,5 @@ video {
 
   .xl\:animate-bounce {
     animation: bounce 1s infinite !important;
-  }
-
-  .xl\:transition-none {
-    transition-property: none !important;
-    transition-duration: 250ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .xl\:transition-all {
-    transition-property: all !important;
-    transition-duration: 250ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .xl\:transition-color {
-    transition-property: color !important;
-    transition-duration: 250ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .xl\:transition-bg {
-    transition-property: background-color !important;
-    transition-duration: 250ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .xl\:transition-border {
-    transition-property: border-color !important;
-    transition-duration: 250ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .xl\:transition-colors {
-    transition-property: color, background-color, border-color !important;
-    transition-duration: 250ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .xl\:transition-opacity {
-    transition-property: opacity !important;
-    transition-duration: 250ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .xl\:transition-transform {
-    transition-property: transform !important;
-    transition-duration: 250ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .xl\:transition-0 {
-    --transition-duration: 0ms !important;
-    transition-duration: 0ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .xl\:transition-100 {
-    --transition-duration: 100ms !important;
-    transition-duration: 100ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .xl\:transition-250 {
-    --transition-duration: 250ms !important;
-    transition-duration: 250ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .xl\:transition-500 {
-    --transition-duration: 500ms !important;
-    transition-duration: 500ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .xl\:transition-750 {
-    --transition-duration: 750ms !important;
-    transition-duration: 750ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .xl\:transition-1000 {
-    --transition-duration: 1000ms !important;
-    transition-duration: 1000ms !important;
-    transition-duration: var(--transition-duration) !important;
-  }
-
-  .xl\:transition-linear {
-    transition-timing-function: linear !important;
-  }
-
-  .xl\:transition-ease {
-    transition-timing-function: ease !important;
-  }
-
-  .xl\:transition-ease-in {
-    transition-timing-function: ease-in !important;
-  }
-
-  .xl\:transition-ease-out {
-    transition-timing-function: ease-out !important;
-  }
-
-  .xl\:transition-ease-in-out {
-    transition-timing-function: ease-in-out !important;
-  }
-
-  .xl\:transition-delay-0 {
-    transition-delay: 0ms !important;
-  }
-
-  .xl\:transition-delay-100 {
-    transition-delay: 100ms !important;
-  }
-
-  .xl\:transition-delay-250 {
-    transition-delay: 250ms !important;
-  }
-
-  .xl\:transition-delay-500 {
-    transition-delay: 500ms !important;
-  }
-
-  .xl\:transition-delay-750 {
-    transition-delay: 750ms !important;
-  }
-
-  .xl\:transition-delay-1000 {
-    transition-delay: 1000ms !important;
-  }
-
-  .xl\:will-change-auto {
-    will-change: auto !important;
-  }
-
-  .xl\:will-change-scroll {
-    will-change: scroll-position !important;
-  }
-
-  .xl\:will-change-contents {
-    will-change: contents !important;
-  }
-
-  .xl\:will-change-opacity {
-    will-change: opacity !important;
-  }
-
-  .xl\:will-change-transform {
-    will-change: transform !important;
   }
 }

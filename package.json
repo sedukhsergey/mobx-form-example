@@ -6,6 +6,7 @@
   "license": "MIT",
   "dependencies": {
     "autoprefixer": "^9.8.6",
+    "classnames": "^2.2.6",
     "history": "^4.10.1",
     "method-override": "^3.0.0",
     "mobx": "^5.15.4",
@@ -49,6 +50,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "@types/classnames": "^2.2.10",
     "@types/react": "^16.9.43",
     "@types/react-dom": "^16.9.8",
     "@types/react-router": "^5.1.8",
@@ -62,8 +64,7 @@
     "eslint-plugin-react-hooks": "^4.0.8",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.4",
-    "tailwindcss": "^1.6.0",
-    "tailwindcss-transitions": "^2.2.0"
+    "tailwindcss": "^1.6.0"
   },
   "husky": {
     "hooks": {
