@@ -205,6 +205,15 @@ module.exports = {
       outline: '0 0 0 3px rgba(66, 153, 225, 0.5)',
       none: 'none',
     },
+    // for custom sizes
+    // container: {
+    //   screens: {
+    //     sm: "100%",
+    //     md: "100%",
+    //     lg: "1024px",
+    //     xl: "1280px"
+    //   },
+    // },
     container: {},
     cursor: {
       auto: 'auto',

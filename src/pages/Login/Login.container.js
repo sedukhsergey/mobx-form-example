@@ -1,23 +1,42 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { observer } from 'mobx-react';
 import { RoutesList } from 'routes';
 
 import form from './LoginForm';
+
 import {
-  Button, ErrorMessage, Input, Card, Container,
+  Button,
+  ErrorMessage,
+  Input,
+  Card,
+  Container,
+  H1,
 } from 'components';
+
+import { InputGroup } from 'modules';
+
 const styles = {};
+const email = form.$('email').bind();
+console.log('email', email);
 const LoginContainer = () => (
-  <Container>
-    <div className='d'>
+  <Container
+    looks={'center'}
+    customClasses={'mx-4'}
+    customStyles={{ height: '70vh' }}
+  >
+    <Card looks={'small default'}>
       <div className={styles.container}>
-        <h1 className='tracking-widest'>LoginView</h1>
-        <h1 className='some'>LoginView</h1>
-        <form className={styles.form}>
+        <H1>Login View</H1>
+        <form>
           <div className={styles.inputContainer}>
-            <Input {...form.$('email').bind()} />
-            <ErrorMessage>{form.$('email').error}</ErrorMessage>
+            <InputGroup
+              field={form.$('email').bind()}
+              error={form.$('email').error}
+            />
+            {/*<Label id={form.$('email').bind().id}>{form.$('email').bind().label}</Label>*/}
+            {/*<Input {...form.$('email').bind()} />*/}
+            {/*<ErrorMessage>{form.$('email').error}</ErrorMessage>*/}
           </div>
           <div className={styles.inputContainer}>
             <Input {...form.$('password').bind()} />
@@ -37,8 +56,8 @@ const LoginContainer = () => (
           <span>Or you&apos;re already have an account &#x21AA;</span>
         </Link>
       </div>
-    </div>
+    </Card>
   </Container>
 );
 
-export default LoginContainer;
+export default observer(LoginContainer);

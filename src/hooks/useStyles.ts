@@ -5,10 +5,11 @@ import {
 type Props = {
     styles: any;
     looks: string;
+    customClasses?: string,
 };
 
 const useStyles = ({
-  styles, looks,
+  styles, looks, customClasses = '',
 }: Props) => {
   const [classNames, setClassNames] = useState('');
   useEffect(() => {
@@ -17,9 +18,9 @@ const useStyles = ({
       const classNamesList = customStyles
         .map(look => styles[look])
         .join(' ');
-      setClassNames(classNamesList);
+      setClassNames(`${classNamesList} ${customClasses}`);
     }
-  }, [styles, looks]);
+  }, [styles, looks, customClasses]);
   return [classNames];
 };
 
