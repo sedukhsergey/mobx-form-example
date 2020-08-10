@@ -1,34 +1,34 @@
 import React, { ReactNode } from 'react';
-import styles from './Card.styles';
-import { useStyles } from 'hooks';
 import { Styles } from 'constants/index';
+import { useStyles } from 'hooks';
+import styles from './H2.styles';
 
 interface Props extends Styles {
-  children: ReactNode;
+  children: ReactNode,
 }
 
-const Card: React.FC<Props> = ({
+const H2: React.FC<Props> = ({
   children,
   looks = '',
   customStyles,
   customClasses,
 }) => {
   const [classNames] = useStyles({
-    looks, styles, customClasses,
+    looks,
+    styles,
+    customClasses,
   });
+
   return (
-    <div
+    <h2
       className={classNames}
-      style={customStyles}>
-      {children}
-    </div>
+      style={customStyles}>{children}</h2>
   );
 };
 
-
-Card.defaultProps = {
+H2.defaultProps = {
   looks: 'default',
   customStyles: {},
 };
 
-export default React.memo(Card);
+export default H2;

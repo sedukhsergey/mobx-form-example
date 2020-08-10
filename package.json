@@ -5,7 +5,7 @@
   "author": "Sergey Siedykh",
   "license": "MIT",
   "dependencies": {
-    "autoprefixer": "^9.8.5",
+    "autoprefixer": "^9.8.6",
     "history": "^4.10.1",
     "method-override": "^3.0.0",
     "mobx": "^5.15.4",
@@ -13,6 +13,9 @@
     "mobx-react-form": "^2.0.8",
     "mobx-state-tree": "^3.16.0",
     "postcss-cli": "^7.1.1",
+    "postcss-import": "^12.0.1",
+    "postcss-nested": "^4.2.3",
+    "postcss-preset-env": "^6.7.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
@@ -22,7 +25,8 @@
     "validatorjs": "^3.18.1"
   },
   "scripts": {
-    "build:style": "tailwind build src/styles/index.css -o src/styles/tailwind.css",
+    "build:style": "postcss src/styles/index.css -o src/styles/tailwind.css",
+    "build": "npm run build:style && react-scripts build",
     "start": "npm run build:style && react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -58,7 +62,6 @@
     "eslint-plugin-react-hooks": "^4.0.8",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.4",
-    "postcss-import": "^12.0.1",
     "tailwindcss": "^1.6.0",
     "tailwindcss-transitions": "^2.2.0"
   },
