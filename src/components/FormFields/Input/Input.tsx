@@ -1,5 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react';
+import cx from 'classnames';
+
 import styles from './Input.styles';
 import { useStyles } from 'hooks';
 import {
@@ -7,12 +9,13 @@ import {
 } from 'constants/index';
 
 interface Props extends Styles, InputField {
-
+  error: string,
 }
 const Input: React.FC<Props> = ({
   looks = '',
   customStyles,
   customClasses,
+  error,
   ...rest
 }) => {
   const [classNames] = useStyles({
@@ -20,12 +23,16 @@ const Input: React.FC<Props> = ({
   });
   return (
     <input
-      className={classNames}
+      className={cx(
+        classNames,
+        { [styles.error]: error }
+      )}
       style={customStyles}
       {...rest}
     />
   );
 };
+
 
 
 Input.defaultProps = {

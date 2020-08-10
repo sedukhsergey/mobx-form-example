@@ -8,7 +8,6 @@ import form from './LoginForm';
 import {
   Button,
   ErrorMessage,
-  Input,
   Card,
   Container,
   H1,
@@ -17,8 +16,6 @@ import {
 import { InputGroup } from 'modules';
 
 const styles = {};
-const email = form.$('email').bind();
-console.log('email', email);
 const LoginContainer = () => (
   <Container
     looks={'center'}
@@ -29,18 +26,17 @@ const LoginContainer = () => (
       <div className={styles.container}>
         <H1>Login View</H1>
         <form>
-          <div className={styles.inputContainer}>
+          <div className={'flex flex-col mb-4'}>
             <InputGroup
               field={form.$('email').bind()}
               error={form.$('email').error}
             />
-            {/*<Label id={form.$('email').bind().id}>{form.$('email').bind().label}</Label>*/}
-            {/*<Input {...form.$('email').bind()} />*/}
-            {/*<ErrorMessage>{form.$('email').error}</ErrorMessage>*/}
           </div>
-          <div className={styles.inputContainer}>
-            <Input {...form.$('password').bind()} />
-            <ErrorMessage>{form.$('password').error}</ErrorMessage>
+          <div className={'flex flex-col mb-8'}>
+            <InputGroup
+              field={form.$('password').bind()}
+              error={form.$('password').error}
+            />
           </div>
           <Button
             type="submit"
