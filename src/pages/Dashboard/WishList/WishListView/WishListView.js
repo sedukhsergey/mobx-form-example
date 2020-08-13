@@ -2,9 +2,9 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import WishListItemView from '../WishListItemView';
 import styles from './styles.module.css';
-import {
-  WishListTotal, WishListItemEntry,
-} from '../../../../modules';
+import WishListTotal from '../WishListTotal';
+import WishListItemEntry from '../WishListItemEntry';
+
 
 const WishListView = ({ selected }) => {
   const {

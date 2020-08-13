@@ -5,11 +5,12 @@ import { values } from 'mobx';
 import { useObserver } from 'mobx-react';
 import styles from './styles.module.css';
 import SantaImage from '../../assets/santa.jpeg';
-import WishListView from './WishList/WishListItemView';
+import WishListView from './WishList/WishListView';
 import { useGroupData } from '../../hooks/useGroupData';
 
+
 const Dashboard = () => {
-  const [selectedUser, setSelectedUser] = useState(null);
+  const [selectedUser, setSelectedUser] = useState<string | null>(null);
   const {
     users, fetchUsers,
   } = useGroupData();
@@ -17,9 +18,10 @@ const Dashboard = () => {
     fetchUsers();
   }, [fetchUsers]);
 
-  const handleSelectedUser = e => {
-    setSelectedUser(e.target.value);
+  const handleSelectedUser = (e:  React.FormEvent<HTMLSelectElement>) => {
+    setSelectedUser(e.currentTarget.value);
   };
+
 
   const selected = users.get(selectedUser);
   return useObserver(() => (

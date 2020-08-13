@@ -16,17 +16,15 @@ interface Props {
 
 const InputGroup: React.FC<Props> = ({
   field, error,
-}) => {
-  return (
-    <>
-      <Label id={field.id}>{field.label}</Label>
-      <Input
-        {...field}
-        error={error} />
-      <ErrorMessage>{error}</ErrorMessage>
-    </>
-  );
-};
+}) => (
+  <>
+    <Label id={field.id}>{field.label}</Label>
+    <Input
+      {...field}
+      error={error} />
+    <ErrorMessage>{error}</ErrorMessage>
+  </>
+);
 
 InputGroup.defaultProps = { error: '' };
 

@@ -1,6 +1,5 @@
 export default class Users {
-  constructor(databaseService = {
-  }) {
+  constructor(databaseService = {}) {
     this.databaseService = databaseService;
   }
   async find(id) {

@@ -1,19 +1,14 @@
 class UsersController {
-  constructor(container = {
-  }) {
+  constructor(container = {}) {
     this.container = container;
     this.usersService = this.container.modelsService.Users;
   }
   async getUser(req, res) {
     try {
       const user = await this.usersService.find(req.query.id);
-      res.send(user || {
-        data: null,
-      });
+      res.send(user || { data: null });
     } catch (err) {
-      res.status(500).send({
-        message: err.message,
-      });
+      res.status(500).send({ message: err.message });
     }
   }
 
@@ -22,9 +17,7 @@ class UsersController {
       const response = await this.usersService.all();
       res.send(response);
     } catch (err) {
-      res.status(500).send({
-        message: err.message,
-      });
+      res.status(500).send({ message: err.message });
     }
   }
 
@@ -33,26 +26,18 @@ class UsersController {
       await this.usersService.update({
         ...req.body, id: req.query.id,
       });
-      res.send({
-        data: 'success',
-      });
+      res.send({ data: 'success' });
     } catch (err) {
-      res.status(500).send({
-        message: err.message,
-      });
+      res.status(500).send({ message: err.message });
     }
   }
 
   async createUser(req, res) {
     try {
       const response = await this.usersService.create(req.body);
-      res.send({
-        data: response,
-      });
+      res.send({ data: response });
     } catch (err) {
-      res.status(500).send({
-        message: err.message,
-      });
+      res.status(500).send({ message: err.message });
     }
   }
 
@@ -61,22 +46,14 @@ class UsersController {
       if (req.query.id) {
         const result = await this.usersService.delete(req.query.id);
         if (!result.rowCount) {
-          res.status(500).send({
-            message: `User with ${req.query.id} is already deleted`,
-          });
+          res.status(500).send({ message: `User with ${req.query.id} is already deleted` });
           return;
         }
-        res.send({
-          data: 'success',
-        });
+        res.send({ data: 'success' });
       }
-      res.status(500).send({
-        message: 'query param is required',
-      });
+      res.status(500).send({ message: 'query param is required' });
     } catch (err) {
-      res.status(500).send({
-        message: err.message,
-      });
+      res.status(500).send({ message: err.message });
     }
   }
 }

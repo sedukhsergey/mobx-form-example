@@ -14,7 +14,8 @@ const Header = () => {
         <h2>Header</h2>
       </div>
       <Button
-        handleClick={() => setIsOpen(state => !state)}
+        type={'button'}
+        onClick={() => setIsOpen(state => !state)}
         looks={`${isOpen ? 'small' : 'large'}`}
       >
         Open chat

@@ -1,8 +1,7 @@
-import { Pool, } from 'pg';
+import { Pool } from 'pg';
 
 export default class DatabaseService {
-  constructor(configService = {
-  }) {
+  constructor(configService = {}) {
     this.databaseService = configService;
     this.poolSingleton = null;
   }

@@ -15,7 +15,7 @@ import {
 
 import { InputGroup } from 'modules';
 
-const styles = {};
+
 const LoginContainer = () => (
   <Container
     looks={'center'}
@@ -23,7 +23,7 @@ const LoginContainer = () => (
     customStyles={{ height: '70vh' }}
   >
     <Card looks={'small default'}>
-      <div className={styles.container}>
+      <div>
         <H1>Login View</H1>
         <form>
           <div className={'flex flex-col mb-4'}>
@@ -47,7 +47,7 @@ const LoginContainer = () => (
           <ErrorMessage>{form.error}</ErrorMessage>
         </form>
       </div>
-      <div className={styles.linkContainer}>
+      <div>
         <Link to={RoutesList.registration}>
           <span>Or you&apos;re already have an account &#x21AA;</span>
         </Link>
