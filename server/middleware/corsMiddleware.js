@@ -1,7 +1,5 @@
 import cors from 'cors';
 
 export default app => {
-  app.use(cors({
-    origin: true,
-  }));
+  app.use(cors({ origin: true }));
 };

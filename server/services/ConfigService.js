@@ -21,8 +21,7 @@ class ConfigService {
     if (!fs.existsSync(filePath)) {
       // eslint-disable-next-line
       console.log(chalk.yellow('.env file not found, relying on process env vars'));
-      return {
-      };
+      return {};
     }
     const envFileVars = dotenv.parse(fs.readFileSync(filePath));
     const fileName = filePath.substr(filePath.lastIndexOf('/') + 1);
@@ -34,8 +33,7 @@ class ConfigService {
       if (curr.startsWith('REACT_APP')) return acc;
       acc[curr] = envFileVars[curr];
       return acc;
-    }, {
-    });
+    }, {});
     return filteredVars;
   }
 
@@ -45,8 +43,7 @@ class ConfigService {
         if (process.env[curr] === undefined) return;
         acc[curr] = process.env[curr];
         return acc;
-      }, {
-      });
+      }, {});
     return envVars;
   }
 
@@ -54,9 +51,7 @@ class ConfigService {
     const envVarsSchema = Joi.object(ConfigService.VALIDATION_SCHEMA);
     const {
       error, value: validatedEnvConfig,
-    } = envVarsSchema.validate(envConfig, {
-      abortEarly: false,
-    });
+    } = envVarsSchema.validate(envConfig, { abortEarly: false });
     if (error) {
       console.log('errord', error);
       throw new Error(colors.red(`Config validation erorr: ${error.message}`));

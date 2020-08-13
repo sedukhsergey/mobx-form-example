@@ -1,8 +1,6 @@
-require('dotenv').config({
-  path: '../.env',
-});
+require('dotenv').config({ path: '../.env' });
 const chalk = require('chalk');
-const { Pool, } = require('pg');
+const { Pool } = require('pg');
 /**
  * Create Users Table
  */

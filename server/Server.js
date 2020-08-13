@@ -7,8 +7,7 @@ import setupRoutes from './routes';
 import getContainer from './container';
 
 export default class Server {
-  constructor(container = {
-  }) {
+  constructor(container = {}) {
     this.app = express();
     this.container = container;
   }
