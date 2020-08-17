@@ -33,6 +33,7 @@ const RouteWithSubRoutes = ({
   path,
   ...rest
 }: Props) => {
+  console.log('status', status);
   if (status === 'private') {
     return (
       <PrivateRoute
@@ -41,12 +42,13 @@ const RouteWithSubRoutes = ({
           allowedRoles.length ?
             WithRole({
               allowedRoles, wrapper: Layout,
-            }) :
-            Layout
+            }) : Layout
         }
         routes={routes}
         {...rest}
-      >{children}</PrivateRoute>
+      >
+        {children}
+      </PrivateRoute>
     );
   }
 
@@ -57,7 +59,9 @@ const RouteWithSubRoutes = ({
         routes={routes}
         path={path}
         {...rest}
-      >{children}</PublicRoute>
+      >
+        {children}
+      </PublicRoute>
     );
   }
   return (

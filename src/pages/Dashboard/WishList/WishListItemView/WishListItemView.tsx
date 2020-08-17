@@ -4,10 +4,15 @@ import {
   clone, getSnapshot, applySnapshot,
 } from 'mobx-state-tree';
 import WishListItemEdit from '../WishListItemEdit';
+import { WishListItem } from 'types/WishList';
 
-const WishListItemView = ({ item }) => {
-  const [isEditable, setIsEditable] = useState(false);
-  const [cloneItem, setClone] = useState(null);
+type Props = {
+  item: WishListItem | any,
+}
+
+const WishListItemView:React.FC<Props> = ({ item }) => {
+  const [isEditable, setIsEditable] = useState<boolean>(false);
+  const [cloneItem, setClone] = useState<WishListItem | any>(null);
 
   const handleEditEnabled = () => {
     setIsEditable(true);

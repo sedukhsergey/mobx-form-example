@@ -61,10 +61,12 @@ const hooks = {
 //   },
 // }
 
-export const form = new Form(
+const form = new Form(
   { fields },
   {
     plugins,
     hooks,
   }
 );
+
+export default form;
