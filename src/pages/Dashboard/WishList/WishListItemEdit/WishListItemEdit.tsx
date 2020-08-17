@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles.module.css';
 import { useObserver } from 'mobx-react';
-import { WishListItem } from 'types/WishList';
+import { WishListItem } from 'store/StoreTypes/WishListStore';
 
 type Props = {
   item: WishListItem,

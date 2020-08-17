@@ -10,7 +10,7 @@ type Props = {
 
 const useStyles = ({
   styles, looks, customClasses = '',
-}: Props) => {
+}: Props): [string] => {
   const [classNames, setClassNames] = useState('');
   useEffect(() => {
     if (looks.trim().length) {

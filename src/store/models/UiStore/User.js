@@ -20,4 +20,5 @@ const User = types
     },
   }));
 
+
 export default User;

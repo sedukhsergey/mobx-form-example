@@ -4,7 +4,14 @@ import Button from './Button';
 
 describe('Button', () => {
   it('Button looks props', () => {
-    const { container } = render(<Button looks={['default']} />);
-    const button = container.querySelector('button');
+    // const { container } =
+    render(
+      <Button
+        looks={['default']}
+        onClick={() => {}}
+      >
+        Click
+      </Button>);
+    // const button = container.querySelector('button');
   });
 });

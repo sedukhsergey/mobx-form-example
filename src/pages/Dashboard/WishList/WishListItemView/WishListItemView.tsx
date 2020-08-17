@@ -4,7 +4,7 @@ import {
   clone, getSnapshot, applySnapshot,
 } from 'mobx-state-tree';
 import WishListItemEdit from '../WishListItemEdit';
-import { WishListItem } from 'types/WishList';
+import { WishListItem } from 'store/StoreTypes/WishListStore';
 
 type Props = {
   item: WishListItem | any,

@@ -8,9 +8,8 @@ import SantaImage from 'assets/santa.jpeg';
 import { useGroupData } from 'hooks/useGroupData';
 import WishListView from './WishList/WishListView';
 
-
 const Dashboard = () => {
-  const [selectedUser, setSelectedUser] = useState<string | null>(null);
+  const [selectedUser, setSelectedUser] = useState<number | any>(null);
   const {
     users, fetchUsers,
   } = useGroupData();
@@ -23,7 +22,6 @@ const Dashboard = () => {
   };
 
   const selected = users.get(selectedUser);
-
   return useObserver(() => (
     <div className={styles.container}>
       <header className={styles.hero}>

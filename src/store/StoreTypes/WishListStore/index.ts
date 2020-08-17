@@ -7,3 +7,12 @@ export type WishListItem = {
   changeImage: (item: string) => void,
   remove: () => void,
 }
+
+export type WishListStore = {
+  items: WishListItem[],
+  add: (item: WishListItem) => void,
+  createItems: WishListItem[],
+  fetchItems: () => void,
+  remove: WishListItem,
+  totalPrice: () => void,
+}
