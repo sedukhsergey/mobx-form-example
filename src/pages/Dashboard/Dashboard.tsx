@@ -4,9 +4,9 @@ import React, {
 import { values } from 'mobx';
 import { useObserver } from 'mobx-react';
 import styles from './styles.module.css';
-import SantaImage from '../../assets/santa.jpeg';
+import SantaImage from 'assets/santa.jpeg';
+import { useGroupData } from 'hooks/useGroupData';
 import WishListView from './WishList/WishListView';
-import { useGroupData } from '../../hooks/useGroupData';
 
 
 const Dashboard = () => {
@@ -22,8 +22,8 @@ const Dashboard = () => {
     setSelectedUser(e.currentTarget.value);
   };
 
-
   const selected = users.get(selectedUser);
+
   return useObserver(() => (
     <div className={styles.container}>
       <header className={styles.hero}>

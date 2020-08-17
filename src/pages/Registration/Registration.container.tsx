@@ -1,12 +1,11 @@
 import React from 'react';
-import { observer } from 'mobx-react';
-import { form } from './RegistrationForm';
-import {
-  Input, ErrorMessage, Button,
-} from 'components';
 import styles from './styles.module.css';
+import form from './RegistrationForm';
+import {
+  Button, ErrorMessage, Input,
+} from 'components';
 
-const RegistrationView = observer(() => (
+const RegistrationContainer = () => (
   <div className={styles.container}>
     <h1>Registration</h1>
     <form className={styles.form}>
@@ -38,11 +37,11 @@ const RegistrationView = observer(() => (
         type="submit"
         onClick={form.onSubmit}
         disabled={!form.isValid}>
-        Submit
+          Submit
       </Button>
       <ErrorMessage>{form.error}</ErrorMessage>
     </form>
   </div>
-));
+);
 
-export default RegistrationView;
+export default RegistrationContainer;

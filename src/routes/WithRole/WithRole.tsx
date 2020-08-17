@@ -20,6 +20,7 @@ const WithRole: React.FC<Props> = ({
   ) {
     return WrappedComponent;
   }
+  console.log('redirect');
   return <Redirect to={'/'} />;
 };
 

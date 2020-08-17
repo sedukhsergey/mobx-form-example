@@ -1,18 +1,23 @@
 import React from 'react';
 import styles from './styles.module.css';
 import { useObserver } from 'mobx-react';
+import { WishListItem } from 'types/WishList';
 
-const WishListItemEdit = ({ item }) => {
-  const handleChangeImage = e => {
-    item.changeImage(e.target.value);
+type Props = {
+  item: WishListItem,
+}
+
+const WishListItemEdit:React.FC<Props> = ({ item }) => {
+  const handleChangeImage = (e: React.FormEvent<HTMLInputElement>)  => {
+    item.changeImage(e.currentTarget.value);
   };
 
-  const handleChangeName = e => {
-    item.changeName(e.target.value);
+  const handleChangeName = (e: React.FormEvent<HTMLInputElement>) => {
+    item.changeName(e.currentTarget.value);
   };
 
-  const handleChangePrice = e => {
-    const price = parseInt(e.target.value);
+  const handleChangePrice = (e: React.FormEvent<HTMLInputElement>) => {
+    const price = parseInt(e.currentTarget.value);
     if (!isNaN(price)) {
       item.changePrice(price);
     }
@@ -52,7 +57,5 @@ const WishListItemEdit = ({ item }) => {
     </div>
   ));
 };
-
-WishListItemEdit.defaultProps = { item: { image: '' } };
 
 export default WishListItemEdit;
