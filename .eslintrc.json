@@ -35,6 +35,7 @@
     "jest/prefer-to-have-length": "warn",
     "jest/valid-expect": "error",
     "@typescript-eslint/no-var-requires": 0,
+    "@typescript-eslint/explicit-module-boundary-types": [0],
     "@typescript-eslint/ban-types": [
       "warn",
       {
@@ -55,6 +56,8 @@
         }
       }
     ],
+    "@typescript-eslint/no-explicit-any":[0],
+    "@typescript-eslint/no-empty-function": ["error", { "allow": ["arrowFunctions"] }],
     "react/prop-types": [ 0 ],
     "react/jsx-first-prop-new-line": [1, "multiline"],
     "react/jsx-max-props-per-line": [1, {"maximum": 1}],

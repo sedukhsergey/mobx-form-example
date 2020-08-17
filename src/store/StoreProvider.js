@@ -1,6 +1,7 @@
 import React from 'react';
-
-export const storeContext = React.createContext(null);
+import { getStoreSnapshot } from './getStoreSnapshot';
+const store = getStoreSnapshot();
+export const storeContext = React.createContext(store);
 
 export const StoreProvider = ({
   children, store,

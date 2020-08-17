@@ -4,7 +4,7 @@ import WishListItemView from '../WishListItemView';
 import styles from './styles.module.css';
 import WishListTotal from '../WishListTotal';
 import WishListItemEntry from '../WishListItemEntry';
-import { WishListItem } from 'types/WishList';
+import { WishListItem } from 'store/StoreTypes/WishListStore';
 
 type Props = {
   selected: {

@@ -2,7 +2,7 @@ import { ChangeEvent } from 'react';
 
 export interface Styles {
   looks?: string;
-  customStyles?: object;
+  customStyles?: any;
   customClasses?: string;
 }
 

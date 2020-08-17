@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   Footer, Header,
-} from '../../modules';
+} from 'modules';
 
 type Match = {
     params: any;
@@ -12,7 +12,7 @@ type Props = {
 };
 
 const DashboardLayout: React.FC<Props> = ({
-  children, match, ...rest
+  children, match,
 }) => (
   <div className="flex flex-col justify-between h-screen bg-gray-100">
     <div>

@@ -10,8 +10,22 @@ import useMatch from 'hooks/useMatch';
 import {
   Navigator, RoutesList,
 } from 'routes';
+
+type Locale = {
+  locale: string,
+}
+
+type Match = {
+  isExact: boolean,
+  params: Locale
+  path: string,
+  url: string,
+}
+
+
 const RouterConfig = () => {
   const match = useMatch();
+  console.log('match', match);
   return {
     routes: [
       {

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import WishListItemModel from 'store/models/WishListStore/WishListItem';
 import WishListItemEdit from '../WishListItemEdit';
 import styles from './styles.module.css';
-import { WishListItem } from 'types/WishList';
+import { WishListItem } from 'store/StoreTypes/WishListStore';
 
 type Props = {
   add: (item: WishListItem) => void,
