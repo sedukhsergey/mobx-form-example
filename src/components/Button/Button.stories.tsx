@@ -1,7 +1,8 @@
-// YourComponent.stories.ts
+import React from 'react';
+import { ReactNode } from 'react';
+import { Story } from '@storybook/react/types-6-0';
+import { Styles } from 'constants/index';
 import Button from './Button';
-import {Styles} from "constants/index";
-import {ReactNode} from "react";
 
 export default {
   title: 'Button',
@@ -22,17 +23,41 @@ interface Props extends Styles {
   type?: ButtonTypes | any,
 }
 
-const Template = ({
-  children,
+const Template: Story<Props> = args => <Button {...args}>Click</Button>;
 
-                  }: Props) => ({
-  component: Button,
-  props: args,
-});
-
-export const ButtonComp: any = Template.bind({});
-ButtonComp.args = {
-  children: 'Some Button text',
+export const ButtonDefault = Template.bind({});
+ButtonDefault.args = {
   onClick: () => console.log('click'),
-  /* the args you need here will depend on your component */
+  looks: 'default',
+  customStyles: { 'max-width': '120px' },
+};
+
+export const ButtonBlue = Template.bind({});
+ButtonBlue.args = {
+  onClick: () => console.log('click'),
+  looks: 'primary',
+  customStyles: { 'max-width': '120px' },
+};
+
+export const ButtonSecondary = Template.bind({});
+ButtonSecondary.args = {
+  onClick: () => console.log('click'),
+  looks: 'secondary',
+  customStyles: { 'max-width': '120px' },
+};
+
+export const ButtonLoadingDisabled = Template.bind({});
+ButtonLoadingDisabled.args = {
+  onClick: () => console.log('click'),
+  looks: 'default loading',
+  disabled: true,
+  customStyles: { 'max-width': '120px' },
+};
+
+export const ButtonDisabled = Template.bind({});
+ButtonDisabled.args = {
+  onClick: () => console.log('click'),
+  looks: 'default',
+  disabled: true,
+  customStyles: { 'max-width': '120px' },
 };

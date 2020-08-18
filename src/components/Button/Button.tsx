@@ -25,13 +25,11 @@ const Button: React.FC<Props> = ({
   customClasses,
   ...rest
 }) => {
-
   const [classNames] = useStyles({
     looks,
     styles,
     customClasses,
   });
-
 
   return (
     <button
