@@ -6,8 +6,8 @@ const Header = () => {
   return (
     <div
       className="
-            md:flex md:flex-row md:justify-between
-            p-3 bg-white rounded-sm mb-8 bg-blue-300 shadow-lg
+        md:flex md:flex-row md:justify-between
+        p-3 bg-white rounded-sm mb-8 bg-blue-300 shadow-lg
         "
     >
       <div className="md:flex">

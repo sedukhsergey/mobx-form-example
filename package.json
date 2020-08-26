@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "autoprefixer": "^9.8.6",
+    "axios": "^0.20.0",
     "classnames": "^2.2.6",
     "history": "^4.10.1",
     "method-override": "^3.0.0",
