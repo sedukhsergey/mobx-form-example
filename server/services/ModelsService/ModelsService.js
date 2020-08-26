@@ -1,4 +1,6 @@
-import { Users } from '../models';
+import {
+  Users, Accounts,
+} from './models';
 
 export default class ModelsService {
   constructor(databaseService = {}) {
@@ -6,5 +8,8 @@ export default class ModelsService {
   }
   get Users() {
     return new Users(this.databaseService);
+  }
+  get Accounts() {
+    return new Accounts(this.databaseService);
   }
 }
