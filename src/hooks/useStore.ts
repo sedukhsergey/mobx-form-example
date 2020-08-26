@@ -15,5 +15,6 @@ type Store = {
   usersStore: GroupStore,
   wishListStore: WishListStore,
 }
-export const useStore = ():Store => useContext(storeContext);
+
+export const useStore = () => useContext(storeContext);
 

@@ -1,47 +1,55 @@
 import React from 'react';
-import styles from './styles.module.css';
+import { observer } from 'mobx-react';
 import form from './RegistrationForm';
 import {
-  Button, ErrorMessage, Input,
+  Button,
+  ErrorMessage,
+  Card,
+  Container,
+  H1,
 } from 'components';
 
+import { InputGroup } from 'modules';
+
 const RegistrationContainer = () => (
-  <div className={styles.container}>
-    <h1>Registration</h1>
-    <form className={styles.form}>
-      <div className={styles.inputContainer}>
-        <Input
-          name={form.$('email').id}
-          label={form.$('email').label}
-          {...form.$('email').bind()}
-        />
-        <ErrorMessage>{form.$('email').error}</ErrorMessage>
+  <Container
+    looks={'center'}
+    customClasses={'mx-4'}
+    customStyles={{ height: '70vh' }}
+  >
+    <Card looks={'small default'}>
+      <div>
+        <H1>Registration</H1>
+        <form>
+          <div className={'flex flex-col mb-4'}>
+            <InputGroup
+              field={form.$('email').bind()}
+              error={form.$('email').error}
+            />
+          </div>
+          <div className={'flex flex-col mb-8'}>
+            <InputGroup
+              field={form.$('password').bind()}
+              error={form.$('password').error}
+            />
+          </div>
+          <div className={'flex flex-col mb-8'}>
+            <InputGroup
+              field={form.$('passwordConfirm').bind()}
+              error={form.$('passwordConfirm').error}
+            />
+          </div>
+          <Button
+            type="submit"
+            onClick={form.onSubmit}
+            disabled={!form.isValid}>
+            Submit
+          </Button>
+          <ErrorMessage>{form.error}</ErrorMessage>
+        </form>
       </div>
-      <div className={styles.inputContainer}>
-        <Input
-          name={form.$('password').id}
-          label={form.$('password').label}
-          {...form.$('password').bind()}
-        />
-        <ErrorMessage>{form.$('password').error}</ErrorMessage>
-      </div>
-      <div className={styles.inputContainer}>
-        <Input
-          name={form.$('passwordConfirm').id}
-          label={form.$('passwordConfirm').label}
-          {...form.$('passwordConfirm').bind()}
-        />
-        <ErrorMessage>{form.$('passwordConfirm').error}</ErrorMessage>
-      </div>
-      <Button
-        type="submit"
-        onClick={form.onSubmit}
-        disabled={!form.isValid}>
-          Submit
-      </Button>
-      <ErrorMessage>{form.error}</ErrorMessage>
-    </form>
-  </div>
+    </Card>
+  </Container>
 );
 
-export default RegistrationContainer;
+export default observer(RegistrationContainer);

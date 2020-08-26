@@ -10,13 +10,13 @@ const fields = [
     name: 'email',
     label: 'Email',
     placeholder: 'Insert Email',
-    rules: 'required|email|string|between:5,25',
+    rules: 'required|email|string|between:5,50',
   },
   {
     name: 'password',
     label: 'Password',
     placeholder: 'Insert Password',
-    rules: 'required|string|between:5,25',
+    rules: 'required|string|between:5,50',
     type: 'password',
   },
   {
@@ -30,36 +30,20 @@ const fields = [
 
 const hooks = {
   onSuccess(form) {
-    // get field values
     try {
-      const { userStore: { createUser } } = initStore();
-      const user = JSON.parse(localStorage.getItem('user'));
-      if (!user) {
-        createUser({
-          email: form.values().email,
-          password: form.values().password,
-        });
-        return;
-      }
-      if (form.values().email === user.email) {
-        form.invalidate('User with this email already exist');
-        return;
-      }
+      const { authStore: { registration } } = initStore();
+      registration({
+        email: form.values().email,
+        password: form.values().password,
+      }, form);
     } catch (err) {
       console.error('error message', err);
     }
   },
   onError() {
     alert('Form has errors!');
-    // get all form errors
   },
 };
-
-// const options = {
-//    'couponCode': {
-//     validateOnChange: true,
-//   },
-// }
 
 const form = new Form(
   { fields },
