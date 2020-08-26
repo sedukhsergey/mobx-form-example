@@ -32,6 +32,20 @@ const createUsersTable = async () => {
     console.error('create user table error', err);
   }
 };
+
+const createAccountsTable = async () => {
+  const queryText = `CREATE TABLE IF NOT EXISTS accounts (
+    id serial primary key,
+    email varchar(50) not null,
+    password varchar(50) not null
+  )`;
+  try {
+    const response = pool.query(queryText);
+    console.log('create accounts table response', response);
+  } catch (err) {
+    console.error('create accounts table error', err);
+  }
+};
 //
 // /**
 //  * Create Users Table
@@ -189,6 +203,7 @@ const createUsersTable = async () => {
  */
 const createAllTables = () => {
   createUsersTable();
+  createAccountsTable();
 };
 /**
  * Drop All Tables

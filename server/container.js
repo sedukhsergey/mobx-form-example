@@ -1,6 +1,9 @@
 import * as path from 'path';
 import {
-  ConfigService, DatabaseService, ModelsService,
+  ConfigService,
+  DatabaseService,
+  ModelsService,
+  AuthenticationService,
 } from './services';
 
 export default async () => {
@@ -10,9 +13,11 @@ export default async () => {
   const configService = new ConfigService(configFilePath);
   const databaseService = new DatabaseService(configService);
   const modelsService = new ModelsService(databaseService);
+  const authenticationService = new AuthenticationService(configService);
   return {
     configService,
     databaseService,
     modelsService,
+    authenticationService,
   };
 };

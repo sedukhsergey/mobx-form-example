@@ -65,6 +65,12 @@ class ConfigService {
       COOKIES_SECRET: Joi
         .string()
         .default('f26d60305dae929ef8640a75e70dd78ab809cfe9'),
+      JWT_SECRET: Joi.string().default(
+      // eslint-disable-next-line
+        '510625c1aaacb3236a8045bc6af712d1f82f8554c78c56939012b5773f50e6cd5598290bd7d49bfc7828136cdc30711596f2f0c3ad14865519abdcbd8dcd89e1'
+      ),
+      JWT_SHORT_TERM_TOKEN_EXP: Joi.string().default('250000'),
+      JWT_LONG_TERM_TOKEN_EXP: Joi.string().default('2500000'),
       PORT: Joi.number().default(3000),
       SERVER_PORT: Joi.number().default(8080),
       DB_PASSWORD: Joi.string(),
@@ -101,6 +107,15 @@ class ConfigService {
   }
   get DB_PORT() {
     return this._envConfig.DB_PORT;
+  }
+  get JWT_SECRET() {
+    return this._envConfig.JWT_SECRET;
+  }
+  get JWT_SHORT_TERM_TOKEN_EXP() {
+    return Number(this._envConfig.JWT_SHORT_TERM_TOKEN_EXP);
+  }
+  get JWT_LONG_TERM_TOKEN_EXP() {
+    return Number(this._envConfig.JWT_LONG_TERM_TOKEN_EXP);
   }
 }
 
