@@ -97,32 +97,14 @@ const fields = [
 
 const hooks = {
   onSuccess(form) {
-    // get field values;
-    const { authStore: { logIn } } = initStore();
     try {
-      const user = JSON.parse(localStorage.getItem('user'));
-      if (!user) {
-        form.invalidate('User with this email doesn\'t exist');
-        return;
-      }
-      if (
-        form.values().email !== user.email ||
-        form.values().password !== user.password
-      ) {
-        form.invalidate('Incorrect email or password');
-        return;
-      }
-      if (
-        form.values().email === user.email &&
-        form.values().password === user.password
-      ) {
-        logIn({
-          email: form.values().email,
-          password: form.values().password,
-        });
-      }
+      const { authStore: { logIn } } = initStore();
+      logIn({
+        email: form.values().email,
+        password: form.values().password,
+      }, form);
     } catch (err) {
-      console.error('error message', err);
+      form.invalidate(err.message);
     }
   },
   onError() {

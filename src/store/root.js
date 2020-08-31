@@ -2,23 +2,31 @@ import {
   types, applySnapshot,
 } from 'mobx-state-tree';
 import {
-  UiStore,
-  WishListStore,
   GroupStore,
   AuthStore,
-  UserStore,
+  AccountStore,
 } from './models';
 let storeContainer = null;
 export let store = null;
 
 try {
   storeContainer = types.model('Store', {
-    userStore: types.optional(UserStore, {}),
     authStore: types.optional(AuthStore, {}),
-    dashboardStore: types.optional(UiStore, {}),
-    wishListStore: types.optional(WishListStore, {}),
+    accountStore: types.optional(AccountStore, {}),
     usersStore: types.optional(GroupStore, {}),
-  });
+    i18nLanguage: types.optional(types.string, 'us'),
+  })
+    .views(self => ({
+      get country() {
+        return self.i18nLanguage;
+      },
+    }))
+    .actions(self => ({
+      updateLanguage(lng) {
+        console.log('updateLanguage', lng);
+        self.i18nLanguage = lng;
+      },
+    }));
 } catch (e) {
   // eslint-disable-next-line
   console.error('MOBX STORE ERROR: Check mobx state tree models and make prop values and types match.',

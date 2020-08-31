@@ -5,8 +5,11 @@ const router = Router();
 
 const AuthRouter = (container = {}) => {
   const authController = new AuthController(container);
-  router.post('/',
+  router.post('/registration',
     asyncMiddleware(async (req, res, next) => authController.registerAccount(req, res, next))
+  );
+  router.post('/log-in',
+    asyncMiddleware(async (req, res, next) => authController.logInAccount(req, res, next))
   );
   return router;
 };

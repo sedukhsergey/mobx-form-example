@@ -12,7 +12,7 @@ export default class Accounts {
   async find({
     email, password,
   }) {
-    const sql = 'SELECT * FROM accounts WHERE (email = $1 AND password = $2)';
+    const sql = 'SELECT id FROM accounts WHERE (email = $1 AND password = $2)';
     const result = await this.databaseService.pool.query(sql, [email, password]);
     return result.rows[0];
   }
