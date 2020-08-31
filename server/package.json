@@ -4,9 +4,13 @@
   "description": "",
   "main": "server.js",
   "private": true,
+  "engines": {
+    "npm": "6.14.6",
+    "node": ">=14"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-server": "cross-env NODE_ENV=development ./node_modules/.bin/nodemon ./bootstrap.js -L --watch ../server",
+    "start": "cross-env NODE_ENV=development ./node_modules/.bin/nodemon ./bootstrap.js -L --watch ../server",
     "dbCreate": "node ./db/tablesSeeding.js",
     "lint": "eslint './**/*.{js,jsx}'",
     "lint:fix": "eslint './**/*.{js,jsx}' --fix"
