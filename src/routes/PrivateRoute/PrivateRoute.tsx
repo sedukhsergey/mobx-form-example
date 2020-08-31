@@ -4,6 +4,7 @@ import {
 } from 'react-router-dom';
 import RoutesList from '../RoutesList';
 import { localStorage } from 'utils';
+import { initStore } from 'store';
 
 type RouteElement = {
     path: string;
@@ -29,8 +30,8 @@ const PrivateRoute: React.FC<Props> = ({
   <Route
     path={path}
     render={props => {
-      const authToken = localStorage.getItem('authToken');
-      return typeof authToken === 'string'  ? (
+      const { authStore: { isAuthenticated } } = initStore();
+      return isAuthenticated  ? (
         <Component
           routes={routes}
           match={props.match}

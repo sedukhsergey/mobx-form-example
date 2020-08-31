@@ -3,7 +3,6 @@ import { Route } from 'react-router-dom';
 import {
   PrivateRoute,
   PublicRoute,
-  WithRole,
 } from 'routes';
 
 
@@ -27,22 +26,22 @@ type Props = {
 const RouteWithSubRoutes = ({
   status,
   component: Layout,
-  allowedRoles = [],
+  // allowedRoles = [],
   routes,
   children,
   path,
   ...rest
 }: Props) => {
-  console.log('status', status);
   if (status === 'private') {
     return (
       <PrivateRoute
         path={path}
         component={
-          allowedRoles.length ?
-            WithRole({
-              allowedRoles, wrapper: Layout,
-            }) : Layout
+          Layout
+          // allowedRoles.length ?
+          //   WithRole({
+          //     allowedRoles, wrapper: Layout,
+          //   }) : Layout
         }
         routes={routes}
         {...rest}

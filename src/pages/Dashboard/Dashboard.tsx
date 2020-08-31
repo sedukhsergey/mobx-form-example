@@ -7,6 +7,7 @@ import styles from './styles.module.css';
 import SantaImage from 'assets/santa.jpeg';
 import { useGroupData } from 'hooks/useGroupData';
 import WishListView from './WishList/WishListView';
+import { useStore } from '../../hooks/useStore';
 
 
 const Dashboard = () => {
@@ -17,7 +18,7 @@ const Dashboard = () => {
   useEffect(() => {
     fetchUsers();
   }, [fetchUsers]);
-
+  const store = useStore();
   const handleSelectedUser = (e:  React.FormEvent<HTMLSelectElement>) => {
     setSelectedUser(e.currentTarget.value);
   };

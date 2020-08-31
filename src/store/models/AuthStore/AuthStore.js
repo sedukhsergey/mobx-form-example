@@ -2,36 +2,56 @@ import {
   types, getRoot,
 } from 'mobx-state-tree';
 import { RedirectRouter } from 'routes';
-import { registrationAccount } from 'api';
+import {
+  registrationAccount, loginAccount,
+} from 'api';
+import {
+  getCookie, deleteCookie,
+} from 'utils/Cookies';
 
-const UiStore = types
-  .model('AuthStore', { isAuthorized: types.optional(types.boolean, false) })
+const AuthStore = types
+  .model('AuthStore', { accessToken: types.optional(types.string, '') })
+  .views(self => ({
+    get isAuthenticated() {
+      return self.accessToken !== '';
+    },
+  }))
   .actions(self => ({
-    setAuthorizedStatus(status) {
-      self.isAuthorized = status;
+    setAccessToken() {
+      const accessToken = getCookie('accessToken');
+      if (accessToken) {
+        self.accessToken = accessToken;
+      } else {
+        self.clearAccessToken();
+      }
+    },
+    clearAccessToken() {
+      self.accessToken = '';
+      deleteCookie('accessToken');
     },
     async registration(data, form) {
       try {
-        const response = await registrationAccount(data);
-        console.log('res', response);
-        // self.updateUserEmail('email');
-        // getRoot(self).authStore.setAuthorizedStatus(true);
-        // RedirectRouter.goToDashboard();
+        await registrationAccount(data);
+        self.setAccessToken();
+        RedirectRouter.goToDashboard();
       } catch (err) {
-        console.log('err', err);
         form.invalidate(err.data.message);
       }
     },
-    logIn(email) {
-      getRoot(self).userStore.updateUserEmail(email);
-      self.setAuthorizedStatus(true);
-      RedirectRouter.goToDashboard();
+    async logIn(data, form) {
+      try {
+        await loginAccount(data);
+        self.setAccessToken();
+        RedirectRouter.goToDashboard();
+      } catch (err) {
+        form.invalidate(err.data.message);
+      }
     },
     logOut() {
-      getRoot(self).userStore.updateUserEmail(null);
-      self.setAuthorizedStatus(false);
+      getRoot(self).accountStore.deleteAccount(getRoot(self).country);
+      self.clearAccessToken();
       RedirectRouter.goToLogin();
     },
   }));
 
-export default UiStore;
+export default AuthStore;

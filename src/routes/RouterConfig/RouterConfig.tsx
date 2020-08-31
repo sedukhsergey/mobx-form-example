@@ -25,7 +25,6 @@ type Match = {
 
 const RouterConfig = () => {
   const match = useMatch();
-  console.log('match', match);
   return {
     routes: [
       {
