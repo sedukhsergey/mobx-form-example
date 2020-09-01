@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import SELECTED from '../env';
 
 // import { BACKAEND_URL } from 'env';
 type Account = {
@@ -11,7 +11,7 @@ type Account = {
 export const registrationAccount = async (data: Account) => {
   try {
     const response = await axios.post(
-      `${process.env.REACT_APP_BACKEND_API}/auth/registration`,
+      `${SELECTED.BACKEND_URL}/auth/registration`,
       data,
       { withCredentials: true }
     );
@@ -24,7 +24,7 @@ export const registrationAccount = async (data: Account) => {
 export const loginAccount = async (data: Account) => {
   try {
     const response = await axios.post(
-      `${process.env.REACT_APP_BACKEND_API}/auth/log-in`,
+      `${SELECTED.BACKEND_URL}/auth/log-in`,
       data,
       { withCredentials: true }
     );

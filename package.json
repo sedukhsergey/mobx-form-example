@@ -34,6 +34,7 @@
   "scripts": {
     "build:style": "postcss src/styles/index.css -o src/styles/tailwind.css",
     "build": "npm run build:style && react-scripts build",
+    "start:v2": "cross-env ./node_modules/.bin/concurrently \"yarn start\" \"cd server && yarn start-server\"",
     "start-dev": "npm run build:style && react-scripts start",
     "start": "node ./src/server/index.js",
     "test": "react-scripts test",
