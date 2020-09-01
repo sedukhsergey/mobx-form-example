@@ -31,6 +31,7 @@ export default class AuthController {
   }
 
   async logInAccount(req, res) {
+    console.log('login');
     if (!req.body.email || !req.body.password) {
       throw new ArgumentError('email or password are missing');
     }
