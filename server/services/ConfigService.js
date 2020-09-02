@@ -53,7 +53,6 @@ class ConfigService {
       error, value: validatedEnvConfig,
     } = envVarsSchema.validate(envConfig, { abortEarly: false });
     if (error) {
-      console.log('errord', error);
       throw new Error(colors.red(`Config validation erorr: ${error.message}`));
     }
     return validatedEnvConfig;
@@ -71,8 +70,7 @@ class ConfigService {
       ),
       JWT_SHORT_TERM_TOKEN_EXP: Joi.string().default('250000'),
       JWT_LONG_TERM_TOKEN_EXP: Joi.string().default('2500000'),
-      PORT: Joi.number().default(3000),
-      SERVER_PORT: Joi.number().default(8080),
+      PORT: Joi.number().default(3030),
       DB_PASSWORD: Joi.string(),
       DB_USER: Joi.string(),
       DB_API: Joi.string(),
@@ -85,8 +83,8 @@ class ConfigService {
     return this._envConfig.NODE_ENV;
   }
 
-  get SERVER_PORT() {
-    return this._envConfig.SERVER_PORT;
+  get PORT() {
+    return this._envConfig.PORT;
   }
 
   get COOKIES_SECRET() {

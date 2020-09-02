@@ -35,10 +35,10 @@ export default class Server {
   start() {
     // eslint-disable-next-line no-unused-vars
     return this._init().then(_ => {
-      const PORT = this.container.configService.SERVER_PORT;
+      const PORT = this.container.configService.PORT;
       // eslint-disable-next-line no-unused-vars
       return new Promise((resolve, _) => {
-        this.server = this.app.listen(PORT, '0.0.0.0', () => {
+        this.server = this.app.listen(PORT || 3030, '0.0.0.0', () => {
           // eslint-disable-next-line
           console.info(`Express Web Service listening on port ${PORT} in ${process.env.NODE_ENV} environment!`);
           resolve();

@@ -1,4 +1,4 @@
-require('dotenv').config({ path: '../.env' });
+require('dotenv').config();
 const chalk = require('chalk');
 const { Pool } = require('pg');
 /**
