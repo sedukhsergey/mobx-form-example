@@ -1,6 +1,7 @@
-require('dotenv').config();
 const chalk = require('chalk');
 const { Pool } = require('pg');
+console.log('process.env',process.env)
+require('dotenv').config();
 /**
  * Create Users Table
  */
