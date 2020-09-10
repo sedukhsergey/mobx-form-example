@@ -10,15 +10,19 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./db/tablesSeeding.js && node ./bootstrap.js",
-    "start-server": "cross-env NODE_ENV=development ./node_modules/.bin/nodemon ./bootstrap.js -L --watch",
-    "dbCreate": "NODE_ENV=development node ./db/tablesSeeding.js",
+    "start": "PORT=3030 node ./db/tablesSeeding.js && node ./bootstrap.js",
+    "start-server": "PORT=3030 cross-env NODE_ENV=development ./node_modules/.bin/nodemon ./bootstrap.js -L --watch",
+    "dbCreate": "node ./db/tablesSeeding.js",
     "lint": "eslint './**/*.{js,jsx}'",
     "lint:fix": "eslint './**/*.{js,jsx}' --fix"
   },
   "author": "Sergey Siedykh",
   "license": "MIT",
   "dependencies": {
+    "@babel/core": "^7.11.5",
+    "@babel/plugin-transform-runtime": "^7.11.5",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/register": "^7.10.5",
     "@hapi/joi": "^17.1.1",
     "@sentry/node": "^5.20.1",
     "body-parser": "^1.19.0",
@@ -34,13 +38,19 @@
     "ignore-styles": "^5.0.1",
     "jsonwebtoken": "^8.5.1",
     "make-runnable": "^1.3.6",
+    "method-override": "^3.0.0",
     "morgan": "~1.9.1",
     "node-readability": "^3.0.0",
     "nodemon": "^2.0.4",
-    "pg": "^8.2.1"
+    "pg": "^8.2.1",
+    "typescript": "^4.0.2"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.10.4",
-    "@babel/register": "^7.10.5"
+    "@typescript-eslint/eslint-plugin": "^3.7.1",
+    "@typescript-eslint/parser": "^3.7.1",
+    "eslint": "^6.6.0",
+    "eslint-plugin-jest": "^23.19.0",
+    "eslint-plugin-react": "^7.20.5",
+    "eslint-plugin-react-hooks": "^4.0.8"
   }
 }

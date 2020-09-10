@@ -1,3 +1,4 @@
+require('dotenv').config();
 require('ignore-styles');
 require('@babel/register')({
   ignore: [
@@ -5,6 +6,9 @@ require('@babel/register')({
   ],
   presets: [
     '@babel/preset-env'
+  ],
+  plugins: [
+    '@babel/plugin-transform-runtime'
   ],
 });
 

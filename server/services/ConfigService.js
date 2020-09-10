@@ -40,7 +40,7 @@ class ConfigService {
   _readEnvVars() {
     const envVars = Object.keys(ConfigService.VALIDATION_SCHEMA)
       .reduce((acc, curr) => {
-        if (process.env[curr] === undefined) return;
+        if (process.env[curr] === undefined) return acc;
         acc[curr] = process.env[curr];
         return acc;
       }, {});
@@ -53,6 +53,7 @@ class ConfigService {
       error, value: validatedEnvConfig,
     } = envVarsSchema.validate(envConfig, { abortEarly: false });
     if (error) {
+      console.log('errord', error);
       throw new Error(colors.red(`Config validation erorr: ${error.message}`));
     }
     return validatedEnvConfig;

@@ -28,14 +28,13 @@ export default class Server {
     }
   }
 
-  /**
-   *
-   * @return {Promise<any>}
-   */
+
   start() {
     // eslint-disable-next-line no-unused-vars
     return this._init().then(_ => {
       const PORT = this.container.configService.PORT;
+      console.log('this.container.configService',this.container.configService)
+      console.log('PORT',PORT)
       // eslint-disable-next-line no-unused-vars
       return new Promise((resolve, _) => {
         this.server = this.app.listen(PORT || 3030, '0.0.0.0', () => {
