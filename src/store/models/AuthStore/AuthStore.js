@@ -19,6 +19,7 @@ const AuthStore = types
   .actions(self => ({
     setAccessToken() {
       const accessToken = getCookie('accessToken');
+      console.log('get cookie accessToken', accessToken);
       if (accessToken) {
         self.accessToken = accessToken;
       } else {
@@ -35,16 +36,16 @@ const AuthStore = types
         self.setAccessToken();
         RedirectRouter.goToDashboard();
       } catch (err) {
-        form.invalidate(err.data.message);
+        form.invalidate(err.message);
       }
     },
     async logIn(data, form) {
       try {
-        await loginAccount(data);
+        const token = await loginAccount(data);
         self.setAccessToken();
         RedirectRouter.goToDashboard();
       } catch (err) {
-        form.invalidate(err.data.message);
+        form.invalidate(err.message);
       }
     },
     logOut() {

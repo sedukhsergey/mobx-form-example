@@ -1,10 +1,8 @@
 const ENV = process.env.NODE_ENV;
 
-const proc:any = process;
+const DEVELOPMENT = { BACKEND_URL: 'http://localhost:3030' };
 
-const DEVELOPMENT = { BACKEND_URL: proc.browser ? '/api' : 'http://localhost:3000/api' };
-
-const PRODUCTION = { BACKEND_URL: proc.browser ? '/api' : 'https://mobx-form-example.herokuapp.com/api' };
+const PRODUCTION = { BACKEND_URL: 'https://mobx-form-example-server.herokuapp.com' };
 
 
 let SELECTED:any = null;

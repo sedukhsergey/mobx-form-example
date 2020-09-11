@@ -1,7 +1,5 @@
 import axios from 'axios';
 import ENV from './env';
-
-// import { BACKAEND_URL } from 'env';
 type Account = {
   email: string,
   password: string,
@@ -30,6 +28,6 @@ export const loginAccount = async (data: Account) => {
     );
     return response.data;
   } catch (err) {
-    return Promise.reject(err.response);
+    return Promise.reject(err);
   }
 };
