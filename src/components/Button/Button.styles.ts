@@ -1,31 +1,37 @@
 const styles = {
   default: `
-  bg-teal-400
+  bg-gray-900
   p-2
   w-full
-  rounded
   text-white
   transition-colors
   duration-200
   active:outline-shadow
-  hover:bg-teal-500
+  hover:bg-gray-700
   disabled:bg-gray-300
+  disabled:text-gray-900
+  disabled:border-2
+  disabled:border-solid
+  disabled:border-gray-900
   disabled:cursor-default
   `,
   loading: `
    cursor-wait
   `,
   primary: `
-  bg-blue-400
+  bg-blue-600
   p-2
   w-full
-  rounded
   text-white
   transition-colors
   duration-200
   active:outline-shadow
-  hover:bg-blue-500
+  hover:bg-blue-700
   disabled:bg-gray-300
+  disabled:text-white-900
+  disabled:border-2
+  disabled:border-solid
+  disabled:border-gray-300
   disabled:cursor-default
   `,
   secondary: `

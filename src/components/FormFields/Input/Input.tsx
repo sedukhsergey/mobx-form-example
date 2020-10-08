@@ -21,6 +21,7 @@ const Input: React.FC<Props> = ({
   const [classNames] = useStyles({
     looks, styles, customClasses,
   });
+
   return (
     <input
       className={cx(

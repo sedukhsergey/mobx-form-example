@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { observer } from 'mobx-react';
 import form from './RegistrationForm';
 import {
@@ -7,11 +8,14 @@ import {
   Card,
   Container,
   H1,
+  Text,
 } from 'components';
 
 import { InputGroup } from 'modules';
 import { useStore } from 'hooks/useStore';
-import { RedirectRouter } from 'routes';
+import {
+  RedirectRouter, RoutesList,
+} from 'routes';
 
 const RegistrationContainer = () => {
   const { authStore: { isAuthenticated } } = useStore();
@@ -50,12 +54,18 @@ const RegistrationContainer = () => {
             </div>
             <Button
               type="submit"
+              looks={'primary'}
               onClick={form.onSubmit}
               disabled={!form.isValid}>
               Submit
             </Button>
             <ErrorMessage>{form.error}</ErrorMessage>
           </form>
+        </div>
+        <div>
+          <Link to={RoutesList.login}>
+            <Text looks={'link'}>return to log-in</Text>
+          </Link>
         </div>
       </Card>
     </Container>

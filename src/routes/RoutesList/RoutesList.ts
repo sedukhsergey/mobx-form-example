@@ -7,6 +7,7 @@ const RoutesList = {
   registration: `/${browserLocale}/registration`,
   page404: `/${browserLocale}/404`,
   admin: `/${browserLocale}/admin`,
+  account: `/${browserLocale}/account`,
   // someRouteWithParams = '/main/campaign/:campaignId/assessment/:assessmentId',
 };
 

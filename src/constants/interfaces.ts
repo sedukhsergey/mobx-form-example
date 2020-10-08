@@ -6,6 +6,14 @@ export interface Styles {
   customClasses?: string;
 }
 
+interface File {
+  name: string
+}
+
+export interface NotBoundedInput {
+  bind: () => InputField,
+}
+
 export interface InputField {
   autoFocus: boolean;
   checked: boolean | undefined;
@@ -19,4 +27,5 @@ export interface InputField {
   placeholder: string;
   type: string;
   value: string;
+  multiple?: boolean,
 }

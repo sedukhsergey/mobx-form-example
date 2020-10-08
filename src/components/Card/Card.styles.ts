@@ -1,5 +1,5 @@
 const styles = {
-  default: 'bg-white shadow-lg p-4 rounded',
+  default: 'bg-white p-4 border-2 border-gray-500 border-solid',
   grey: 'bg-purple-100',
   small: 'max-w-xl w-full',
 };

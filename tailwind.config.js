@@ -264,6 +264,7 @@ module.exports = {
         'serif',
       ],
       mono: [
+        'IBM Plex Mono',
         'Menlo',
         'Monaco',
         'Consolas',
@@ -670,8 +671,8 @@ module.exports = {
     borderStyle: ['responsive', 'hover', 'focus'],
     borderWidth: ['responsive', 'hover', 'focus'],
     boxShadow: ['responsive', 'hover', 'focus'],
-    cursor: ['responsive'],
-    display: ['responsive'],
+    cursor: ['responsive, hover'],
+    display: ['responsive, hover'],
     fill: ['responsive'],
     flex: ['responsive'],
     flexDirection: ['responsive'],

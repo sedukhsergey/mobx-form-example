@@ -37,7 +37,7 @@ const hooks = {
         password: form.values().password,
       }, form);
     } catch (err) {
-      console.error('error message', err);
+      console.error('err', err);
     }
   },
   onError() {

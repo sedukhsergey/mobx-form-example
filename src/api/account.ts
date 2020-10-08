@@ -15,7 +15,7 @@ export const registrationAccount = async (data: Account) => {
     );
     return response.data;
   } catch (err) {
-    return Promise.reject(err.response);
+    return Promise.reject(err.response || err);
   }
 };
 
@@ -28,6 +28,21 @@ export const loginAccount = async (data: Account) => {
     );
     return response.data;
   } catch (err) {
-    return Promise.reject(err);
+    return Promise.reject(err.response || err);
+  }
+};
+
+export const fetchAccount = async (accessToken: string) => {
+  try {
+    const response = await axios({
+      method: 'GET',
+      url: `${ENV.BACKEND_URL}/api/account`,
+      responseType: 'json',
+      withCredentials: true,
+      headers: { Authorization: accessToken },
+    });
+    return response;
+  } catch (err) {
+    return Promise.reject(err.response || err);
   }
 };

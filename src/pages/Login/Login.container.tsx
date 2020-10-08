@@ -6,18 +6,17 @@ import {
 } from 'routes';
 
 import form from './LoginForm';
-
 import {
   Button,
   ErrorMessage,
   Card,
   Container,
   H1,
+  Text,
 } from 'components';
 
 import { InputGroup } from 'modules';
 import { useStore } from 'hooks/useStore';
-
 
 const LoginContainer = () => {
   const { authStore: { isAuthenticated } } = useStore();
@@ -27,7 +26,6 @@ const LoginContainer = () => {
       RedirectRouter.goToSplash();
     }
   }, [isAuthenticated]);
-
   return (
     <Container
       looks={'center'}
@@ -52,6 +50,7 @@ const LoginContainer = () => {
             </div>
             <Button
               type="submit"
+              looks={'primary'}
               onClick={form.onSubmit}
               disabled={!form.isValid}>
               Submit
@@ -61,7 +60,7 @@ const LoginContainer = () => {
         </div>
         <div>
           <Link to={RoutesList.registration}>
-            <span>Or you&apos;re already have an account &#x21AA;</span>
+            <Text looks={'link'}>Or you&apos;re already have an account &#x21AA;</Text>
           </Link>
         </div>
       </Card>

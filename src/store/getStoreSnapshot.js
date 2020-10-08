@@ -1,10 +1,12 @@
 import { initStore } from './root';
+import { getCookie } from 'utils/Cookies';
 
 export const getStoreSnapshot = () => {
-  const auth = JSON.parse(localStorage.getItem('authStatus'));
+  const accessToken = getCookie('accessToken');
   const authStore = {};
-  if (auth?.isLogin) {
-    authStore.isAuthorized = true;
+  if (accessToken) {
+    authStore.accessToken = accessToken;
+    authStore.isAuthenticated = true;
   }
   return initStore({ authStore });
 };

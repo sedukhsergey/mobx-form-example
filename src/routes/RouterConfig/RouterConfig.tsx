@@ -4,7 +4,11 @@ import {
   DashboardLayout, Layout404, PublicLayout,
 } from 'layouts';
 import {
-  Dashboard, Page404, Login, Registration,
+  Dashboard,
+  Page404,
+  Login,
+  Registration,
+  Account,
 } from 'pages';
 import useMatch from 'hooks/useMatch';
 import {
@@ -21,7 +25,6 @@ type Match = {
   path: string,
   url: string,
 }
-
 
 const RouterConfig = () => {
   const match = useMatch();
@@ -50,6 +53,14 @@ const RouterConfig = () => {
         status: 'private',
       },
       {
+        path: `${match.path}${RoutesList.account}`,
+        exact: true,
+        component: DashboardLayout,
+        children: <Account />,
+        allowedRoles: ['member'],
+        status: 'private',
+      },
+      {
         path: `${match.path}${RoutesList.page404}`,
         exact: true,
         component: Layout404,
@@ -57,7 +68,7 @@ const RouterConfig = () => {
         status: 'default',
       },
       {
-        path: `${match.path}`,
+        path: `${match.path}/`,
         exact: true,
         component: Navigator,
         status: 'default',

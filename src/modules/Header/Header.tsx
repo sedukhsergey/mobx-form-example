@@ -1,25 +1,41 @@
 import React, { useState } from 'react';
-import { Button } from 'components';
+import { Link } from 'react-router-dom';
+import {
+  H2, Text,
+} from 'components';
+import { RoutesList } from 'routes';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div
       className="
-        md:flex md:flex-row md:justify-between
-        p-3 bg-white rounded-sm mb-8 bg-blue-300 shadow-lg
-        "
+      md:flex md:flex-row md:justify-between
+      p-3 bg-white mb-8 bg-gray-900
+      h-12
+    "
     >
-      <div className="md:flex">
-        <h2>Header</h2>
+      <div className="flex justify-center">
+        <H2>Header</H2>
       </div>
-      <Button
-        type={'button'}
+      <div
+        className='text-white text-right hover:cursor-pointer'
         onClick={() => setIsOpen(state => !state)}
-        looks={`${isOpen ? 'small' : 'large'}`}
       >
-        Open chat
-      </Button>
+        Menu
+        <ul className={`pt-4 ${isOpen ? 'block' : 'hidden'}`}>
+          <li className="text-black pt-2">
+            <Link to={RoutesList.account}>
+              <Text looks='link'>Account Settings</Text>
+            </Link>
+          </li>
+          <li className="text-black pt-2">
+            <Link to={RoutesList.dashboard}>
+              <Text looks='link'>Dashboard</Text>
+            </Link>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 };

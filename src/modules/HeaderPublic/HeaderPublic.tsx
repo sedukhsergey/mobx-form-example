@@ -4,11 +4,11 @@ const HeaderPublic = () => (
   <div
     className="
       md:flex md:flex-row md:justify-between
-      p-3 bg-white rounded-sm mb-8 bg-gray-800 shadow-lg
+      p-3 bg-white mb-8 bg-gray-900
+      h-12
     "
   >
-    <div className="md:flex">
-      <h2 className="text-white">Header</h2>
+    <div className="w-full flex justify-center">
     </div>
   </div>
 );

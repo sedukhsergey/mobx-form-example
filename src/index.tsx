@@ -8,12 +8,10 @@ import { StoreProvider } from 'store/StoreProvider';
 import { getStoreSnapshot } from 'store/getStoreSnapshot';
 import App from 'modules/App/App';
 import { RedirectRouter } from './routes';
-// import RedirectRouter from 'utils/RedirectRouter';
 import * as serviceWorker from './serviceWorker';
 import './styles/tailwind.css';
 
 const store = getStoreSnapshot();
-
 ReactDOM.render(
   <React.StrictMode>
     <StoreProvider store={store}>

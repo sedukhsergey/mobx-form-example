@@ -6,7 +6,7 @@ import {
   registrationAccount, loginAccount,
 } from 'api';
 import {
-  getCookie, deleteCookie,
+  getCookie, deleteCookie, createCookie,
 } from 'utils/Cookies';
 
 const AuthStore = types
@@ -19,7 +19,6 @@ const AuthStore = types
   .actions(self => ({
     setAccessToken() {
       const accessToken = getCookie('accessToken');
-      console.log('get cookie accessToken', accessToken);
       if (accessToken) {
         self.accessToken = accessToken;
       } else {
@@ -32,20 +31,28 @@ const AuthStore = types
     },
     async registration(data, form) {
       try {
-        await registrationAccount(data);
+        const {
+          id, token,
+        } = await registrationAccount(data);
+        createCookie('acc_id', id);
+        createCookie('accessToken', token);
         self.setAccessToken();
         RedirectRouter.goToDashboard();
       } catch (err) {
-        form.invalidate(err.message);
+        form.invalidate(err.data ? err.data.message : err.message);
       }
     },
     async logIn(data, form) {
       try {
-        const token = await loginAccount(data);
+        const {
+          id, token,
+        } = await loginAccount(data);
+        createCookie('acc_id', id);
+        createCookie('accessToken', token);
         self.setAccessToken();
         RedirectRouter.goToDashboard();
       } catch (err) {
-        form.invalidate(err.message);
+        form.invalidate(err.data ? err.data.message : err.message);
       }
     },
     logOut() {
