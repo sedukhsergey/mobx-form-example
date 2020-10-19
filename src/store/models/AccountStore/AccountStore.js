@@ -33,7 +33,7 @@ const AccountStore = types
         }
         self.setAccount(getRoot(self).country, { accountData: response.data });
       } catch (err) {
-        console.log('fetch account err', err);
+        getRoot(self).authStore.logOut();
       }
     },
   }));

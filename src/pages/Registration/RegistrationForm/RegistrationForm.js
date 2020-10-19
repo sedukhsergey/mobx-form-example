@@ -32,9 +32,12 @@ const hooks = {
   onSuccess(form) {
     try {
       const { authStore: { registration } } = initStore();
+      const {
+        email, password,
+      } = form.values();
       registration({
-        email: form.values().email,
-        password: form.values().password,
+        email,
+        password,
       }, form);
     } catch (err) {
       console.error('err', err);

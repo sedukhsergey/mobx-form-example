@@ -25,7 +25,8 @@ const DashboardLayout: React.FC<Props> = ({
     fetchAccount();
   }, [fetchAccount]);
 
-  return (
+
+  return localAccount ? (
     <div className="flex flex-col justify-between h-screen bg-gray-100">
       <div>
         <Header />
@@ -35,7 +36,7 @@ const DashboardLayout: React.FC<Props> = ({
         <Footer />
       </div>
     </div>
-  );
+  ) : null;
 };
 
 export default observer(DashboardLayout);

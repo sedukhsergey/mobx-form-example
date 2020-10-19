@@ -5,6 +5,11 @@ type Account = {
   password: string,
 }
 
+type AccountData = {
+  photo?: string,
+  name?: string,
+}
+
 
 export const registrationAccount = async (data: Account) => {
   try {
@@ -39,6 +44,21 @@ export const fetchAccount = async (accessToken: string) => {
       url: `${ENV.BACKEND_URL}/api/account`,
       responseType: 'json',
       withCredentials: true,
+      headers: { Authorization: accessToken },
+    });
+    return response;
+  } catch (err) {
+    return Promise.reject(err.response || err);
+  }
+};
+
+export const updateAccountData = async (accessToken: string, data: AccountData) => {
+  try {
+    const response = await axios({
+      method: 'PUT',
+      url: `${ENV.BACKEND_URL}/api/account`,
+      responseType: 'json',
+      data,
       headers: { Authorization: accessToken },
     });
     return response;
