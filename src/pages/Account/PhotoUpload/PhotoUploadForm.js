@@ -4,12 +4,32 @@ import validatorjs from 'validatorjs';
 import Form from 'mobx-react-form';
 
 const rules = {
-  photo: {
+  emptyPhoto: {
     function: () => value => {
-      console.log('value', value);
+      if (value[0] === null) {
+        return false;
+      }
       return true;
     },
-    message: 'The :attribute should contain only latin letters',
+    message: '',
+  },
+  photosMaxSize: {
+    function: () => value => {
+      console.log('value', value);
+      if (!value.length) {
+        return true;
+      }
+      if (!value[0]) {
+        return true;
+      }
+      const base64str = value[0].substring(value[0].indexOf(';base64,') + 8);
+      const decoded = window.atob(base64str);
+      if (decoded.length >= 20120) {
+        return false;
+      }
+      return true;
+    },
+    message: 'File size should be less than 20mb',
   },
 };
 
@@ -28,27 +48,32 @@ const plugins = {
   }),
 };
 
+
 const fields = [
   {
-    name: 'photo',
+    name: 'photos',
+    value: [],
+    rules: 'emptyPhoto|photosMaxSize',
+    validateOnChange: true,
+    validateOnInit: true,
+  },
+  {
+    name: 'file',
     type: 'file',
-    // rules: 'photo',
-    hooks: { onDrop: field => console.log('onDrop  field.files', field.files) },
   }
+
 ];
 
 const hooks = {
-  onSuccess(form) {
-    console.log('form.values()', form.values());
-    // try {
-    //   const { authStore: { logIn } } = initStore();
-    //   logIn({
-    //     email: form.values().email,
-    //     password: form.values().password,
-    //   }, form);
-    // } catch (err) {
-    //   form.invalidate(err.message);
-    // }
+  async onSuccess(form) {
+    const { photos } = form.values();
+    try {
+      // eslint-disable-next-line max-len
+      const { accountStore: { localAccount: { accountData: { updateAccountData } } } } = initStore();
+      updateAccountData({ photo: photos[0] || null }, form);
+    } catch (err) {
+      form.invalidate(err.message);
+    }
   },
   onError() {
     alert('Form has errors!');
