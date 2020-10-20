@@ -66,3 +66,20 @@ export const updateAccountData = async (accessToken: string, data: AccountData) 
     return Promise.reject(err.response || err);
   }
 };
+
+
+
+export const updateAccountFile = async (accessToken: string, data: any) => {
+  try {
+    const response = await axios({
+      method: 'POST',
+      url: `${ENV.BACKEND_URL}/api/account/file-upload`,
+      responseType: 'json',
+      data,
+      headers: { Authorization: accessToken },
+    });
+    return response;
+  } catch (err) {
+    return Promise.reject(err.response || err);
+  }
+};

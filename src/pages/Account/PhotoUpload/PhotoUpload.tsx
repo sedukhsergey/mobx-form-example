@@ -11,7 +11,7 @@ interface Props {
 
 const PhotoUpload:React.FC<Props> = ({ form }) => {
   const photos = form.$('photos');
-  const field = form.$('file');
+  const field = form.$('demo');
 
   const destroyPreview = (index: number, photos:any, elem: any) => (e:any) => {
     e.preventDefault();
@@ -39,7 +39,7 @@ const PhotoUpload:React.FC<Props> = ({ form }) => {
   };
   return (
     <div className={'flex flex-col items-center justify-center'}>
-      <div className={'md:flex md:justify-end md:items-end'}>
+      <div className={'flex justify-center flex-col'}>
         {(photos.value.length ? (
           <div
             className={'mb-4'}
@@ -49,9 +49,12 @@ const PhotoUpload:React.FC<Props> = ({ form }) => {
                 onClick={destroyPreview(index, photos, photo)}
               >
                 <img
-                  className="w-10/12 my-0 mx-auto"
+                  className="
+                    w-10/12 my-0 mx-auto
+                    md:w-2/5
+                  "
                   src={photo}
-                  alt={'photo'}
+                  alt={'avatar'}
                 />
               </button>
             ) : null)
@@ -60,6 +63,7 @@ const PhotoUpload:React.FC<Props> = ({ form }) => {
         ) : null)}
         <div className={'flex justify-center'}>
           <FileUpload
+            customClasses={'custom-file-input'}
             onChange={handleChange}
             field={field}
             error={form.$('photos').errorSync}

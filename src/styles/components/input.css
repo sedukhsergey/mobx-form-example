@@ -43,3 +43,31 @@ select:-webkit-autofill:focus {
 .custom-file-input:active::before {
   background: #333;
 }
+
+
+
+.custom-file-upload::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.custom-file-upload::before {
+  content: 'Select file';
+  text-align: center;
+  display: inline-block;
+  background: #444;
+  color: white;
+  padding: 11px 9px;
+  outline: none;
+  font-weight: 500;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  font-size: 14px;
+  width: 150px;
+  @apply font-mono leading-normal;
+}
+.custom-file-upload:hover::before {
+  background: #555;
+}
+.custom-file-upload:active::before {
+  background: #333;
+}

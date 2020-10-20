@@ -1,7 +1,9 @@
 import {
   getRoot, types,
 } from 'mobx-state-tree';
-import { updateAccountData } from 'api';
+import {
+  updateAccountData, updateAccountFile,
+} from 'api';
 const AccountData = types
   .model('AccountData', {
     // eslint-disable-next-line
@@ -16,6 +18,15 @@ const AccountData = types
       try {
         const { accessToken } = getRoot(self).authStore;
         await updateAccountData(accessToken, data);
+      } catch (err) {
+        form.invalidate(err.data ? err.data.message : err.message);
+      }
+    },
+    async updateAccountFile(data, form) {
+      console.log('try file', data);
+      try {
+        const { accessToken } = getRoot(self).authStore;
+        await updateAccountFile(accessToken, data);
       } catch (err) {
         form.invalidate(err.data ? err.data.message : err.message);
       }
