@@ -14,18 +14,25 @@ const Account = () => {
     form.set({ photos: [photo] });
     form.$('photos').validate();
   }, [photo]);
-
+  console.log('form.$(\'demo\')', form.$('demo'));
   return (
     <Container>
       <div className='bg-white p-4'>
         <H2 customClasses='mb-4'>Personal data</H2>
         <div className='flex justify-between flex-col'>
           <PhotoUpload form={form}/>
-          <FileUpload
-            multiple
-            field={form.$('demo')}
-            error={form.$('demo').errorSync}
-          />
+          <div>
+            <div className={'flex flex-col my-4'}>
+              {form.$('demo').files && form.$('demo').files.map((i: File, key: number) => (
+                <span key={key}>{i.name}</span>
+              ))}
+            </div>
+            <FileUpload
+              multiple
+              field={form.$('demo')}
+              error={form.$('demo').errorSync}
+            />
+          </div>
           <div className={'max-w-xs w-full my-0 mx-auto'}>
             <Button
               type="submit"

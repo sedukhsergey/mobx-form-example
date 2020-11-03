@@ -1,15 +1,20 @@
-import React, { ChangeEvent } from 'react';
+import React, {
+  ChangeEvent, useState,
+} from 'react';
 import { action } from 'mobx';
+import cx from 'classnames';
 
 import { observer } from 'mobx-react';
 import { FileUpload } from 'components';
-
+import Cancel from 'assets/images/cancel.svg';
 
 interface Props {
   form: any,
 }
 
 const PhotoUpload:React.FC<Props> = ({ form }) => {
+  const [isHovered, setHovered] = useState(false);
+
   const photos = form.$('photos');
   const field = form.$('demo');
 
@@ -37,6 +42,7 @@ const PhotoUpload:React.FC<Props> = ({ form }) => {
       };
     }
   };
+
   return (
     <div className={'flex flex-col items-center justify-center'}>
       <div className={'flex justify-center flex-col'}>
@@ -44,19 +50,45 @@ const PhotoUpload:React.FC<Props> = ({ form }) => {
           <div
             className={'mb-4'}
           >{photos.value.map((photo: string, index: number) => (photo ? (
-              <button
-                key={photo}
-                onClick={destroyPreview(index, photos, photo)}
+              <div
+                className={
+                  'relative' +
+                  'py-2' +
+                  'border border-transparent hover:border-gray-800 hover:border-dotted'
+                }
+                onMouseOver={() => {
+                  setHovered(true);
+                }}
+                onMouseLeave={() => {
+                  setHovered(false);
+                }}
               >
                 <img
+                  src={Cancel}
+                  alt="close"
+                  onClick={destroyPreview(index, photos, photo)}
+                  className={
+                    cx(
+                      `
+                    absolute
+                    right-0
+                    top-0
+                    w-12
+                    hover:cursor-pointer
+                    p-4
+                  `, { hidden: !isHovered }
+                    )
+                  }
+                />
+                <img
                   className="
-                    w-10/12 my-0 mx-auto
-                    md:w-2/5
-                  "
+                  w-10/12 my-0 mx-auto
+                  md:w-2/5
+                "
                   src={photo}
                   alt={'avatar'}
                 />
-              </button>
+              </div>
             ) : null)
             )}
           </div>

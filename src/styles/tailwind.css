@@ -19056,6 +19056,20 @@ select:-webkit-autofill:focus {
   left: auto !important;
 }
 
+.-inset-8 {
+  top: -1rem !important;
+  right: -1rem !important;
+  bottom: -1rem !important;
+  left: -1rem !important;
+}
+
+.-inset-16 {
+  top: -2rem !important;
+  right: -2rem !important;
+  bottom: -2rem !important;
+  left: -2rem !important;
+}
+
 .inset-y-0 {
   top: 0 !important;
   bottom: 0 !important;
@@ -19074,6 +19088,26 @@ select:-webkit-autofill:focus {
 .inset-x-auto {
   right: auto !important;
   left: auto !important;
+}
+
+.-inset-y-8 {
+  top: -1rem !important;
+  bottom: -1rem !important;
+}
+
+.-inset-x-8 {
+  right: -1rem !important;
+  left: -1rem !important;
+}
+
+.-inset-y-16 {
+  top: -2rem !important;
+  bottom: -2rem !important;
+}
+
+.-inset-x-16 {
+  right: -2rem !important;
+  left: -2rem !important;
 }
 
 .top-0 {
@@ -19106,6 +19140,38 @@ select:-webkit-autofill:focus {
 
 .left-auto {
   left: auto !important;
+}
+
+.-top-8 {
+  top: -1rem !important;
+}
+
+.-right-8 {
+  right: -1rem !important;
+}
+
+.-bottom-8 {
+  bottom: -1rem !important;
+}
+
+.-left-8 {
+  left: -1rem !important;
+}
+
+.-top-16 {
+  top: -2rem !important;
+}
+
+.-right-16 {
+  right: -2rem !important;
+}
+
+.-bottom-16 {
+  bottom: -2rem !important;
+}
+
+.-left-16 {
+  left: -2rem !important;
 }
 
 .resize-none {
@@ -43749,6 +43815,20 @@ select:-webkit-autofill:focus {
     left: auto !important;
   }
 
+  .sm\:-inset-8 {
+    top: -1rem !important;
+    right: -1rem !important;
+    bottom: -1rem !important;
+    left: -1rem !important;
+  }
+
+  .sm\:-inset-16 {
+    top: -2rem !important;
+    right: -2rem !important;
+    bottom: -2rem !important;
+    left: -2rem !important;
+  }
+
   .sm\:inset-y-0 {
     top: 0 !important;
     bottom: 0 !important;
@@ -43767,6 +43847,26 @@ select:-webkit-autofill:focus {
   .sm\:inset-x-auto {
     right: auto !important;
     left: auto !important;
+  }
+
+  .sm\:-inset-y-8 {
+    top: -1rem !important;
+    bottom: -1rem !important;
+  }
+
+  .sm\:-inset-x-8 {
+    right: -1rem !important;
+    left: -1rem !important;
+  }
+
+  .sm\:-inset-y-16 {
+    top: -2rem !important;
+    bottom: -2rem !important;
+  }
+
+  .sm\:-inset-x-16 {
+    right: -2rem !important;
+    left: -2rem !important;
   }
 
   .sm\:top-0 {
@@ -43799,6 +43899,38 @@ select:-webkit-autofill:focus {
 
   .sm\:left-auto {
     left: auto !important;
+  }
+
+  .sm\:-top-8 {
+    top: -1rem !important;
+  }
+
+  .sm\:-right-8 {
+    right: -1rem !important;
+  }
+
+  .sm\:-bottom-8 {
+    bottom: -1rem !important;
+  }
+
+  .sm\:-left-8 {
+    left: -1rem !important;
+  }
+
+  .sm\:-top-16 {
+    top: -2rem !important;
+  }
+
+  .sm\:-right-16 {
+    right: -2rem !important;
+  }
+
+  .sm\:-bottom-16 {
+    bottom: -2rem !important;
+  }
+
+  .sm\:-left-16 {
+    left: -2rem !important;
   }
 
   .sm\:resize-none {
@@ -68377,6 +68509,20 @@ select:-webkit-autofill:focus {
     left: auto !important;
   }
 
+  .md\:-inset-8 {
+    top: -1rem !important;
+    right: -1rem !important;
+    bottom: -1rem !important;
+    left: -1rem !important;
+  }
+
+  .md\:-inset-16 {
+    top: -2rem !important;
+    right: -2rem !important;
+    bottom: -2rem !important;
+    left: -2rem !important;
+  }
+
   .md\:inset-y-0 {
     top: 0 !important;
     bottom: 0 !important;
@@ -68395,6 +68541,26 @@ select:-webkit-autofill:focus {
   .md\:inset-x-auto {
     right: auto !important;
     left: auto !important;
+  }
+
+  .md\:-inset-y-8 {
+    top: -1rem !important;
+    bottom: -1rem !important;
+  }
+
+  .md\:-inset-x-8 {
+    right: -1rem !important;
+    left: -1rem !important;
+  }
+
+  .md\:-inset-y-16 {
+    top: -2rem !important;
+    bottom: -2rem !important;
+  }
+
+  .md\:-inset-x-16 {
+    right: -2rem !important;
+    left: -2rem !important;
   }
 
   .md\:top-0 {
@@ -68427,6 +68593,38 @@ select:-webkit-autofill:focus {
 
   .md\:left-auto {
     left: auto !important;
+  }
+
+  .md\:-top-8 {
+    top: -1rem !important;
+  }
+
+  .md\:-right-8 {
+    right: -1rem !important;
+  }
+
+  .md\:-bottom-8 {
+    bottom: -1rem !important;
+  }
+
+  .md\:-left-8 {
+    left: -1rem !important;
+  }
+
+  .md\:-top-16 {
+    top: -2rem !important;
+  }
+
+  .md\:-right-16 {
+    right: -2rem !important;
+  }
+
+  .md\:-bottom-16 {
+    bottom: -2rem !important;
+  }
+
+  .md\:-left-16 {
+    left: -2rem !important;
   }
 
   .md\:resize-none {
@@ -93005,6 +93203,20 @@ select:-webkit-autofill:focus {
     left: auto !important;
   }
 
+  .lg\:-inset-8 {
+    top: -1rem !important;
+    right: -1rem !important;
+    bottom: -1rem !important;
+    left: -1rem !important;
+  }
+
+  .lg\:-inset-16 {
+    top: -2rem !important;
+    right: -2rem !important;
+    bottom: -2rem !important;
+    left: -2rem !important;
+  }
+
   .lg\:inset-y-0 {
     top: 0 !important;
     bottom: 0 !important;
@@ -93023,6 +93235,26 @@ select:-webkit-autofill:focus {
   .lg\:inset-x-auto {
     right: auto !important;
     left: auto !important;
+  }
+
+  .lg\:-inset-y-8 {
+    top: -1rem !important;
+    bottom: -1rem !important;
+  }
+
+  .lg\:-inset-x-8 {
+    right: -1rem !important;
+    left: -1rem !important;
+  }
+
+  .lg\:-inset-y-16 {
+    top: -2rem !important;
+    bottom: -2rem !important;
+  }
+
+  .lg\:-inset-x-16 {
+    right: -2rem !important;
+    left: -2rem !important;
   }
 
   .lg\:top-0 {
@@ -93055,6 +93287,38 @@ select:-webkit-autofill:focus {
 
   .lg\:left-auto {
     left: auto !important;
+  }
+
+  .lg\:-top-8 {
+    top: -1rem !important;
+  }
+
+  .lg\:-right-8 {
+    right: -1rem !important;
+  }
+
+  .lg\:-bottom-8 {
+    bottom: -1rem !important;
+  }
+
+  .lg\:-left-8 {
+    left: -1rem !important;
+  }
+
+  .lg\:-top-16 {
+    top: -2rem !important;
+  }
+
+  .lg\:-right-16 {
+    right: -2rem !important;
+  }
+
+  .lg\:-bottom-16 {
+    bottom: -2rem !important;
+  }
+
+  .lg\:-left-16 {
+    left: -2rem !important;
   }
 
   .lg\:resize-none {
@@ -117633,6 +117897,20 @@ select:-webkit-autofill:focus {
     left: auto !important;
   }
 
+  .xl\:-inset-8 {
+    top: -1rem !important;
+    right: -1rem !important;
+    bottom: -1rem !important;
+    left: -1rem !important;
+  }
+
+  .xl\:-inset-16 {
+    top: -2rem !important;
+    right: -2rem !important;
+    bottom: -2rem !important;
+    left: -2rem !important;
+  }
+
   .xl\:inset-y-0 {
     top: 0 !important;
     bottom: 0 !important;
@@ -117651,6 +117929,26 @@ select:-webkit-autofill:focus {
   .xl\:inset-x-auto {
     right: auto !important;
     left: auto !important;
+  }
+
+  .xl\:-inset-y-8 {
+    top: -1rem !important;
+    bottom: -1rem !important;
+  }
+
+  .xl\:-inset-x-8 {
+    right: -1rem !important;
+    left: -1rem !important;
+  }
+
+  .xl\:-inset-y-16 {
+    top: -2rem !important;
+    bottom: -2rem !important;
+  }
+
+  .xl\:-inset-x-16 {
+    right: -2rem !important;
+    left: -2rem !important;
   }
 
   .xl\:top-0 {
@@ -117683,6 +117981,38 @@ select:-webkit-autofill:focus {
 
   .xl\:left-auto {
     left: auto !important;
+  }
+
+  .xl\:-top-8 {
+    top: -1rem !important;
+  }
+
+  .xl\:-right-8 {
+    right: -1rem !important;
+  }
+
+  .xl\:-bottom-8 {
+    bottom: -1rem !important;
+  }
+
+  .xl\:-left-8 {
+    left: -1rem !important;
+  }
+
+  .xl\:-top-16 {
+    top: -2rem !important;
+  }
+
+  .xl\:-right-16 {
+    right: -2rem !important;
+  }
+
+  .xl\:-bottom-16 {
+    bottom: -2rem !important;
+  }
+
+  .xl\:-left-16 {
+    left: -2rem !important;
   }
 
   .xl\:resize-none {
