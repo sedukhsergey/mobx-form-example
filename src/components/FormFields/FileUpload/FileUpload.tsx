@@ -1,16 +1,13 @@
 import React, { ChangeEvent } from 'react';
 import { observer } from 'mobx-react';
 import { Input } from 'components';
-import { NotBoundedInput } from 'constants/interfaces';
-
-interface File {
-  name: string,
-}
 
 interface Props {
-  field: NotBoundedInput,
-  error: string,
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  field: any,
+  multiple?: boolean,
+  error?: string,
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  customClasses?: string;
 }
 
 const FileUpload: React.FC<Props> = ({
@@ -26,11 +23,12 @@ const FileUpload: React.FC<Props> = ({
         height: '40px',
         width: '150px',
       }}
-      customClasses={'custom-file-input'}
-      {...field.bind()}
+      {...field}
       {...rest}
     />
   </div>
 );
+
+FileUpload.defaultProps = { customClasses: 'custom-file-upload' };
 
 export default observer(FileUpload);

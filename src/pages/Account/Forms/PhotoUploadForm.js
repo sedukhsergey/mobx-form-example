@@ -15,7 +15,6 @@ const rules = {
   },
   photosMaxSize: {
     function: () => value => {
-      console.log('value', value);
       if (!value.length) {
         return true;
       }
@@ -24,7 +23,7 @@ const rules = {
       }
       const base64str = value[0].substring(value[0].indexOf(';base64,') + 8);
       const decoded = window.atob(base64str);
-      if (decoded.length >= 20120) {
+      if (decoded.length >= 20000000) {
         return false;
       }
       return true;
@@ -61,15 +60,15 @@ const fields = [
     name: 'file',
     type: 'file',
   }
-
 ];
 
 const hooks = {
   async onSuccess(form) {
-    const { photos } = form.values();
+    const { photos = [] } = form.values();
     try {
       // eslint-disable-next-line max-len
       const { accountStore: { localAccount: { accountData: { updateAccountData } } } } = initStore();
+
       updateAccountData({ photo: photos[0] || null }, form);
     } catch (err) {
       form.invalidate(err.message);

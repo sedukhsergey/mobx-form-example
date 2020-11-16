@@ -5,6 +5,7 @@ const styles = {
   hover:text-blue-700
   cursor-pointer
   `,
+  error: 'text-red-500',
 };
 
 export default styles;
