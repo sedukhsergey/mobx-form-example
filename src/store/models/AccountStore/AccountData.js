@@ -1,9 +1,13 @@
 import {
+  destroy,
   getRoot, types,
 } from 'mobx-state-tree';
 import {
-  updateAccountData, updateAccountFile,
+  updateAccountData,
+  updateAccountFile,
+  fetchAllFiles,
 } from 'api';
+import File from './File';
 const AccountData = types
   .model('AccountData', {
     // eslint-disable-next-line
@@ -11,10 +15,10 @@ const AccountData = types
     email: types.frozen(types.string),
     name: types.maybeNull(types.string),
     photo: types.maybeNull(types.string),
+    files:  types.optional(types.array(File), []),
   })
   .actions(self => ({
     async updateAccountData(data, form) {
-      console.log('try', data);
       try {
         const { accessToken } = getRoot(self).authStore;
         await updateAccountData(accessToken, data);
@@ -23,13 +27,36 @@ const AccountData = types
       }
     },
     async updateAccountFile(data, form) {
-      console.log('try file', data);
       try {
         const { accessToken } = getRoot(self).authStore;
-        await updateAccountFile(accessToken, data);
+        const { fileUrls } = await updateAccountFile(accessToken, data);
+        self.setFiles([...self.files, ...fileUrls]);
+        form.reset();
       } catch (err) {
         form.invalidate(err.data ? err.data.message : err.message);
       }
+    },
+
+    async getAllFiles() {
+      try {
+        const { accessToken } = getRoot(self).authStore;
+        const response = await fetchAllFiles(accessToken);
+        self.setFiles(response.result);
+      } catch (err) {
+        console.error('err', err);
+      }
+    },
+    setFiles(files) {
+      self.files = files;
+    },
+
+    delete(item) {
+      destroy(item);
+    },
+  }))
+  .views(self => ({
+    get filesList() {
+      return self.files;
     },
   }));
 

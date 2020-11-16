@@ -9,7 +9,7 @@ import {
 } from 'constants/index';
 
 interface Props extends Styles, InputField {
-  error: string,
+  error?: string,
 }
 const Input: React.FC<Props> = ({
   looks = '',
@@ -33,7 +33,6 @@ const Input: React.FC<Props> = ({
     />
   );
 };
-
 
 
 Input.defaultProps = {

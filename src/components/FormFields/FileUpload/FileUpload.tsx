@@ -1,12 +1,11 @@
 import React, { ChangeEvent } from 'react';
 import { observer } from 'mobx-react';
 import { Input } from 'components';
-import { NotBoundedInput } from 'constants/interfaces';
 
 interface Props {
-  field: NotBoundedInput,
+  field: any,
   multiple?: boolean,
-  error: string,
+  error?: string,
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   customClasses?: string;
 }
@@ -24,7 +23,7 @@ const FileUpload: React.FC<Props> = ({
         height: '40px',
         width: '150px',
       }}
-      {...field.bind()}
+      {...field}
       {...rest}
     />
   </div>

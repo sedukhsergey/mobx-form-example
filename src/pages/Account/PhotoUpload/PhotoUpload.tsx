@@ -9,14 +9,16 @@ import { FileUpload } from 'components';
 import Cancel from 'assets/images/cancel.svg';
 
 interface Props {
-  form: any,
+  photos: any,
+  field: any,
+  error?: string,
 }
 
-const PhotoUpload:React.FC<Props> = ({ form }) => {
+const PhotoUpload:React.FC<Props> = ({
+  field, photos, error,
+}) => {
   const [isHovered, setHovered] = useState(false);
 
-  const photos = form.$('photos');
-  const field = form.$('demo');
 
   const destroyPreview = (index: number, photos:any, elem: any) => (e:any) => {
     e.preventDefault();
@@ -51,10 +53,17 @@ const PhotoUpload:React.FC<Props> = ({ form }) => {
             className={'mb-4'}
           >{photos.value.map((photo: string, index: number) => (photo ? (
               <div
+                key={index}
                 className={
-                  'relative' +
-                  'py-2' +
-                  'border border-transparent hover:border-gray-800 hover:border-dotted'
+                  cx(
+                    'relative',
+                    'py-2',
+                    'border',
+                    'border-transparent',
+                    'hover:border',
+                    'hover:border-gray-800',
+                    'hover:border-dotted'
+                  )
                 }
                 onMouseOver={() => {
                   setHovered(true);
@@ -98,17 +107,11 @@ const PhotoUpload:React.FC<Props> = ({ form }) => {
             customClasses={'custom-file-input'}
             onChange={handleChange}
             field={field}
-            error={form.$('photos').errorSync}
+            error={error}
           />
         </div>
       </div>
-      <div>
-        <p className={'text-red-500'}>{form.$('photos').errorSync}</p>
-        <p className={'text-purple text-opacity-50'}>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Placeat, recusandae.
-        </p>
-      </div>
+      <p className={'text-red-500'}>{error}</p>
     </div>
   );
 };

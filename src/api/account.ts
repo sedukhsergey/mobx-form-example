@@ -11,6 +11,7 @@ type AccountData = {
 }
 
 
+
 export const registrationAccount = async (data: Account) => {
   try {
     const response = await axios.post(
@@ -78,8 +79,39 @@ export const updateAccountFile = async (accessToken: string, data: any) => {
       data,
       headers: { Authorization: accessToken },
     });
-    return response;
+    return response.data;
   } catch (err) {
     return Promise.reject(err.response || err);
   }
 };
+
+export const fetchAllFiles = async (accessToken: string) => {
+  try {
+    const response = await axios({
+      method: 'GET',
+      url: `${ENV.BACKEND_URL}/api/account/files`,
+      responseType: 'json',
+      headers: { Authorization: accessToken },
+    });
+    return response.data;
+  } catch (err) {
+    return Promise.reject(err.response || err);
+  }
+};
+
+export const deleteAccountFile = async (accessToken: string, id: string) => {
+  try {
+    const response = await axios({
+      method: 'DELETE',
+      url: `${ENV.BACKEND_URL}/api/account/files/${id}`,
+      responseType: 'json',
+      headers: { Authorization: accessToken },
+    });
+    return response.data;
+  } catch (err) {
+    return Promise.reject(err.response || err);
+  }
+};
+
+
+

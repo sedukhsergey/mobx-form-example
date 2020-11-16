@@ -12,6 +12,7 @@ interface File {
 
 export interface NotBoundedInput {
   bind: () => InputField,
+  files?: [],
 }
 
 export interface InputField {
