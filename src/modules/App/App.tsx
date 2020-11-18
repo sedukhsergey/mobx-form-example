@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch } from 'react-router-dom';
+import { observer } from 'mobx-react';
 import {
   RouterConfig, RoutesWithSubRoutes,
 } from 'routes';
@@ -23,4 +24,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default observer(App);

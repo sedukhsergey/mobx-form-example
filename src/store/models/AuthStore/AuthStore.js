@@ -10,8 +10,7 @@ import {
 } from 'utils/Cookies';
 
 const AuthStore = types
-  .model('AuthStore', { accessToken: types.optional(types.string, '') })
-  .views(self => ({
+  .model('AuthStore', { accessToken: types.optional(types.string, '') }).views(self => ({
     get isAuthenticated() {
       return self.accessToken !== '';
     },

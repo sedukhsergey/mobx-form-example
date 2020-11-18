@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { observer } from 'mobx-react';
-import { action } from 'mobx';
+
 import cx from 'classnames';
 import {
   FileUpload, H2,
 } from 'components';
 import FileUploadItem from '../FileUploadItem';
-import Cancel from '../../../assets/images/cancel.svg';
 
 interface Props {
   field: any,
