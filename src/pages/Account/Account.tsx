@@ -1,4 +1,6 @@
-import React, { useEffect } from 'react';
+import React, {
+  ChangeEvent, useEffect,
+} from 'react';
 import { observer } from 'mobx-react';
 import {
   Container, H2, Button, Text,
@@ -8,49 +10,23 @@ import PhotoUpload from './PhotoUpload';
 import FilesUpload from './FilesUpload';
 import protoForm from './Forms/PhotoUploadForm';
 import filesForm from './Forms/FilesUploadForm';
-
-
-function b64toBlob(b64Data: string, contentType: string, sliceSize?: number) {
-  contentType = contentType || '';
-  sliceSize = sliceSize || 512;
-
-  const byteCharacters = atob(b64Data);
-  const byteArrays = [];
-
-  for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-    const slice = byteCharacters.slice(offset, offset + sliceSize);
-
-
-    const byteNumbers = new Array(slice.length);
-    for (let i = 0; i < slice.length; i++) {
-      byteNumbers[i] = slice.charCodeAt(i);
-    }
-
-    const byteArray = new Uint8Array(byteNumbers);
-
-    byteArrays.push(byteArray);
-  }
-
-  const blob = new Blob(byteArrays, { type: contentType });
-  return blob;
-}
+import useAccountData from './hooks/useAccountData';
+import useFiles from './hooks/useFiles';
 
 const Account = () => {
   const {
     accountStore: {
       localAccount: {
         accountData: {
-          files,
           photo,
-          filesList,
-          getAllFiles,
+          saveToStoreSession,
         },
       },
     },
   } = useStore();
-  useEffect(() => {
-    getAllFiles();
-  }, [getAllFiles]);
+
+  const [data, setData] = useAccountData();
+  const [files] = useFiles();
 
   useEffect(() => {
     protoForm.set({ photos: [photo] });
@@ -83,7 +59,7 @@ const Account = () => {
           <div className={'border border-gray-400 border-solid w-full mb-8'}/>
           <div>
             <FilesUpload
-              filesList={filesList}
+              filesList={files}
               field={filesForm.$('files')}
               error={filesForm.$('files').errorSync}
             />
@@ -100,6 +76,26 @@ const Account = () => {
           </div>
         </div>
         <Text looks={'error'}>{filesForm.error}</Text>
+      </div>
+      <div className={'mt-8'}>
+        <input
+          className={'border border-gray-800'}
+          type="text"
+          value={data.name}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => setData(data => ({
+            ...data,
+            name: e.target.value,
+          }))}
+        />
+        <br/>
+        <Button
+          type="submit"
+          looks={'primary'}
+          onClick={() => saveToStoreSession(data.name)}
+        >
+          Submit
+        </Button>
+        <br/>
       </div>
     </Container>
   );
