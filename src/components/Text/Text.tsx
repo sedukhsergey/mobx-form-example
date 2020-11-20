@@ -5,12 +5,14 @@ import styles from './Text.styles';
 
 interface Props extends Styles {
   children: ReactNode,
+  handleClick?: () => void,
 }
 
 const Text: React.FC<Props> = ({
   looks = '',
   customClasses,
   customStyles,
+  handleClick,
   children,
 }) => {
   const [classNames] = useStyles({
@@ -20,6 +22,7 @@ const Text: React.FC<Props> = ({
   });
   return (
     <span
+      onClick={handleClick}
       className={classNames}
       style={customStyles}>{children}
     </span>
@@ -29,6 +32,7 @@ const Text: React.FC<Props> = ({
 Text.defaultProps = {
   looks: 'default',
   customStyles: {},
+  handleClick: () => {},
 };
 
 export default Text;

@@ -144,7 +144,18 @@ export const getAccountSettingsSession = async (accessToken: string) => {
   }
 };
 
-
-
-
+export const logoutAccount = async (accessToken: string) => {
+  try {
+    const response = await axios({
+      method: 'POST',
+      url: `${ENV.BACKEND_URL}/auth/log-out`,
+      responseType: 'json',
+      withCredentials: true,
+      headers: { Authorization: accessToken },
+    });
+    return response.data;
+  } catch (err) {
+    return Promise.reject(err.response || err);
+  }
+};
 

@@ -28,7 +28,7 @@ const useAccountData = () => {
 
   useEffect(() => {
     getAccountSettingsSession();
-  }, []);
+  }, [getAccountSettingsSession]);
 
   useEffect(() => {
     if (sessionData) {
