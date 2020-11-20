@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useStore } from 'hooks/useStore';
 import {
   H2, Text,
 } from 'components';
 import { RoutesList } from 'routes';
 
 const Header = () => {
+  const { authStore: { logOut } } = useStore();
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div
@@ -34,10 +36,17 @@ const Header = () => {
               <Text looks='link'>Dashboard</Text>
             </Link>
           </li>
+          <li className="text-black pt-2">
+            <Text
+              looks='link'
+              handleClick={logOut}
+            >Log Out</Text>
+          </li>
         </ul>
       </div>
     </div>
   );
 };
+
 
 export default Header;

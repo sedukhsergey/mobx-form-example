@@ -3,7 +3,9 @@ import {
 } from 'mobx-state-tree';
 import { RedirectRouter } from 'routes';
 import {
-  registrationAccount, loginAccount,
+  registrationAccount,
+  loginAccount,
+  logoutAccount,
 } from 'api';
 import {
   getCookie, deleteCookie, createCookie,
@@ -54,10 +56,17 @@ const AuthStore = types
         form.invalidate(err.data ? err.data.message : err.message);
       }
     },
-    logOut() {
-      getRoot(self).accountStore.deleteAccount(getRoot(self).country);
-      self.clearAccessToken();
-      RedirectRouter.goToLogin();
+    async logOut() {
+      try {
+        const { accessToken } = getRoot(self).authStore;
+        await logoutAccount(accessToken);
+        getRoot(self).accountStore.deleteAccount(getRoot(self).country);
+        self.clearAccessToken();
+        RedirectRouter.goToLogin();
+      } catch (err) {
+        console.log('log out err', err);
+      }
+
     },
   }));
 

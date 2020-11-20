@@ -113,21 +113,8 @@ export const deleteAccountFile = async (accessToken: string, id: string) => {
   }
 };
 
-export const saveNameToSession = async (accessToken: string, name: string) => {
-  try {
-    const response = await axios({
-      method: 'POST',
-      url: `${ENV.BACKEND_URL}/api/account/session/settings`,
-      responseType: 'json',
-      headers: { Authorization: accessToken },
-      data: { name },
-      withCredentials: true,
-    });
-    return response.data;
-  } catch (err) {
-    return Promise.reject(err.response || err);
-  }
-};
+
+
 
 export const getAccountSettingsSession = async (accessToken: string) => {
   try {
@@ -144,7 +131,18 @@ export const getAccountSettingsSession = async (accessToken: string) => {
   }
 };
 
-
-
-
+export const logoutAccount = async (accessToken: string) => {
+  try {
+    const response = await axios({
+      method: 'POST',
+      url: `${ENV.BACKEND_URL}/auth/log-out`,
+      responseType: 'json',
+      withCredentials: true,
+      headers: { Authorization: accessToken },
+    });
+    return response.data;
+  } catch (err) {
+    return Promise.reject(err.response || err);
+  }
+};
 
