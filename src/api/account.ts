@@ -113,7 +113,21 @@ export const deleteAccountFile = async (accessToken: string, id: string) => {
   }
 };
 
-
+export const saveToSession = async (accessToken: string, name: string) => {
+  try {
+    const response = await axios({
+      method: 'POST',
+      url: `${ENV.BACKEND_URL}/api/account/session/settings`,
+      responseType: 'json',
+      headers: { Authorization: accessToken },
+      data: { name },
+      withCredentials: true,
+    });
+    return response.data;
+  } catch (err) {
+    return Promise.reject(err.response || err);
+  }
+};
 
 
 export const getAccountSettingsSession = async (accessToken: string) => {

@@ -27,7 +27,6 @@ const AccountStore = types
       try {
         const { accessToken } = getRoot(self).authStore;
         const response = await fetchAccount(accessToken);
-        console.log('response', response);
         if (response.status === Response.STATUS_UNAUTHORIZED) {
           getRoot(self).authStore.logOut();
           return;

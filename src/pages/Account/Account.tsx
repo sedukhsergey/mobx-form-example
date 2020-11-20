@@ -25,9 +25,8 @@ const Account = () => {
     },
   } = useStore();
 
-  const [data, setData] = useAccountData();
+  const [name, setData] = useAccountData();
   const [files] = useFiles();
-
   useEffect(() => {
     protoForm.set({ photos: [photo] });
     protoForm.$('photos').validate();
@@ -81,17 +80,16 @@ const Account = () => {
         <input
           className={'border border-gray-800'}
           type="text"
-          value={data.name}
-          onChange={(e: ChangeEvent<HTMLInputElement>) => setData(data => ({
-            ...data,
-            name: e.target.value,
-          }))}
+          value={name}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => {
+            setData(e.target.value)
+          }}
         />
         <br/>
         <Button
           type="submit"
           looks={'primary'}
-          onClick={() => saveToStoreSession(data.name)}
+          onClick={() => saveToStoreSession(name)}
         >
           Submit
         </Button>

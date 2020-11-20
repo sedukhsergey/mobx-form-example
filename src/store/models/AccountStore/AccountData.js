@@ -7,7 +7,7 @@ import {
   updateAccountFile,
   fetchAllFiles,
   getAccountSettingsSession,
-  saveNameToSession,
+  saveToSession,
 } from 'api';
 import File from './File';
 import AccountSessionData from './AccountSessionData';
@@ -35,7 +35,7 @@ const AccountData = types
     async saveToStoreSession(name) {
       try {
         const { accessToken } = getRoot(self).authStore;
-        await saveNameToSession(accessToken, name);
+        await saveToSession(accessToken, name);
       } catch (e) {
         console.error('saveToServerSession', e);
       }

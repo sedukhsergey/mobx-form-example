@@ -6,7 +6,6 @@ import { useStore } from 'hooks/useStore';
 
 type AccountData = {
   name: string,
-  value: string,
 }
 
 const useAccountData = () => {
@@ -21,10 +20,7 @@ const useAccountData = () => {
     },
   } = useStore();
 
-  const [data, setData] = useState<AccountData>({
-    name: '',
-    value: '',
-  });
+  const [name, setData] = useState<string>('');
 
   useEffect(() => {
     getAccountSettingsSession();
@@ -33,13 +29,11 @@ const useAccountData = () => {
   useEffect(() => {
     if (sessionData) {
       const { name } = sessionData;
-      setData(state => ({
-        ...state, name,
-      }));
+      setData(name);
     }
   }, [sessionData]);
 
-  return [data, setData] as const;
+  return [name, setData] as const;
 };
 
 export default useAccountData;

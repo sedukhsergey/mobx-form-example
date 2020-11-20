@@ -24,7 +24,7 @@ const DashboardLayout: React.FC<Props> = ({
   useEffect(() => {
     fetchAccount();
   }, [fetchAccount]);
-  console.log('localAccount', localAccount);
+
   return localAccount ? (
     <div className="flex flex-col justify-between h-screen bg-gray-100">
       <div>
