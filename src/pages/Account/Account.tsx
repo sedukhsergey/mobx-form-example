@@ -82,7 +82,7 @@ const Account = () => {
           type="text"
           value={name}
           onChange={(e: ChangeEvent<HTMLInputElement>) => {
-            setData(e.target.value)
+            setData(e.target.value);
           }}
         />
         <br/>

@@ -59,11 +59,10 @@ const AuthStore = types
     async logOut() {
       try {
         const { accessToken } = getRoot(self).authStore;
-        const result = await logoutAccount(accessToken);
-        console.log('result',result)
-        // getRoot(self).accountStore.deleteAccount(getRoot(self).country);
-        // self.clearAccessToken();
-        // RedirectRouter.goToLogin();
+        await logoutAccount(accessToken);
+        getRoot(self).accountStore.deleteAccount(getRoot(self).country);
+        self.clearAccessToken();
+        RedirectRouter.goToLogin();
       } catch (err) {
         console.log('log out err', err);
       }
