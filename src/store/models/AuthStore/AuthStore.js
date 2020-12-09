@@ -32,11 +32,7 @@ const AuthStore = types
     },
     async registration(data, form) {
       try {
-        const {
-          id, token,
-        } = await registrationAccount(data);
-        createCookie('acc_id', id);
-        createCookie('accessToken', token);
+        await registrationAccount(data);
         self.setAccessToken();
         RedirectRouter.goToDashboard();
       } catch (err) {
@@ -45,11 +41,7 @@ const AuthStore = types
     },
     async logIn(data, form) {
       try {
-        const {
-          id, token,
-        } = await loginAccount(data);
-        createCookie('acc_id', id);
-        createCookie('accessToken', token);
+        await loginAccount(data);
         self.setAccessToken();
         RedirectRouter.goToDashboard();
       } catch (err) {
